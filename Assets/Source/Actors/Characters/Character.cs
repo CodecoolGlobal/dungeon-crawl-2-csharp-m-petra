@@ -1,11 +1,13 @@
 ﻿using DungeonCrawl.Core;
+using UnityEngine;
 
 namespace DungeonCrawl.Actors.Characters
 {
     public abstract class Character : Actor
     {
-        public int Health { get; private set; }
+        public abstract int Health { get; set; }
 
+        public abstract int Strength { get; set; }
         public void ApplyDamage(int damage)
         {
             Health -= damage;

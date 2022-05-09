@@ -6,6 +6,19 @@ namespace DungeonCrawl.Actors.Characters
     {
         public override bool OnCollision(Actor anotherActor)
         {
+            if (anotherActor is Player player)
+            {
+                while (player.Health > 0)
+                {
+                    ApplyDamage(player.Strength);
+                    if (this.Health <= 0)
+                    {
+                        break;
+                    }
+                    player.ApplyDamage(this.Strength);
+                }
+            }
+
             return true;
         }
 
@@ -16,5 +29,8 @@ namespace DungeonCrawl.Actors.Characters
 
         public override int DefaultSpriteId => 316;
         public override string DefaultName => "Skeleton";
+
+        public override int Health { get; set; } = 20;
+        public override int Strength { get; set; } = 2;
     }
 }
