@@ -2,6 +2,7 @@
 using DungeonCrawl.Actors.Static;
 using System;
 using System.Text.RegularExpressions;
+using DungeonCrawl.Actors;
 using UnityEngine;
 
 namespace DungeonCrawl.Core
@@ -33,12 +34,14 @@ namespace DungeonCrawl.Core
                     var character = line[x];
 
                     SpawnActor(character, (x, -y));
+                    // Set default camera size and position
+                    if (character != 'p') continue;
+                    CameraController.Singleton.Size = 10;
+                    CameraController.Singleton.Position = (x, -y);
                 }
             }
 
-            // Set default camera size and position
-            CameraController.Singleton.Size = 10;
-            CameraController.Singleton.Position = (width / 2, -height / 2);
+            
         }
 
         private static void SpawnActor(char c, (int x, int y) position)
