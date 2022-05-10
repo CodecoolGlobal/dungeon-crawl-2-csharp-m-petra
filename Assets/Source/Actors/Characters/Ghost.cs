@@ -1,13 +1,14 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 namespace DungeonCrawl.Actors.Characters
 {
-    public class Skeleton : Character
+    internal class Ghost : Character
     {
-        public override int DefaultSpriteId => 316;
-        public override string DefaultName => "Skeleton";
+        public override int DefaultSpriteId => 314;
+        public override string DefaultName => "Ghost";
+
+
 
         public override bool OnCollision(Actor anotherActor)
         {
@@ -16,13 +17,16 @@ namespace DungeonCrawl.Actors.Characters
 
         protected override void OnDeath()
         {
-            Debug.Log("Well, I was already dead anyway...");
+            Debug.Log("Well, I am ghost...");
         }
 
         protected override void OnUpdate(float deltaTime)
         {
-            //TODO get Player position
-            //TODO make an object go to a certain position
+            //var playerPosition = GameObject.FindGameObjectsWithTag("Player")[0].transform.position;
+            //Debug.Log($"PLAYER IS AT {playerPosition}");
+
+            //var playerPosition = Player.Position;
+
             var rd = new System.Random();
             int randNum = rd.Next(0, 5);
             switch (randNum)
@@ -50,7 +54,7 @@ namespace DungeonCrawl.Actors.Characters
                 nextActionTime += period;
                 OnUpdate(Time.deltaTime);
             }
-            
+
             //OnUpdate(Time.deltaTime * 0.2f);
             //OnUpdate(Time.deltaTime * 1000);
         }

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using UnityEditor.PackageManager;
+using UnityEditorInternal;
+using UnityEngine;
 
 namespace DungeonCrawl.Actors.Characters
 {
@@ -43,5 +45,6 @@ namespace DungeonCrawl.Actors.Characters
 
         public override int DefaultSpriteId => 24;
         public override string DefaultName => "Player";
+
     }
 }
