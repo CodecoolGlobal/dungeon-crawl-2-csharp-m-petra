@@ -1,6 +1,8 @@
 
 ﻿using System.Collections.Generic;
-using DungeonCrawl.Actors.Static;
+ using Assets.Source.Actors.Static;
+ using Assets.Source.Core;
+ using DungeonCrawl.Actors.Static;
 using UnityEditor.PackageManager;
 using UnityEditorInternal;
 ﻿using DungeonCrawl.Core;
@@ -10,7 +12,7 @@ namespace DungeonCrawl.Actors.Characters
 {
     public class Player : Character
     {
-        readonly Dictionary<string, int> _inventory = new() { { "key", 0 }, { "sword", 0 } };
+        public List<Item> Inventory = new List<Item>();
 
         protected override void OnUpdate(float deltaTime)
         {
@@ -40,18 +42,16 @@ namespace DungeonCrawl.Actors.Characters
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                var key = ActorManager.Singleton.GetActorAt<Key>(this.Position);
-                var sword = ActorManager.Singleton.GetActorAt<Sword>(this.Position);
-                if (key != null)
+                var item = ActorManager.Singleton.GetActorAt<Item>(this.Position);
+                if (item != null)
                 {
-                    _inventory["key"] += 1;
-                    ActorManager.Singleton.DestroyActor(key);
-                }
+                    UserInterface.Singleton.SetText("", UserInterface.TextPosition.BottomRight);
 
-                if (sword != null)
-                {
-                    _inventory["sword"] += 1;
-                    ActorManager.Singleton.DestroyActor(sword);
+                    Inventory.Add(item);
+                    
+                    ActorManager.Singleton.DestroyActor(item);
+
+                    //Debug.Log($"{_inventory[0].DefaultName}");
                 }
             }
         }
