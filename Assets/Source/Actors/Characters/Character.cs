@@ -1,11 +1,13 @@
 ﻿using DungeonCrawl.Core;
+using UnityEngine;
 
 namespace DungeonCrawl.Actors.Characters
 {
     public abstract class Character : Actor
     {
-        public int Health { get; private set; }
+        public abstract int Health { get; set; }
 
+        public abstract int Strength { get; set; }
         public void ApplyDamage(int damage)
         {
             Health -= damage;
@@ -16,6 +18,19 @@ namespace DungeonCrawl.Actors.Characters
                 OnDeath();
 
                 ActorManager.Singleton.DestroyActor(this);
+            }
+        }
+
+        public void Figth(Player player)
+        {
+            while (player.Health > 0)
+            {
+                ApplyDamage(player.Strength);
+                if (this.Health <= 0)
+                {
+                    break;
+                }
+                player.ApplyDamage(this.Strength);
             }
         }
 

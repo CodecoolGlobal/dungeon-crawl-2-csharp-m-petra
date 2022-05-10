@@ -50,5 +50,7 @@ namespace DungeonCrawl.Actors.Characters
         public override int DefaultSpriteId => 24;
         public override string DefaultName => "Player";
 
+        public override int Health { get; set; } = 50;
+        public override int Strength { get; set; } = 5;
     }
 }

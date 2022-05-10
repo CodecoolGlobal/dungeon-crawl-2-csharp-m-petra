@@ -9,8 +9,18 @@ namespace DungeonCrawl.Actors.Characters
         public override int DefaultSpriteId => 316;
         public override string DefaultName => "Skeleton";
 
+        public override int Health { get; set; } = 20;
+        public override int Strength { get; set; } = 2;
+
         public override bool OnCollision(Actor anotherActor)
         {
+            if (anotherActor is Player player)
+            {
+                Figth(player);
+
+                return true;
+            }
+
             return false;
         }
 
