@@ -1,11 +1,10 @@
 
-﻿using System.Collections.Generic;
- using Assets.Source.Actors.Static;
- using Assets.Source.Core;
- using DungeonCrawl.Actors.Static;
-using UnityEditor.PackageManager;
-using UnityEditorInternal;
-﻿using DungeonCrawl.Core;
+using Assets.Source.Actors.Static;
+using Assets.Source.Core;
+using DungeonCrawl.Actors.Static;
+using DungeonCrawl.Core;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace DungeonCrawl.Actors.Characters
@@ -49,6 +48,8 @@ namespace DungeonCrawl.Actors.Characters
 
                     Inventory.Add(item);
 
+                    DisplayInventory();
+
                     // Having a weapon increases attack strength.
                     if (item is Sword sword)
                     {
@@ -61,6 +62,13 @@ namespace DungeonCrawl.Actors.Characters
             }
         }
 
+        private void DisplayInventory()
+        {
+            var inventoryDisplay = Inventory.Aggregate("Inventory:\n", (current, invItem) => current + $"{invItem.DefaultName}\n");
+
+            UserInterface.Singleton.SetText(inventoryDisplay, UserInterface.TextPosition.TopLeft);
+        }
+
         public override bool OnCollision(Actor anotherActor)
         {
             return false;
@@ -70,8 +78,6 @@ namespace DungeonCrawl.Actors.Characters
         {
             Debug.Log("Oh no, I'm dead!");
         }
-
-        
 
         public override int DefaultSpriteId => 24;
         public override string DefaultName => "Player";

@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 namespace DungeonCrawl.Actors.Characters
 {
@@ -60,7 +59,7 @@ namespace DungeonCrawl.Actors.Characters
                 nextActionTime += period;
                 OnUpdate(Time.deltaTime);
             }
-            
+
             //OnUpdate(Time.deltaTime * 0.2f);
             //OnUpdate(Time.deltaTime * 1000);
         }

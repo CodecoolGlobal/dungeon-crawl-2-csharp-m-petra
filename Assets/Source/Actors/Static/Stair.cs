@@ -1,5 +1,4 @@
 ﻿using DungeonCrawl.Actors.Characters;
-using DungeonCrawl.Core;
 
 namespace DungeonCrawl.Actors.Static
 {
@@ -18,5 +17,5 @@ namespace DungeonCrawl.Actors.Static
 
             return false;
         }
-    }  
+    }
 }
