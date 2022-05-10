@@ -1,6 +1,8 @@
-﻿using DungeonCrawl.Actors.Characters;
+﻿using Assets.Source.Core;
+using DungeonCrawl.Actors.Characters;
 using DungeonCrawl.Core;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace DungeonCrawl.Actors
 {
@@ -40,38 +42,32 @@ namespace DungeonCrawl.Actors
         {
             var vector = direction.ToVector();
             (int x, int y) targetPosition = (Position.x + vector.x, Position.y + vector.y);
-            
-
 
             var actorAtTargetPosition = ActorManager.Singleton.GetActorAt(targetPosition);
 
-            
-               
-            
-            
             if (actorAtTargetPosition == null)
             {
+                if (this.DefaultName == "Player")
+                {
+                    CameraController.Singleton.Position = (targetPosition.x, targetPosition.y);
+                    UserInterface.Singleton.SetText("", UserInterface.TextPosition.BottomRight);
+                }
+                // No obstacle found, just move
+                Position = targetPosition;
+            }
+
+            else
+            {
+                if (actorAtTargetPosition.OnCollision(this))
+                {
                     if (this.DefaultName == "Player")
                     {
                         CameraController.Singleton.Position = (targetPosition.x, targetPosition.y);
-                    } 
-                    // No obstacle found, just move
-                    Position = targetPosition;
-            }
-
-
-            else
-                {
-                    if (actorAtTargetPosition.OnCollision(this))
-                    {
-                        if (this.DefaultName == "Player")
-                        {
-                            CameraController.Singleton.Position = (targetPosition.x, targetPosition.y);
-                        }
+                    }
                     // Allowed to move
                     Position = targetPosition;
-                    }
                 }
+            }
         }
         
 

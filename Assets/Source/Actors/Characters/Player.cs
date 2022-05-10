@@ -1,5 +1,9 @@
 
-﻿using UnityEditor.PackageManager;
+﻿using System.Collections.Generic;
+ using Assets.Source.Actors.Static;
+ using Assets.Source.Core;
+ using DungeonCrawl.Actors.Static;
+using UnityEditor.PackageManager;
 using UnityEditorInternal;
 ﻿using DungeonCrawl.Core;
 using UnityEngine;
@@ -8,6 +12,8 @@ namespace DungeonCrawl.Actors.Characters
 {
     public class Player : Character
     {
+        public List<Item> Inventory = new List<Item>();
+
         protected override void OnUpdate(float deltaTime)
         {
             if (Input.GetKeyDown(KeyCode.W))
@@ -32,6 +38,21 @@ namespace DungeonCrawl.Actors.Characters
             {
                 // Move right
                 TryMove(Direction.Right);
+            }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                var item = ActorManager.Singleton.GetActorAt<Item>(this.Position);
+                if (item != null)
+                {
+                    UserInterface.Singleton.SetText("", UserInterface.TextPosition.BottomRight);
+
+                    Inventory.Add(item);
+                    
+                    ActorManager.Singleton.DestroyActor(item);
+
+                    //Debug.Log($"{_inventory[0].DefaultName}");
+                }
             }
         }
 
