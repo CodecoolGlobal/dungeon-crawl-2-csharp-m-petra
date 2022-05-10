@@ -54,7 +54,6 @@ namespace DungeonCrawl.Actors
                 }
                 // No obstacle found, just move
                 Position = targetPosition;
-
             }
 
             else
