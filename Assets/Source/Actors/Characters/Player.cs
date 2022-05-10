@@ -1,5 +1,7 @@
+
 ﻿using UnityEditor.PackageManager;
 using UnityEditorInternal;
+﻿using DungeonCrawl.Core;
 using UnityEngine;
 
 namespace DungeonCrawl.Actors.Characters
@@ -42,6 +44,8 @@ namespace DungeonCrawl.Actors.Characters
         {
             Debug.Log("Oh no, I'm dead!");
         }
+
+        
 
         public override int DefaultSpriteId => 24;
         public override string DefaultName => "Player";

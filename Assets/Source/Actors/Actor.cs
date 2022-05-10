@@ -1,4 +1,5 @@
-﻿using DungeonCrawl.Core;
+﻿using DungeonCrawl.Actors.Characters;
+using DungeonCrawl.Core;
 using UnityEngine;
 
 namespace DungeonCrawl.Actors
@@ -39,23 +40,34 @@ namespace DungeonCrawl.Actors
         {
             var vector = direction.ToVector();
             (int x, int y) targetPosition = (Position.x + vector.x, Position.y + vector.y);
+            CameraController.Singleton.Position = (targetPosition.x, targetPosition.y);
+
 
             var actorAtTargetPosition = ActorManager.Singleton.GetActorAt(targetPosition);
 
-            if (actorAtTargetPosition == null)
+            if (targetPosition.x == 4 && targetPosition.y == -19)
             {
-                // No obstacle found, just move
-                Position = targetPosition;
+                ActorManager.Singleton.DestroyAllActors();
+                MapLoader.LoadMap(2);
             }
-            else
-            {
-                if (actorAtTargetPosition.OnCollision(this))
+            
+                if (actorAtTargetPosition == null)
                 {
-                    // Allowed to move
+                    // No obstacle found, just move
                     Position = targetPosition;
                 }
-            }
+
+
+                else
+                {
+                    if (actorAtTargetPosition.OnCollision(this))
+                    {
+                        // Allowed to move
+                        Position = targetPosition;
+                    }
+                }
         }
+        
 
         /// <summary>
         ///     Invoked whenever another actor attempts to walk on the same position
