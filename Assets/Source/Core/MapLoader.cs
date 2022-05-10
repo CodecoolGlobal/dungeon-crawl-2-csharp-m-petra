@@ -34,14 +34,8 @@ namespace DungeonCrawl.Core
                     var character = line[x];
 
                     SpawnActor(character, (x, -y));
-                    // Set default camera size and position
-                    if (character != 'p') continue;
-                    CameraController.Singleton.Size = 10;
-                    CameraController.Singleton.Position = (x, -y);
                 }
             }
-
-            
         }
 
         private static void SpawnActor(char c, (int x, int y) position)
@@ -56,6 +50,9 @@ namespace DungeonCrawl.Core
                     break;
                 case 'p':
                     ActorManager.Singleton.Spawn<Player>(position);
+                    // Set default camera size and position
+                    CameraController.Singleton.Size = 10;
+                    CameraController.Singleton.Position = (position.x, position.y);
                     ActorManager.Singleton.Spawn<Floor>(position);
                     break;
                 case 's':

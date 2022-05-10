@@ -59,21 +59,18 @@
     <Compile Include="Assets\Source\Core\UserInterface.cs" />
     <Compile Include="Assets\Source\Actors\Actor.cs" />
     <Compile Include="Assets\Source\Actors\Characters\Player.cs" />
-    <Compile Include="Assets\Source\Actors\Static\Sword.cs" />
     <Compile Include="Assets\Source\Actors\Characters\Character.cs" />
     <Compile Include="Assets\Source\Actors\Characters\Skeleton.cs" />
     <Compile Include="Assets\Source\Core\MapLoader.cs" />
     <Compile Include="Assets\Source\Utilities.cs" />
-    <Compile Include="Assets\Source\Actors\Characters\Ghost.cs" />
-    <Compile Include="Assets\Source\Actors\Characters\Monster.cs" />
     <Compile Include="Assets\Source\Core\GameManager.cs" />
-    <Compile Include="Assets\Source\Actors\Static\Stair.cs" />
     <Compile Include="Assets\Source\Core\ActorManager.cs" />
     <Compile Include="Assets\Source\Actors\Static\Items\Key.cs" />
     <Compile Include="Assets\Source\Actors\Characters\Monster.cs" />
     <Compile Include="Assets\Source\Actors\Static\Items\Sword.cs" />
     <Compile Include="Assets\Source\Actors\Characters\Ghost.cs" />
     <Compile Include="Assets\Source\Actors\Static\Items\Item.cs" />
+    <Compile Include="Assets\Source\Actors\Static\Stair.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
