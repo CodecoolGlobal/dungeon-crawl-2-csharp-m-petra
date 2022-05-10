@@ -1,5 +1,4 @@
 ﻿using DungeonCrawl.Core;
-using UnityEngine;
 
 namespace DungeonCrawl.Actors.Characters
 {

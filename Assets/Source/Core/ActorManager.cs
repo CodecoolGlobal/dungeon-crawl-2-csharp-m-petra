@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using DungeonCrawl.Actors;
+using System.Collections.Generic;
 using System.Linq;
-using DungeonCrawl.Actors;
 using UnityEngine;
 using UnityEngine.U2D;
 

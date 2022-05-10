@@ -2,7 +2,7 @@
 using DungeonCrawl.Actors.Static;
 using System;
 using System.Text.RegularExpressions;
-using DungeonCrawl.Actors;
+using Assets.Source.Core;
 using UnityEngine;
 
 namespace DungeonCrawl.Core
@@ -36,6 +36,7 @@ namespace DungeonCrawl.Core
                     SpawnActor(character, (x, -y));
                 }
             }
+            UserInterface.Singleton.SetText("Inventory:", UserInterface.TextPosition.TopLeft);
         }
 
         private static void SpawnActor(char c, (int x, int y) position)
