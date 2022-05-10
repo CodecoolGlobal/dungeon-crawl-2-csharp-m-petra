@@ -21,6 +21,19 @@ namespace DungeonCrawl.Actors.Characters
             }
         }
 
+        public void Figth(Player player)
+        {
+            while (player.Health > 0)
+            {
+                ApplyDamage(player.Strength);
+                if (this.Health <= 0)
+                {
+                    break;
+                }
+                player.ApplyDamage(this.Strength);
+            }
+        }
+
         protected abstract void OnDeath();
 
         /// <summary>

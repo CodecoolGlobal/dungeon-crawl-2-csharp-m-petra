@@ -16,18 +16,12 @@ namespace DungeonCrawl.Actors.Characters
         {
             if (anotherActor is Player player)
             {
-                while (player.Health > 0)
-                {
-                    ApplyDamage(player.Strength);
-                    if (this.Health <= 0)
-                    {
-                        break;
-                    }
-                    player.ApplyDamage(this.Strength);
-                }
+                Figth(player);
+
+                return true;
             }
 
-            return true;
+            return false;
         }
 
         protected override void OnDeath()
