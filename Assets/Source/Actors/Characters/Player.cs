@@ -48,10 +48,15 @@ namespace DungeonCrawl.Actors.Characters
                     UserInterface.Singleton.SetText("", UserInterface.TextPosition.BottomRight);
 
                     Inventory.Add(item);
-                    
+
+                    // Having a weapon increases attack strength.
+                    if (item is Sword sword)
+                    {
+                        Strength += sword.Attack;
+                    }
+
                     ActorManager.Singleton.DestroyActor(item);
 
-                    //Debug.Log($"{_inventory[0].DefaultName}");
                 }
             }
         }
