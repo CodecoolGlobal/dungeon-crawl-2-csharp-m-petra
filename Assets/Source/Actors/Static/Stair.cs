@@ -2,10 +2,10 @@
 
 namespace DungeonCrawl.Actors.Static
 {
-    public class Door : Actor
+    public class Stair : Actor
     {
         public override int DefaultSpriteId => 287;
-        public override string DefaultName => "Door";
+        public override string DefaultName => "Stair";
 
         public override bool Detectable => true;
         public override bool OnCollision(Actor anotherActor)
