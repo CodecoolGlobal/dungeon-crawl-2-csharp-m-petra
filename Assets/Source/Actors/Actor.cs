@@ -45,24 +45,22 @@ namespace DungeonCrawl.Actors
 
             var actorAtTargetPosition = ActorManager.Singleton.GetActorAt(targetPosition);
 
-            if (targetPosition.x == 4 && targetPosition.y == -19)
-            {
-                ActorManager.Singleton.DestroyAllActors();
-                MapLoader.LoadMap(2);
-            }
             
-                if (actorAtTargetPosition == null)
-                {
+               
+            
+            
+            if (actorAtTargetPosition == null)
+            {
                     if (this.DefaultName == "Player")
                     {
                         CameraController.Singleton.Position = (targetPosition.x, targetPosition.y);
-                    }
-                // No obstacle found, just move
-                Position = targetPosition;
-                }
+                    } 
+                    // No obstacle found, just move
+                    Position = targetPosition;
+            }
 
 
-                else
+            else
                 {
                     if (actorAtTargetPosition.OnCollision(this))
                     {
