@@ -1,4 +1,5 @@
-﻿using DungeonCrawl.Core;
+﻿using DungeonCrawl.Actors.Characters;
+using DungeonCrawl.Core;
 
 namespace DungeonCrawl.Actors.Static
 {
@@ -10,17 +11,12 @@ namespace DungeonCrawl.Actors.Static
         public override bool Detectable => true;
         public override bool OnCollision(Actor anotherActor)
         {
-            switch (anotherActor.DefaultName)
+            if (anotherActor is Player)
             {
-                case "Player" when Position == (20, -19):
-                    ActorManager.Singleton.DestroyAllActors();
-                    MapLoader.LoadMap(2);
-                    return base.OnCollision(anotherActor);
-                default:
-                    ActorManager.Singleton.DestroyAllActors();
-                    MapLoader.LoadMap(1);
-                    return base.OnCollision(anotherActor);
+                return true;
             }
+
+            return false;
         }
     }  
 }

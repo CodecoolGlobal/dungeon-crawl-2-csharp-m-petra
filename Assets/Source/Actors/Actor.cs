@@ -1,5 +1,6 @@
 ﻿using Assets.Source.Core;
 using DungeonCrawl.Actors.Characters;
+using DungeonCrawl.Actors.Static;
 using DungeonCrawl.Core;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -60,16 +61,37 @@ namespace DungeonCrawl.Actors
             {
                 if (actorAtTargetPosition.OnCollision(this))
                 {
-                    if (this.DefaultName == "Player")
+                    if (this is Player)
                     {
                         CameraController.Singleton.Position = (targetPosition.x, targetPosition.y);
+
+                        if (actorAtTargetPosition is Stair)
+                        {
+                            ChangeMap();
+                        }
                     }
                     // Allowed to move
                     Position = targetPosition;
                 }
             }
         }
-        
+
+        /// <summary>
+        ///     The previous map destroyed and the next created.
+        /// </summary>
+        public void ChangeMap()
+        {
+            if (this.Position == (20, -18))
+            {
+                ActorManager.Singleton.DestroyAllActors();
+                MapLoader.LoadMap(2);
+            }
+            else
+            {
+                ActorManager.Singleton.DestroyAllActors();
+                MapLoader.LoadMap(1);
+            }
+        }
 
         /// <summary>
         ///     Invoked whenever another actor attempts to walk on the same position
