@@ -40,7 +40,7 @@ namespace DungeonCrawl.Actors
         {
             var vector = direction.ToVector();
             (int x, int y) targetPosition = (Position.x + vector.x, Position.y + vector.y);
-            CameraController.Singleton.Position = (targetPosition.x, targetPosition.y);
+            
 
 
             var actorAtTargetPosition = ActorManager.Singleton.GetActorAt(targetPosition);
@@ -53,8 +53,12 @@ namespace DungeonCrawl.Actors
             
                 if (actorAtTargetPosition == null)
                 {
-                    // No obstacle found, just move
-                    Position = targetPosition;
+                    if (this.DefaultName == "Player")
+                    {
+                        CameraController.Singleton.Position = (targetPosition.x, targetPosition.y);
+                    }
+                // No obstacle found, just move
+                Position = targetPosition;
                 }
 
 
@@ -62,8 +66,12 @@ namespace DungeonCrawl.Actors
                 {
                     if (actorAtTargetPosition.OnCollision(this))
                     {
-                        // Allowed to move
-                        Position = targetPosition;
+                        if (this.DefaultName == "Player")
+                        {
+                            CameraController.Singleton.Position = (targetPosition.x, targetPosition.y);
+                        }
+                    // Allowed to move
+                    Position = targetPosition;
                     }
                 }
         }
