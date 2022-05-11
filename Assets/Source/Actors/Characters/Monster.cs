@@ -6,6 +6,7 @@ namespace DungeonCrawl.Actors.Characters
     {
         public override bool OnCollision(Actor anotherActor)
         {
+
             if (anotherActor is Player player)
             {
                 Figth(player);
@@ -26,5 +27,6 @@ namespace DungeonCrawl.Actors.Characters
 
         public override int Health { get; set; } = 30;
         public override int Strength { get; set; } = 3;
+
     }
 }

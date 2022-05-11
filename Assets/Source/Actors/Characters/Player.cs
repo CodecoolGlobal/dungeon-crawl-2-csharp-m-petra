@@ -1,4 +1,6 @@
 
+﻿using UnityEditor.PackageManager;
+using UnityEditorInternal;
 using Assets.Source.Actors.Static;
 using Assets.Source.Core;
 using DungeonCrawl.Actors.Static;
@@ -81,8 +83,8 @@ namespace DungeonCrawl.Actors.Characters
 
         public override int DefaultSpriteId => 24;
         public override string DefaultName => "Player";
-
         public override int Health { get; set; } = 50;
         public override int Strength { get; set; } = 5;
+
     }
 }

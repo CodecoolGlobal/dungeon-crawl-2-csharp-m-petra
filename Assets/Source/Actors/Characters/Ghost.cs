@@ -8,6 +8,9 @@ namespace DungeonCrawl.Actors.Characters
         public override int DefaultSpriteId => 314;
         public override string DefaultName => "Ghost";
 
+
+        public Player Player { get; set; }
+
         public override int Health { get; set; } = 30;
         public override int Strength { get; set; } = 3;
 
@@ -30,30 +33,19 @@ namespace DungeonCrawl.Actors.Characters
 
         protected override void OnUpdate(float deltaTime)
         {
-            //var playerPosition = GameObject.FindGameObjectsWithTag("Player")[0].transform.position;
-            //Debug.Log($"PLAYER IS AT {playerPosition}");
 
-            //var playerPosition = Player.Position;
+            if (Player.Position.x < Position.x)
+                TryMove(Direction.Up);
+            
+            if (Player.Position.x > Position.x)
+                TryMove(Direction.Down);
 
-            var rd = new System.Random();
-            int randNum = rd.Next(0, 5);
-            switch (randNum)
-            {
-                case 1:
-                    TryMove(Direction.Up);
-                    break;
-                case 2:
-                    TryMove(Direction.Right);
-                    break;
-                case 3:
-                    TryMove(Direction.Left);
-                    break;
-                case 4:
-                    TryMove(Direction.Down);
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(Direction), randNum, null);
-            }
+            if (Player.Position.y > Position.y)
+                TryMove(Direction.Right);
+
+            if (Player.Position.y < Position.y)
+                TryMove(Direction.Left);
+
         }
         private void Update()
         {

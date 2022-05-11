@@ -1,5 +1,7 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
+
 
 namespace DungeonCrawl.Actors.Characters
 {
@@ -7,7 +9,6 @@ namespace DungeonCrawl.Actors.Characters
     {
         public override int DefaultSpriteId => 316;
         public override string DefaultName => "Skeleton";
-
         public override int Health { get; set; } = 20;
         public override int Strength { get; set; } = 2;
 
@@ -19,6 +20,7 @@ namespace DungeonCrawl.Actors.Characters
 
                 return true;
             }
+
 
             return false;
         }

@@ -26,6 +26,7 @@ namespace DungeonCrawl.Core
             var width = int.Parse(split[0]);
             var height = int.Parse(split[1]);
 
+            Player player = null;
             // Create actors
             for (var y = 0; y < height; y++)
             {
@@ -34,13 +35,29 @@ namespace DungeonCrawl.Core
                 {
                     var character = line[x];
 
-                    SpawnActor(character, (x, -y));
+                    if (character == 'p')
+                    {
+                        player = ActorManager.Singleton.Spawn<Player>((x, -y));
+                        ActorManager.Singleton.Spawn<Floor>((x, -y));
+                    }
+                }
+            }
+
+            // Create actors
+            for (var y = 0; y < height; y++)
+            {
+                var line = lines[y + 1];
+                for (var x = 0; x < width; x++)
+                {
+                    var character = line[x];
+
+                    SpawnActor(character, (x, -y), player);
                 }
             }
             UserInterface.Singleton.SetText("Inventory:", UserInterface.TextPosition.TopLeft);
         }
 
-        private static void SpawnActor(char c, (int x, int y) position)
+        private static void SpawnActor(char c, (int x, int y) position, Player player)
         {
             switch (c)
             {
@@ -50,6 +67,7 @@ namespace DungeonCrawl.Core
                 case '.':
                     ActorManager.Singleton.Spawn<Floor>(position);
                     break;
+
                 case 'p':
                     ActorManager.Singleton.Spawn<Player>(position);
                     // Set default camera size and position
@@ -74,10 +92,11 @@ namespace DungeonCrawl.Core
                     ActorManager.Singleton.Spawn<Floor>(position);
                     break;
                 case 'g':
-                    ActorManager.Singleton.Spawn<Ghost>(position);
+
+                    var ghost = ActorManager.Singleton.Spawn<Ghost>(position);
+                    ghost.Player = player;
                     ActorManager.Singleton.Spawn<Floor>(position);
                     break;
-
                 case ',':
                     ActorManager.Singleton.Spawn<Grass>(position);
                     break;

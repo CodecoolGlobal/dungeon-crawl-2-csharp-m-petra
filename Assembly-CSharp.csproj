@@ -52,6 +52,7 @@
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2021.1.24f1</UnityVersion>
   </PropertyGroup>
+  
   <ItemGroup>
     <Compile Include="Assets\Source\Actors\Static\Wall.cs" />
     <Compile Include="Assets\Source\Actors\Static\OpenDoor.cs" />
@@ -76,9 +77,7 @@
     <Compile Include="Assets\Source\Actors\Characters\Monster.cs" />
     <Compile Include="Assets\Source\Core\GameManager.cs" />
     <Compile Include="Assets\Source\Core\ActorManager.cs" />
-
     <Compile Include="Assets\Source\Actors\Static\River.cs" />
-
     <Compile Include="Assets\Source\Actors\Static\Items\Key.cs" />
     <Compile Include="Assets\Source\Actors\Characters\Monster.cs" />
     <Compile Include="Assets\Source\Actors\Static\Items\Sword.cs" />
