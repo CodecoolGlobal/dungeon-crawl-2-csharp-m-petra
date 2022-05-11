@@ -37,7 +37,10 @@ namespace DungeonCrawl.Core
 
                     if (character == 'p')
                     {
+
                         player = ActorManager.Singleton.Spawn<Player>((x, -y));
+                        CameraController.Singleton.Size = 10;
+                        CameraController.Singleton.Position = (x, -y+1);
                         ActorManager.Singleton.Spawn<Floor>((x, -y));
                     }
                 }
@@ -64,15 +67,9 @@ namespace DungeonCrawl.Core
                 case '#':
                     ActorManager.Singleton.Spawn<Wall>(position);
                     break;
-                case '.':
-                    ActorManager.Singleton.Spawn<Floor>(position);
-                    break;
-
                 case 'p':
-                    ActorManager.Singleton.Spawn<Player>(position);
-                    // Set default camera size and position
-                    CameraController.Singleton.Size = 10;
-                    CameraController.Singleton.Position = (position.x, position.y);
+                    break;
+                case '.':
                     ActorManager.Singleton.Spawn<Floor>(position);
                     break;
                 case 's':
@@ -120,10 +117,9 @@ namespace DungeonCrawl.Core
                     break;
                 case 'h':
                     ActorManager.Singleton.Spawn<House>(position);
-
+                    break;
                 case 'd':
                     ActorManager.Singleton.Spawn<Stair>(position);
-
                     break;
                 case ' ':
                     break;

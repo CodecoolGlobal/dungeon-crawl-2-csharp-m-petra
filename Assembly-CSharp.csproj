@@ -52,8 +52,8 @@
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2021.1.24f1</UnityVersion>
   </PropertyGroup>
-  
   <ItemGroup>
+    <Compile Include="Assets\Source\Actors\Static\Items\Key.cs" />
     <Compile Include="Assets\Source\Actors\Static\Wall.cs" />
     <Compile Include="Assets\Source\Actors\Static\OpenDoor.cs" />
     <Compile Include="Assets\Source\Actors\Static\Stone.cs" />
@@ -67,7 +67,7 @@
     <Compile Include="Assets\Source\Actors\Characters\Player.cs" />
     <Compile Include="Assets\Source\Actors\Static\Forest.cs" />
     <Compile Include="Assets\Source\Actors\Static\House.cs" />
-    <Compile Include="Assets\Source\Actors\Static\Sword.cs" />
+    <Compile Include="Assets\Source\Actors\Static\Items\Sword.cs" />
     <Compile Include="Assets\Source\Actors\Characters\Character.cs" />
     <Compile Include="Assets\Source\Actors\Characters\Skeleton.cs" />
     <Compile Include="Assets\Source\Core\MapLoader.cs" />
@@ -78,13 +78,8 @@
     <Compile Include="Assets\Source\Core\GameManager.cs" />
     <Compile Include="Assets\Source\Core\ActorManager.cs" />
     <Compile Include="Assets\Source\Actors\Static\River.cs" />
-    <Compile Include="Assets\Source\Actors\Static\Items\Key.cs" />
-    <Compile Include="Assets\Source\Actors\Characters\Monster.cs" />
-    <Compile Include="Assets\Source\Actors\Static\Items\Sword.cs" />
-    <Compile Include="Assets\Source\Actors\Characters\Ghost.cs" />
     <Compile Include="Assets\Source\Actors\Static\Items\Item.cs" />
     <Compile Include="Assets\Source\Actors\Static\Stair.cs" />
-
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
