@@ -8,7 +8,7 @@ namespace Assets.Source.Actors.Static
         public override string DefaultName
         {
             get => "Stone";
-            set => throw new NotImplementedException();
+            set { }
         }
 
         public override bool OnCollision(Actor anotherActor)
