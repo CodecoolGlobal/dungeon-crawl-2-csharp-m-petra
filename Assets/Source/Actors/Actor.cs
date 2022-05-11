@@ -80,15 +80,16 @@ namespace DungeonCrawl.Actors
         /// </summary>
         public void ChangeMap()
         {
+
             if (this.Position == (20, -18))
             {
                 ActorManager.Singleton.DestroyAllActors();
-                MapLoader.LoadMap(2);
+                MapLoader.LoadMap(2, (Player)this);
             }
             else
             {
                 ActorManager.Singleton.DestroyAllActors();
-                MapLoader.LoadMap(1);
+                MapLoader.LoadMap(1, (Player)this);
             }
         }
 
@@ -130,6 +131,6 @@ namespace DungeonCrawl.Actors
         /// <summary>
         ///     Default name assigned to this actor type
         /// </summary>
-        public abstract string DefaultName { get; }
+        public abstract string DefaultName { get; set; }
     }
 }

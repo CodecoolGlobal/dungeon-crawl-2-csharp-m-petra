@@ -1,12 +1,15 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace DungeonCrawl.Actors.Characters
 {
     internal class Ghost : Character
     {
         public override int DefaultSpriteId => 314;
-        public override string DefaultName => "Ghost";
+        public override string DefaultName
+        {
+            get => "Ghost";
+            set { }
+        }
 
 
         public Player Player { get; set; }
@@ -36,7 +39,7 @@ namespace DungeonCrawl.Actors.Characters
 
             if (Player.Position.x < Position.x)
                 TryMove(Direction.Up);
-            
+
             if (Player.Position.x > Position.x)
                 TryMove(Direction.Down);
 

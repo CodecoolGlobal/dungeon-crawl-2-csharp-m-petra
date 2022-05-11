@@ -1,4 +1,5 @@
 ﻿using DungeonCrawl.Actors;
+using DungeonCrawl.Actors.Characters;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -72,7 +73,11 @@ namespace DungeonCrawl.Core
             var actors = _allActors.ToArray();
 
             foreach (var actor in actors)
+            {
+                if (actor is Player) continue;
                 DestroyActor(actor);
+            }
+
         }
 
         /// <summary>
