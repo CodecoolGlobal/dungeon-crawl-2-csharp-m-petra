@@ -7,14 +7,13 @@ using DungeonCrawl.Actors;
 
 namespace Assets.Source.Actors.Static
 {
-    public class Bush : Actor
+    public class RedWall : Actor
     {
-        public override int DefaultSpriteId => 95;
-        public override string DefaultName => "Bush";
+        public override int DefaultSpriteId => 564; 
+        public override string DefaultName => "RedWall";
         public override bool OnCollision(Actor anotherActor)
         {
             return false;
         }
     }
-
 }

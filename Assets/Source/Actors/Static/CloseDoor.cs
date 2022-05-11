@@ -17,8 +17,8 @@ namespace Assets.Source.Actors.Static
             //TODO if inventory contains a key
             if (true)
             {
-                ActorManager.Singleton.DestroyActor(this);
-                ActorManager.Singleton.Spawn<OpenDoor>((10,-14));
+                //ActorManager.Singleton.DestroyActor(this);
+                //ActorManager.Singleton.Spawn<OpenDoor>((10,-14));
                 return true;
             }
             return false;
