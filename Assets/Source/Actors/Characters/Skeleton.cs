@@ -35,7 +35,7 @@ namespace DungeonCrawl.Actors.Characters
             //TODO get Player position
             //TODO make an object go to a certain position
             var rd = new System.Random();
-            int randNum = rd.Next(0, 5);
+            int randNum = rd.Next(1, 5);
             switch (randNum)
             {
                 case 1:
