@@ -10,7 +10,8 @@ namespace DungeonCrawl.Actors.Characters
 {
     public class Player : Character
 
-    {   public int GateCount =0;
+    {
+        public int GateCount = 0;
         public List<Item> Inventory = new List<Item>();
 
         protected override void OnUpdate(float deltaTime)

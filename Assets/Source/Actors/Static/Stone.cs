@@ -1,5 +1,4 @@
 ﻿using DungeonCrawl.Actors;
-using System;
 namespace Assets.Source.Actors.Static
 {
     public class Stone : Actor
