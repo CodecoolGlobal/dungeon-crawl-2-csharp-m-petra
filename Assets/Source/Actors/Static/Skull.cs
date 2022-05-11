@@ -11,7 +11,11 @@ namespace Assets.Source.Actors.Static
     public class Skull : Actor
     {
         public override int DefaultSpriteId => 720;
-        public override string DefaultName => "Skull";
+        public override string DefaultName
+        {
+            get => "Skull";
+            set { }
+        }
         public override bool OnCollision(Actor anotherActor)
         {
             return true;

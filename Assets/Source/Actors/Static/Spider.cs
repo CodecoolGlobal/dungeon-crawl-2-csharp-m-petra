@@ -11,7 +11,11 @@ namespace Assets.Source.Actors.Static
     public class Spider : Actor
     {
         public override int DefaultSpriteId => 267;
-        public override string DefaultName => "Spider";
+        public override string DefaultName
+        {
+            get => "Spider";
+            set { }
+        }
         public override bool OnCollision(Actor anotherActor)
         {
             return true;
