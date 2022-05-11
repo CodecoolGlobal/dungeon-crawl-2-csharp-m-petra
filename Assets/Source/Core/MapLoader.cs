@@ -48,6 +48,7 @@ namespace DungeonCrawl.Core
                             player.Inventory = oldPlayer.Inventory;
                             player.Strength = oldPlayer.Strength;
                             player.Health = oldPlayer.Health;
+                            player.GateCount = oldPlayer.GateCount;
                             ActorManager.Singleton.DestroyActor(oldPlayer);
 
                         }

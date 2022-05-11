@@ -84,15 +84,18 @@ namespace DungeonCrawl.Actors
             {
                 if (player.Position == (20, -18))
                 {
+                   
                     MapLoader.DrawInFile(3);
                     ActorManager.Singleton.DestroyAllActors();
-                    if (player.GateCount > 0)
-                    {   
-                        MapLoader.LoadMap(4,player);
+                    if (player.GateCount == 0)
+                    {
+                        player.GateCount += 1;
+                       
+                        MapLoader.LoadMap(2, player);
                     }
                     else
                     {
-                        MapLoader.LoadMap(2, player);
+                        MapLoader.LoadMap(4, player);
                     }
                 }
                 else
