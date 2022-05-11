@@ -54,23 +54,38 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Source\Actors\Static\Wall.cs" />
+    <Compile Include="Assets\Source\Actors\Static\OpenDoor.cs" />
+    <Compile Include="Assets\Source\Actors\Static\Stone.cs" />
+    <Compile Include="Assets\Source\Actors\Static\CloseDoor.cs" />
     <Compile Include="Assets\Source\Actors\Static\Floor.cs" />
     <Compile Include="Assets\Source\Core\CameraController.cs" />
     <Compile Include="Assets\Source\Core\UserInterface.cs" />
+    <Compile Include="Assets\Source\Actors\Static\Bush.cs" />
     <Compile Include="Assets\Source\Actors\Actor.cs" />
+    <Compile Include="Assets\Source\Actors\Static\Bridge.cs" />
     <Compile Include="Assets\Source\Actors\Characters\Player.cs" />
+    <Compile Include="Assets\Source\Actors\Static\Forest.cs" />
+    <Compile Include="Assets\Source\Actors\Static\House.cs" />
+    <Compile Include="Assets\Source\Actors\Static\Sword.cs" />
     <Compile Include="Assets\Source\Actors\Characters\Character.cs" />
     <Compile Include="Assets\Source\Actors\Characters\Skeleton.cs" />
     <Compile Include="Assets\Source\Core\MapLoader.cs" />
     <Compile Include="Assets\Source\Utilities.cs" />
+    <Compile Include="Assets\Source\Actors\Characters\Ghost.cs" />
+    <Compile Include="Assets\Source\Actors\Static\Grass.cs" />
+    <Compile Include="Assets\Source\Actors\Characters\Monster.cs" />
     <Compile Include="Assets\Source\Core\GameManager.cs" />
     <Compile Include="Assets\Source\Core\ActorManager.cs" />
+
+    <Compile Include="Assets\Source\Actors\Static\River.cs" />
+
     <Compile Include="Assets\Source\Actors\Static\Items\Key.cs" />
     <Compile Include="Assets\Source\Actors\Characters\Monster.cs" />
     <Compile Include="Assets\Source\Actors\Static\Items\Sword.cs" />
     <Compile Include="Assets\Source\Actors\Characters\Ghost.cs" />
     <Compile Include="Assets\Source\Actors\Static\Items\Item.cs" />
     <Compile Include="Assets\Source\Actors\Static\Stair.cs" />
+
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

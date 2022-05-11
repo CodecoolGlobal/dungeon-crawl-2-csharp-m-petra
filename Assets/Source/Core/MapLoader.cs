@@ -4,6 +4,7 @@ using System;
 using System.Text.RegularExpressions;
 using Assets.Source.Core;
 using UnityEngine;
+using Assets.Source.Actors.Static;
 
 namespace DungeonCrawl.Core
 {
@@ -76,8 +77,34 @@ namespace DungeonCrawl.Core
                     ActorManager.Singleton.Spawn<Ghost>(position);
                     ActorManager.Singleton.Spawn<Floor>(position);
                     break;
+
+                case ',':
+                    ActorManager.Singleton.Spawn<Grass>(position);
+                    break;
+                case 'f':
+                    ActorManager.Singleton.Spawn<Forest>(position);
+                    break;
+                case 'o':
+                    ActorManager.Singleton.Spawn<Stone>(position);
+                    break;
+                case 'a':
+                    ActorManager.Singleton.Spawn<CloseDoor>(position);
+                    break;
+                case 'r':
+                    ActorManager.Singleton.Spawn<River>(position);
+                    break;
+                case 'b':
+                    ActorManager.Singleton.Spawn<Bush>(position);
+                    break;
+                case 'u':
+                    ActorManager.Singleton.Spawn<Bridge>(position);
+                    break;
+                case 'h':
+                    ActorManager.Singleton.Spawn<House>(position);
+
                 case 'd':
                     ActorManager.Singleton.Spawn<Stair>(position);
+
                     break;
                 case ' ':
                     break;
