@@ -3,7 +3,9 @@ using Assets.Source.Core;
 using DungeonCrawl.Actors.Characters;
 using DungeonCrawl.Actors.Static;
 using System;
+using System.IO;
 using System.Text.RegularExpressions;
+using DungeonCrawl.Actors;
 using UnityEngine;
 
 namespace DungeonCrawl.Core
@@ -138,5 +140,59 @@ namespace DungeonCrawl.Core
                     throw new ArgumentOutOfRangeException();
             }
         }
+
+
+        public static char ReverseSwitch(Actor actor)
+        {
+            return actor.DefaultName switch
+            {
+                "Wall" => '#',
+                "Floor" => '.',
+                "Skeleton" => 's',
+                "Monster" => 'm',
+                "Key" => 'k',
+                "Sword" => 'S',
+                "Ghost" => 'g',
+                "Grass" => ',',
+                "Forest" => 'f',
+                "Stone" => 'o',
+                "CloseDoor" => 'a',
+                "River" => 'r',
+                "Bush" => 'b',
+                "Bridge" => 'u',
+                "House" => 'h',
+                "Stair" => 'd',
+                _=>' '
+              
+            };
+        }
+
+
+
+        public static void DrawInFile(int id)
+        {
+            var width = 0;
+            var height = 0;
+
+            if (id == 2)
+            {
+                width = 25;
+                height = 20;
+            }
+            var Map = "";
+            for (var y = 0; y < height; y++)
+            {
+                
+                for (var x = 0; x < width; x++)
+                {
+                    Map += $"{ReverseSwitch(ActorManager.Singleton.GetActorAt((y,x)))}";
+
+                }
+                Map += "\n";
+            }
+            File.WriteAllText(@"C:\Users\kissb\Desktop\Codecool_OOP\dungeon-crawl-1-csharp-Elmaz-Doszaki\Assets\Resources\map3.txt", Map);
+
+        }
+
     }
 }

@@ -82,7 +82,7 @@ namespace DungeonCrawl.Actors
         {
 
             if (this.Position == (20, -18))
-            {
+            {   MapLoader.DrawInFile(2);
                 ActorManager.Singleton.DestroyAllActors();
                 MapLoader.LoadMap(2, (Player)this);
             }
