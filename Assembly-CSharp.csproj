@@ -83,6 +83,21 @@
     <Compile Include="Assets\Source\Actors\Static\Stair.cs" />
     <Compile Include="Assets\Source\Core\ActorManager.cs" />
     <Compile Include="Assets\Source\Actors\Static\River.cs" />
+    <Compile Include="Assets\Source\Actors\Static\Items\Item.cs" />
+    <Compile Include="Assets\Source\Actors\Static\Stair.cs" />
+    <Compile Include="Assets\Source\Actors\Static\FenceHor.cs" />
+    <Compile Include="Assets\Source\Actors\Static\FenceVer.cs" />
+    <Compile Include="Assets\Source\Actors\Static\SideWalk.cs" />
+    <Compile Include="Assets\Source\Actors\Static\Cactus.cs" />
+    <Compile Include="Assets\Source\Actors\Static\Tile.cs" />
+    <Compile Include="Assets\Source\Actors\Static\RedWall.cs" />
+    <Compile Include="Assets\Source\Actors\Static\Cemetery.cs" />
+    <Compile Include="Assets\Source\Actors\Static\Twig.cs" />
+    <Compile Include="Assets\Source\Actors\Static\Skull.cs" />
+    <Compile Include="Assets\Source\Actors\Static\Spider.cs" />
+    <Compile Include="Assets\Source\Actors\Static\Web.cs" />
+    <Compile Include="Assets\Source\Actors\Static\Labirynth.cs" />
+    <Compile Include="Assets\Source\Actors\Static\SideWalk2.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

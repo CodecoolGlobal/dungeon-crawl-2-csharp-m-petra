@@ -76,11 +76,17 @@ namespace DungeonCrawl.Core
             switch (c)
             {
                 case '#':
+                    ActorManager.Singleton.Spawn<RedWall>(position);
+                    break;
+                case 'H':
                     ActorManager.Singleton.Spawn<Wall>(position);
                     break;
                 case 'p':
                     break;
                 case '.':
+                    ActorManager.Singleton.Spawn<Tile>(position);
+                    break;
+                case '-':
                     ActorManager.Singleton.Spawn<Floor>(position);
                     break;
                 case 's':
@@ -124,13 +130,47 @@ namespace DungeonCrawl.Core
                     ActorManager.Singleton.Spawn<Bush>(position);
                     break;
                 case 'u':
+                 
                     ActorManager.Singleton.Spawn<Bridge>(position);
+                    
                     break;
                 case 'h':
                     ActorManager.Singleton.Spawn<House>(position);
                     break;
                 case 'd':
                     ActorManager.Singleton.Spawn<Stair>(position);
+                    break;
+                case 'v':
+                    ActorManager.Singleton.Spawn<FenceHor>(position);
+                    break;
+                case 'z':
+                    ActorManager.Singleton.Spawn<FenceVer>(position);
+                    break;
+                case 'i':
+                    ActorManager.Singleton.Spawn<SideWalk>(position);
+                    break;
+                case 'c':
+                    ActorManager.Singleton.Spawn<Cactus>(position);
+                    break;
+                case 't':
+                    ActorManager.Singleton.Spawn<Twig>(position);
+                    break;
+                case 'q':
+                    ActorManager.Singleton.Spawn<Skull>(position);
+                    break;
+                case 'n':
+                    ActorManager.Singleton.Spawn<Cemetery>(position);
+                    break;
+                case '1':
+                    ActorManager.Singleton.Spawn<Spider>(position);
+                    break;
+                case '2':
+                    ActorManager.Singleton.Spawn<Web>(position);
+                    break;
+                case 'T':
+                    break;
+                case '4':
+                    ActorManager.Singleton.Spawn<SideWalk2>(position);
                     break;
                 case ' ':
                     break;

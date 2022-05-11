@@ -3,7 +3,7 @@ namespace Assets.Source.Actors.Static
 {
     public class Forest : Actor
     {
-        public override int DefaultSpriteId => 47;
+        public override int DefaultSpriteId => 102;
         public override string DefaultName
         {
             get => "Forest";
@@ -12,7 +12,7 @@ namespace Assets.Source.Actors.Static
 
         public override bool OnCollision(Actor anotherActor)
         {
-            return true;
+            return false;
         }
     }
 }
