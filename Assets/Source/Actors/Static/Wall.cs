@@ -6,7 +6,7 @@
         public override string DefaultName
         {
             get => "Wall";
-            set => throw new System.NotImplementedException();
+            set { }
         }
 
         public override bool OnCollision(Actor anotherActor)
