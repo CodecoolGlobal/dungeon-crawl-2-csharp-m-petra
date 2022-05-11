@@ -8,7 +8,7 @@ namespace DungeonCrawl.Actors.Static
         public override string DefaultName
         {
             get => "Sword";
-            set => throw new System.NotImplementedException();
+            set { }
         }
 
         public override int Z => -1;
