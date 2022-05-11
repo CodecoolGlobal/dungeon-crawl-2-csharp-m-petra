@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DungeonCrawl.Actors;
+﻿using DungeonCrawl.Actors;
+using System;
 namespace Assets.Source.Actors.Static
 {
     public class OpenDoor : Actor
     {
         public override int DefaultSpriteId => 437;
-        public override string DefaultName => "OpenDoor";
+        public override string DefaultName
+        {
+            get => "OpenDoor";
+            set => throw new NotImplementedException();
+        }
+
         public override bool OnCollision(Actor anotherActor)
         {
             return true;

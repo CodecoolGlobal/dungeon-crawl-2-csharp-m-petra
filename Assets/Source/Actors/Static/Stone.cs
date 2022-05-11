@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DungeonCrawl.Actors;
+﻿using DungeonCrawl.Actors;
+using System;
 namespace Assets.Source.Actors.Static
 {
     public class Stone : Actor
     {
         public override int DefaultSpriteId => 100;
-        public override string DefaultName => "Stone";
+        public override string DefaultName
+        {
+            get => "Stone";
+            set => throw new NotImplementedException();
+        }
+
         public override bool OnCollision(Actor anotherActor)
         {
             return true;
