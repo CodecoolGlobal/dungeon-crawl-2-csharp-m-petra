@@ -1,10 +1,10 @@
-﻿using DungeonCrawl.Actors.Characters;
+﻿using Assets.Source.Actors.Static;
+using Assets.Source.Core;
+using DungeonCrawl.Actors.Characters;
 using DungeonCrawl.Actors.Static;
 using System;
 using System.Text.RegularExpressions;
-using Assets.Source.Core;
 using UnityEngine;
-using Assets.Source.Actors.Static;
 
 namespace DungeonCrawl.Core
 {
@@ -17,7 +17,7 @@ namespace DungeonCrawl.Core
         ///     Constructs map from txt file and spawns actors at appropriate positions
         /// </summary>
         /// <param name="id"></param>
-        public static void LoadMap(int id)
+        public static void LoadMap(int id, Player oldPlayer = null)
         {
             var lines = Regex.Split(Resources.Load<TextAsset>($"map_{id}").text, "\r\n|\r|\n");
 
@@ -25,9 +25,8 @@ namespace DungeonCrawl.Core
             var split = lines[0].Split(' ');
             var width = int.Parse(split[0]);
             var height = int.Parse(split[1]);
-
-            Player player = null;
             // Create actors
+            Player player = null;
             for (var y = 0; y < height; y++)
             {
                 var line = lines[y + 1];
@@ -37,10 +36,22 @@ namespace DungeonCrawl.Core
 
                     if (character == 'p')
                     {
-
                         player = ActorManager.Singleton.Spawn<Player>((x, -y));
+                        if (oldPlayer == null)
+                        {
+                            UserInterface.Singleton.SetText("Inventory:", UserInterface.TextPosition.TopLeft);
+                        }
+                        else
+                        {
+                            player.Inventory = oldPlayer.Inventory;
+                            player.Strength = oldPlayer.Strength;
+                            player.Health = oldPlayer.Health;
+                            ActorManager.Singleton.DestroyActor(oldPlayer);
+
+                        }
+
                         CameraController.Singleton.Size = 10;
-                        CameraController.Singleton.Position = (x, -y+1);
+                        CameraController.Singleton.Position = (x, -y);
                         ActorManager.Singleton.Spawn<Floor>((x, -y));
                     }
                 }
@@ -57,7 +68,7 @@ namespace DungeonCrawl.Core
                     SpawnActor(character, (x, -y), player);
                 }
             }
-            UserInterface.Singleton.SetText("Inventory:", UserInterface.TextPosition.TopLeft);
+
         }
 
         private static void SpawnActor(char c, (int x, int y) position, Player player)

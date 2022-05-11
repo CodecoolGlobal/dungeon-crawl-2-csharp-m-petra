@@ -1,9 +1,4 @@
 ﻿using DungeonCrawl.Actors;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Assets.Source.Actors.Static
 {
@@ -11,7 +6,12 @@ namespace Assets.Source.Actors.Static
     {
         public override int Z => -2;
         public override int DefaultSpriteId => 197;
-        public override string DefaultName => "Bridge";
+        public override string DefaultName
+        {
+            get => "Bridge";
+            set { }
+        }
+
         public override bool OnCollision(Actor anotherActor)
         {
             return true;
