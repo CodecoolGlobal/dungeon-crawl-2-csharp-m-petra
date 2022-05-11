@@ -80,16 +80,17 @@ namespace DungeonCrawl.Actors
         /// </summary>
         public void ChangeMap()
         {
-
-            if (this.Position == (20, -18))
+            if (this is Player player)
             {
                 ActorManager.Singleton.DestroyAllActors();
-                MapLoader.LoadMap(2, (Player)this);
-            }
-            else
-            {
-                ActorManager.Singleton.DestroyAllActors();
-                MapLoader.LoadMap(1, (Player)this);
+                if (player.Position == (20, -18))
+                {
+                    MapLoader.LoadMap(2, player);
+                }
+                else
+                {
+                    MapLoader.LoadMap(1, player);
+                }
             }
         }
 

@@ -18,7 +18,7 @@ namespace DungeonCrawl.Core
         public static ActorManager Singleton { get; private set; }
 
         private SpriteAtlas _spriteAtlas;
-        private HashSet<Actor> _allActors;
+        public HashSet<Actor> _allActors;
 
         private void Awake()
         {
@@ -42,6 +42,18 @@ namespace DungeonCrawl.Core
         public Actor GetActorAt((int x, int y) position)
         {
             return _allActors.FirstOrDefault(actor => actor.Detectable && actor.Position == position);
+        }
+
+
+        public Actor GetActorForDrawMap((int x, int y) position)
+        {
+            var actor = _allActors.FirstOrDefault(actor => actor.Detectable && actor.Position == position);
+            if (actor is null)
+            {
+                return _allActors.FirstOrDefault(actor => actor.Position == position);
+            }
+
+            return actor;
         }
 
         /// <summary>
@@ -124,5 +136,7 @@ namespace DungeonCrawl.Core
 
             return component;
         }
+
+
     }
 }

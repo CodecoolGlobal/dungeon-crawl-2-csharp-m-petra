@@ -1,5 +1,6 @@
 ﻿using Assets.Source.Actors.Static;
 using Assets.Source.Core;
+using DungeonCrawl.Actors;
 using DungeonCrawl.Actors.Characters;
 using DungeonCrawl.Actors.Static;
 using System;
@@ -33,25 +34,34 @@ namespace DungeonCrawl.Core
                 for (var x = 0; x < width; x++)
                 {
                     var character = line[x];
-
                     if (character == 'p')
                     {
-                        player = ActorManager.Singleton.Spawn<Player>((x, -y));
                         if (oldPlayer == null)
                         {
+                            player = ActorManager.Singleton.Spawn<Player>((x, -y));
+                            CameraController.Singleton.Position = (x, -y);
                             UserInterface.Singleton.SetText("Inventory:", UserInterface.TextPosition.TopLeft);
                         }
                         else
                         {
+                            if (id == 1)
+                            {
+                                player = ActorManager.Singleton.Spawn<Player>((20, -18));
+                                CameraController.Singleton.Position = (20, -18);
+                            }
+                            else
+                            {
+                                player = ActorManager.Singleton.Spawn<Player>((x, -y));
+                                CameraController.Singleton.Position = (x, -y);
+                            }
                             player.Inventory = oldPlayer.Inventory;
                             player.Strength = oldPlayer.Strength;
                             player.Health = oldPlayer.Health;
+                            player.GateCount = oldPlayer.GateCount;
                             ActorManager.Singleton.DestroyActor(oldPlayer);
-
                         }
 
                         CameraController.Singleton.Size = 10;
-                        CameraController.Singleton.Position = (x, -y);
                         ActorManager.Singleton.Spawn<Floor>((x, -y));
                     }
                 }
@@ -68,7 +78,6 @@ namespace DungeonCrawl.Core
                     SpawnActor(character, (x, -y), player);
                 }
             }
-
         }
 
         private static void SpawnActor(char c, (int x, int y) position, Player player)
@@ -106,7 +115,6 @@ namespace DungeonCrawl.Core
                     ActorManager.Singleton.Spawn<Floor>(position);
                     break;
                 case 'g':
-
                     var ghost = ActorManager.Singleton.Spawn<Ghost>(position);
                     ghost.Player = player;
                     ActorManager.Singleton.Spawn<Floor>(position);
@@ -130,9 +138,7 @@ namespace DungeonCrawl.Core
                     ActorManager.Singleton.Spawn<Bush>(position);
                     break;
                 case 'u':
-                 
                     ActorManager.Singleton.Spawn<Bridge>(position);
-                    
                     break;
                 case 'h':
                     ActorManager.Singleton.Spawn<House>(position);
@@ -178,5 +184,63 @@ namespace DungeonCrawl.Core
                     throw new ArgumentOutOfRangeException();
             }
         }
+
+
+        public static char ReverseSwitch(Actor actor) =>
+            actor is null
+                ? ' '
+                : actor.DefaultName switch
+                {
+                    "Player" => 'p',
+                    "Wall" => '#',
+                    "Floor" => '.',
+                    "Skeleton" => 's',
+                    "Monster" => 'm',
+                    "Key" => 'k',
+                    "Sword" => 'S',
+                    "Ghost" => 'g',
+                    "Grass" => ',',
+                    "Forest" => 'f',
+                    "Stone" => 'o',
+                    "CloseDoor" => 'a',
+                    "River" => 'r',
+                    "Bush" => 'b',
+                    "Bridge" => 'u',
+                    "House" => 'h',
+                    "Stair" => 'd',
+                    _ => '?'
+                };
+
+
+        public static void DrawInFile(int id)
+        {
+            var width = 0;
+            var height = 0;
+
+            if (id == 3)
+            {
+                width = 25;
+                height = 20;
+            }
+            else
+            {
+                width = 113;
+                height = 20;
+            }
+            var Map = $"{width} {height}\n";
+            for (var y = 0; y < height; y++)
+            {
+
+                for (var x = 0; x < width; x++)
+                {
+                    Map += $"{ReverseSwitch(ActorManager.Singleton.GetActorForDrawMap((x, -y)))}";
+
+                }
+                Map += "\n";
+            }
+            //File.WriteAllText(@$"C:\Users\kissb\Desktop\Codecool_OOP\dungeon-crawl-1-csharp-Elmaz-Doszaki\Assets\Resources\map_{id}.txt", Map);
+
+        }
+
     }
 }
