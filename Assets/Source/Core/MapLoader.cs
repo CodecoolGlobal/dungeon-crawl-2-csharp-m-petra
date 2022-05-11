@@ -142,31 +142,30 @@ namespace DungeonCrawl.Core
         }
 
 
-        public static char ReverseSwitch(Actor actor)
-        {
-            return actor.DefaultName switch
-            {
-                "Wall" => '#',
-                "Floor" => '.',
-                "Skeleton" => 's',
-                "Monster" => 'm',
-                "Key" => 'k',
-                "Sword" => 'S',
-                "Ghost" => 'g',
-                "Grass" => ',',
-                "Forest" => 'f',
-                "Stone" => 'o',
-                "CloseDoor" => 'a',
-                "River" => 'r',
-                "Bush" => 'b',
-                "Bridge" => 'u',
-                "House" => 'h',
-                "Stair" => 'd',
-                _=>' '
-              
-            };
-        }
-
+        public static char ReverseSwitch(Actor actor) =>
+            actor is null
+                ? ' '
+                : actor.DefaultName switch
+                {
+                    "Player"=> 'p',
+                    "Wall" => '#',
+                    "Floor" => '.',
+                    "Skeleton" => 's',
+                    "Monster" => 'm',
+                    "Key" => 'k',
+                    "Sword" => 'S',
+                    "Ghost" => 'g',
+                    "Grass" => ',',
+                    "Forest" => 'f',
+                    "Stone" => 'o',
+                    "CloseDoor" => 'a',
+                    "River" => 'r',
+                    "Bush" => 'b',
+                    "Bridge" => 'u',
+                    "House" => 'h',
+                    "Stair" => 'd',
+                    _ =>'?'
+                };
 
 
         public static void DrawInFile(int id)
@@ -174,23 +173,29 @@ namespace DungeonCrawl.Core
             var width = 0;
             var height = 0;
 
-            if (id == 2)
+            if (id==3)
             {
                 width = 25;
                 height = 20;
             }
-            var Map = "";
+            else
+            {
+                width = 113;
+                height = 20;
+            }
+            var Map = $"{width} {height}\n";
+            var hehe = ActorManager.Singleton.GetActorAt((0,1));
             for (var y = 0; y < height; y++)
             {
                 
                 for (var x = 0; x < width; x++)
                 {
-                    Map += $"{ReverseSwitch(ActorManager.Singleton.GetActorAt((y,x)))}";
+                    Map += $"{ReverseSwitch(ActorManager.Singleton.GetActorForDrawMap((x,-y)))}";
 
                 }
                 Map += "\n";
             }
-            File.WriteAllText(@"C:\Users\kissb\Desktop\Codecool_OOP\dungeon-crawl-1-csharp-Elmaz-Doszaki\Assets\Resources\map3.txt", Map);
+            File.WriteAllText(@$"C:\Users\kissb\Desktop\Codecool_OOP\dungeon-crawl-1-csharp-Elmaz-Doszaki\Assets\Resources\map_{id}.txt", Map);
 
         }
 

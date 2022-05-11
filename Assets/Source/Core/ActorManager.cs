@@ -44,6 +44,18 @@ namespace DungeonCrawl.Core
             return _allActors.FirstOrDefault(actor => actor.Detectable && actor.Position == position);
         }
 
+
+        public Actor GetActorForDrawMap((int x, int y) position)
+        {
+            var actor = _allActors.FirstOrDefault(actor => actor.Detectable && actor.Position == position);
+            if (actor is null)
+            {
+                return _allActors.FirstOrDefault(actor => actor.Position == position);
+            }
+
+            return actor;
+        }
+
         /// <summary>
         ///     Returns actor of specific subclass present at given position (returns null if no actor is present)
         /// </summary>
