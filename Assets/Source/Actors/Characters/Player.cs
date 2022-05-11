@@ -1,5 +1,6 @@
 
-﻿using UnityEditor.PackageManager;
+﻿using System;
+ using UnityEditor.PackageManager;
 using UnityEditorInternal;
 using Assets.Source.Actors.Static;
 using Assets.Source.Core;
@@ -7,20 +8,28 @@ using DungeonCrawl.Actors.Static;
 using DungeonCrawl.Core;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
+ using System.Runtime.CompilerServices;
+ using UnityEngine;
 
 namespace DungeonCrawl.Actors.Characters
 {
+  
+    
     public class Player : Character
     {
+        
         public List<Item> Inventory = new List<Item>();
 
         protected override void OnUpdate(float deltaTime)
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
+                
+                
+                
                 // Move up
                 TryMove(Direction.Up);
+
             }
 
             if (Input.GetKeyDown(KeyCode.S))
