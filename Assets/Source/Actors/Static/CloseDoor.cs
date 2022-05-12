@@ -27,7 +27,7 @@ namespace Assets.Source.Actors.Static
                     return true;
                 }
             }
-            return true;
+            return false;
         }
     }
 }
