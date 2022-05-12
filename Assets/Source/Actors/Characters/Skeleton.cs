@@ -1,7 +1,6 @@
 ﻿using System;
 using UnityEngine;
 
-
 namespace DungeonCrawl.Actors.Characters
 {
     public class Skeleton : Character
@@ -12,7 +11,6 @@ namespace DungeonCrawl.Actors.Characters
             get => "Skeleton";
             set { }
         }
-
         public override int Health { get; set; } = 20;
         public override int Strength { get; set; } = 2;
         public override int Money { get; set; }
@@ -55,6 +53,7 @@ namespace DungeonCrawl.Actors.Characters
                     throw new ArgumentOutOfRangeException(nameof(Direction), randNum, null);
             }
         }
+
         private void Update()
         {
             if (Time.time > nextActionTime)
@@ -66,8 +65,6 @@ namespace DungeonCrawl.Actors.Characters
             //OnUpdate(Time.deltaTime * 0.2f);
             //OnUpdate(Time.deltaTime * 1000);
         }
-
-
 
         private float nextActionTime = 0.0f;
         public float period = 0.7f;

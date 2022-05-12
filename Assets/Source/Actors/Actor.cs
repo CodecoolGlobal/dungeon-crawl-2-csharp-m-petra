@@ -49,7 +49,7 @@ namespace DungeonCrawl.Actors
             {
                 if (this.DefaultName == "Player")
                 {
-                    
+
                     CameraController.Singleton.Position = (targetPosition.x, targetPosition.y);
                     UserInterface.Singleton.SetText("", UserInterface.TextPosition.BottomRight);
                     UserInterface.Singleton.SetText("", UserInterface.TextPosition.MiddleLeft);
@@ -58,7 +58,6 @@ namespace DungeonCrawl.Actors
                 // No obstacle found, just move
                 Position = targetPosition;
             }
-
             else
             {
                 if (actorAtTargetPosition.OnCollision(this))

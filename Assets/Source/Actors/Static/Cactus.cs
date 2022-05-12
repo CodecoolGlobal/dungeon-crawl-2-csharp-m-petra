@@ -7,10 +7,7 @@ namespace Assets.Source.Actors.Static
         public override int DefaultSpriteId => 53;
         public override string DefaultName
         {
-            get
-            {
-                return "Cactus";
-            }
+            get => "Cactus";
             set { }
         }
     }

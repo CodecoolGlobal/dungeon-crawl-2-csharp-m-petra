@@ -8,8 +8,7 @@ namespace DungeonCrawl.Actors.Static
         public override string DefaultName
         {
             get => "Key";
-            set
-            { }
+            set { }
         }
 
         public override int Z => -1;

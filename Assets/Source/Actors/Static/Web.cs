@@ -2,7 +2,6 @@
 
 namespace Assets.Source.Actors.Static
 {
-
     public class Web : Actor
     {
         public override int DefaultSpriteId => 607;
@@ -10,10 +9,6 @@ namespace Assets.Source.Actors.Static
         {
             get => "Web";
             set { }
-        }
-        public override bool OnCollision(Actor anotherActor)
-        {
-            return true;
         }
     }
 }

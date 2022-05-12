@@ -1,8 +1,8 @@
-﻿using Assets.Source.Actors.CaracterName;
+﻿using Assets.Source.Actors.CharacterName;
 using System;
 using System.Text.RegularExpressions;
 using UnityEngine;
-using Cursor = Assets.Source.Actors.CaracterName.Cursor;
+using Cursor = Assets.Source.Actors.CharacterName.Cursor;
 
 namespace DungeonCrawl.Core
 {
@@ -15,18 +15,18 @@ namespace DungeonCrawl.Core
         {
             WelcomeScreen();
         }
+
         private void WelcomeScreen()
         {
             CameraController.Singleton.Position = (0, 0);
             LoadWelcomeTable();
         }
+
         public static void LoadWelcomeTable()
         {
             var Chars = Regex.Split(Resources.Load<TextAsset>("characters").text, "\r\n|\r|\n");
-
             var heigth = 9;
             var width = 5;
-
             for (var y = 0; y < heigth; y++)
             {
                 var line = Chars[y];

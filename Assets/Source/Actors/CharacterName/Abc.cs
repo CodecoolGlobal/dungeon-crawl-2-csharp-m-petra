@@ -1,6 +1,6 @@
 ﻿using DungeonCrawl.Actors;
 
-namespace Assets.Source.Actors.CaracterName
+namespace Assets.Source.Actors.CharacterName
 {
     public class Char : Actor
     {

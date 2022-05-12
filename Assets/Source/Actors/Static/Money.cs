@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Assets.Source.Core;
+﻿using Assets.Source.Core;
 using DungeonCrawl.Actors;
 using DungeonCrawl.Actors.Characters;
 using DungeonCrawl.Core;
-
 
 namespace Assets.Source.Actors.Static
 {
@@ -26,7 +20,7 @@ namespace Assets.Source.Actors.Static
             {
                 player.Money += 45;
                 UserInterface.Singleton.SetText($"Money:  {player.Money} $", UserInterface.TextPosition.BottomCenter);
-                ActorManager.Singleton.DestroyActor(this); 
+                ActorManager.Singleton.DestroyActor(this);
             }
 
             return true;
