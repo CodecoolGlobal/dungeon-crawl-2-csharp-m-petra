@@ -7,12 +7,14 @@ using Assets.Source.Core;
 using DungeonCrawl.Actors;
 using DungeonCrawl.Actors.Characters;
 using DungeonCrawl.Core;
+using UnityEngine;
 
 
 namespace Assets.Source.Actors.Static
 {
     public class Heart : Actor
     {
+        
         public override int DefaultSpriteId => 518;
         public override string DefaultName
         {
@@ -22,13 +24,17 @@ namespace Assets.Source.Actors.Static
 
         public override bool OnCollision(Actor anotherActor)
         {
+            
             if (anotherActor is Player player)
             {
+              
+                player.Sounds("pickUp");
                 player.Health += 5;
                 player.DisplayHealth(false);
                 ActorManager.Singleton.DestroyActor(this);
+               
             }
-
+            
             return true;
         }
     }

@@ -3,11 +3,13 @@ using DungeonCrawl.Actors.Characters;
 using DungeonCrawl.Actors.Static;
 using DungeonCrawl.Core;
 using System.Linq;
+using UnityEngine;
 
 namespace Assets.Source.Actors.Static
 {
     public class CloseDoor : Actor
     {
+        
         public override int DefaultSpriteId => 434;
         public override string DefaultName
         {
@@ -27,6 +29,7 @@ namespace Assets.Source.Actors.Static
                     return true;
                 }
             }
+            Sounds("door");
             return false;
         }
     }

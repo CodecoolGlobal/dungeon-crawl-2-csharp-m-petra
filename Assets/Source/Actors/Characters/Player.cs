@@ -22,16 +22,7 @@ namespace DungeonCrawl.Actors.Characters
         //public static AudioClip stepSound;
         //public static AudioSource audioSrc;
 
-        public  void Sounds(string fileName)
-        {
-            AudioSource audio = GetComponent<AudioSource>();
-            if (audio == null) audio= gameObject.AddComponent<AudioSource>();
-
-           audio.clip = Resources.Load<AudioClip>(fileName);
-           audio.Play();
-            
-
-        }
+        
 
         //[SerializeField] private AudioSource stepSoundeffect;
 
@@ -54,15 +45,19 @@ namespace DungeonCrawl.Actors.Characters
 
             }
 
+
+
             if (Input.GetKeyDown(KeyCode.S))
             {
                 Sounds("try");
 
                 // Move down
+
                 TryMove(Direction.Down);
-                /*stepSoundeffect.Play()*/;
-                //var audioSource = GetComponent<AudioSource>();
-                //audioSource.Play();
+                //    /*stepSoundeffect.Play()*/;
+                //    //var audioSource = GetComponent<AudioSource>();
+                //    //audioSource.Play();
+                //}
             }
 
             if (Input.GetKeyDown(KeyCode.A))

@@ -7,15 +7,7 @@ namespace Assets.Source.Actors.Static
 {
     public abstract class Item : Actor
     {
-        public void Sounds(string fileName)
-        {
-            AudioSource audio = GetComponent<AudioSource>();
-            if (audio == null) audio = gameObject.AddComponent<AudioSource>();
-
-            audio.clip = Resources.Load<AudioClip>(fileName);
-            audio.Play();
-
-        }
+        
         public override bool OnCollision(Actor anotherActor)
         {
             if (anotherActor is Player)

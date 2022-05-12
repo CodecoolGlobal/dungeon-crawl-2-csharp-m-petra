@@ -20,6 +20,7 @@ namespace DungeonCrawl.Actors.Characters
         {
             if (anotherActor is Player player)
             {
+                
                 Figth(player);
                 return true;
             }
@@ -28,6 +29,7 @@ namespace DungeonCrawl.Actors.Characters
 
         protected override void OnDeath()
         {
+            Sounds("door");
             Debug.Log("Well, I was already dead anyway...");
         }
 

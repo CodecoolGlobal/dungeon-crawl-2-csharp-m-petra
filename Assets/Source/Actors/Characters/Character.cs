@@ -12,6 +12,7 @@ namespace DungeonCrawl.Actors.Characters
         public abstract int Strength { get; set; }
         public void ApplyDamage(int damage)
         {
+            Sounds("walk");
             Health -= damage;
 
             if (Health <= 0)

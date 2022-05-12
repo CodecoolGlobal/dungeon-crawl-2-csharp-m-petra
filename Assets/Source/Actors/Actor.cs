@@ -1,4 +1,5 @@
-﻿using Assets.Source.Core;
+﻿using System;
+using Assets.Source.Core;
 using DungeonCrawl.Actors.Characters;
 using DungeonCrawl.Actors.Static;
 using DungeonCrawl.Core;
@@ -8,6 +9,17 @@ namespace DungeonCrawl.Actors
 {
     public abstract class Actor : MonoBehaviour
     {
+        public void Sounds(string fileName)
+        {
+            AudioSource audio = GetComponent<AudioSource>();
+            if (audio == null) audio = gameObject.AddComponent<AudioSource>();
+
+            audio.clip = Resources.Load<AudioClip>(fileName);
+            audio.playOnAwake = false;
+            audio.Play();
+
+
+        }
         public (int x, int y) Position
         {
             get => _position;
@@ -69,6 +81,7 @@ namespace DungeonCrawl.Actors
 
                         if (actorAtTargetPosition is Stair)
                         {
+                            
                             ChangeMap();
                         }
                     }
@@ -85,13 +98,18 @@ namespace DungeonCrawl.Actors
         {
             if (this is Player player)
             {
+                
+                
                 ActorManager.Singleton.DestroyAllActors();
+                
                 if (player.Position == (20, -18))
                 {
+                    
                     MapLoader.LoadMap(2, player);
                 }
                 else
                 {
+                    
                     MapLoader.LoadMap(1, player);
                 }
             }
