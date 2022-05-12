@@ -92,7 +92,7 @@ namespace DungeonCrawl.Actors.Characters
             UserInterface.Singleton.SetText(inventoryDisplay, UserInterface.TextPosition.TopLeft);
         }
 
-        public override bool OnCollision(Actor anotherActor)
+        protected override bool OnCollision(Actor anotherActor)
         {
             return false;
         }
@@ -103,7 +103,7 @@ namespace DungeonCrawl.Actors.Characters
             DisplayHealth();
         }
 
-        public override int DefaultSpriteId => 24;
+        protected override int DefaultSpriteId => 24;
         public override string DefaultName
         {
             get => "Player";

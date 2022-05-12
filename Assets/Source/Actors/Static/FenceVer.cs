@@ -6,18 +6,19 @@ namespace Assets.Source.Actors.Static
 {
     public class FenceVer : Actor
     {
-        public override int DefaultSpriteId => 753;
+        protected override int DefaultSpriteId => 753;
         public override string DefaultName
         {
             get => "FenceVer";
             set { }
         }
-        public override bool OnCollision(Actor anotherActor)
+
+        protected override bool OnCollision(Actor anotherActor)
         {
             if (anotherActor is Player)
             {
                 var message = "After a nuclear explosion, \n" +
-                              " a large part of our civilization has gone completely extinct. \n" +
+                              " a large part of our civilization has gone\n completely extinct. \n" +
                               " However, a couple of people survived \n" +
                               " and now live in the oasis. \n " +
                               "If you want to survive as well, you have to find \n " +

@@ -10,8 +10,8 @@ namespace Assets.Source.Actors.CharacterName
 {
     public class Cursor : Player
     {
-        public override int DefaultSpriteId => 613;
-        public List<string> Name = new List<string>();
+        protected override int DefaultSpriteId => 613;
+        private List<string> Name = new List<string>();
 
         protected override void OnUpdate(float deltaTime)
         {
@@ -47,6 +47,7 @@ namespace Assets.Source.Actors.CharacterName
                 else if (item == "!")
                 {
                     UserInterface.Singleton.SetText("", UserInterface.TextPosition.TopCenter);
+                    UserInterface.Singleton.SetText("", UserInterface.TextPosition.BottomRight);
                     var name = String.Join("", Name.ToArray());
                     ActorManager.Singleton.DestroyAllActors();
                     ActorManager.Singleton.DestroyActor(this);

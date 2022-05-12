@@ -4,7 +4,7 @@ namespace Assets.Source.Actors.Static
 {
     public class Labirynth : Actor
     {
-        public override int DefaultSpriteId => 546;
+        protected override int DefaultSpriteId => 546;
         public override string DefaultName
         {
             get => "Labirynth";

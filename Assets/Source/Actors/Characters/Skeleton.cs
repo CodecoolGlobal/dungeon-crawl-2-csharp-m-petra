@@ -5,7 +5,7 @@ namespace DungeonCrawl.Actors.Characters
 {
     public class Skeleton : Character
     {
-        public override int DefaultSpriteId => 316;
+        protected override int DefaultSpriteId => 316;
         public override string DefaultName
         {
             get => "Skeleton";
@@ -14,12 +14,13 @@ namespace DungeonCrawl.Actors.Characters
         public override int Health { get; set; } = 20;
         public override int Strength { get; set; } = 2;
         public override int Money { get; set; }
-        public override bool OnCollision(Actor anotherActor)
+
+        protected override bool OnCollision(Actor anotherActor)
         {
             if (anotherActor is Player player)
             {
                 
-                Figth(player);
+                Fight(player);
                 return true;
             }
             return false;
@@ -69,6 +70,6 @@ namespace DungeonCrawl.Actors.Characters
         }
 
         private float nextActionTime = 0.0f;
-        public float period = 0.7f;
+        private float period = 0.7f;
     }
 }

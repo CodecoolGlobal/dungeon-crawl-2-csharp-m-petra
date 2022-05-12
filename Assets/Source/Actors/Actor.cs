@@ -45,12 +45,12 @@ namespace DungeonCrawl.Actors
             OnUpdate(Time.deltaTime);
         }
 
-        public void SetSprite(int id)
+        private void SetSprite(int id)
         {
             _spriteRenderer.sprite = ActorManager.Singleton.GetSprite(id);
         }
 
-        public void TryMove(Direction direction)
+        protected void TryMove(Direction direction)
         {
             var vector = direction.ToVector();
             (int x, int y) targetPosition = (Position.x + vector.x, Position.y + vector.y);
@@ -93,7 +93,7 @@ namespace DungeonCrawl.Actors
         /// <summary>
         ///     The previous map destroyed and the next created.
         /// </summary>
-        public void ChangeMap()
+        private void ChangeMap()
         {
             if (this is Player player)
             {
@@ -120,7 +120,7 @@ namespace DungeonCrawl.Actors
         /// </summary>
         /// <param name="anotherActor"></param>
         /// <returns>true if actor can walk on this position, false if not</returns>
-        public virtual bool OnCollision(Actor anotherActor)
+        protected virtual bool OnCollision(Actor anotherActor)
         {
             // All actors are passable by default
             return true;
@@ -142,12 +142,12 @@ namespace DungeonCrawl.Actors
         /// <summary>
         ///     Z position of this Actor (0 by default)
         /// </summary>
-        public virtual int Z => 0;
+        protected virtual int Z => 0;
 
         /// <summary>
         ///     Id of the default sprite of this actor type
         /// </summary>
-        public abstract int DefaultSpriteId { get; }
+        protected abstract int DefaultSpriteId { get; }
 
         /// <summary>
         ///     Default name assigned to this actor type

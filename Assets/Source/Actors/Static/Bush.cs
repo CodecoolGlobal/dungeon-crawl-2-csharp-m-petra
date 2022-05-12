@@ -4,14 +4,14 @@ namespace Assets.Source.Actors.Static
 {
     public class Bush : Actor
     {
-        public override int DefaultSpriteId => 95;
+        protected override int DefaultSpriteId => 95;
         public override string DefaultName
         {
             get => "Bush";
             set { }
         }
 
-        public override bool OnCollision(Actor anotherActor)
+        protected override bool OnCollision(Actor anotherActor)
         {
             return false;
         }

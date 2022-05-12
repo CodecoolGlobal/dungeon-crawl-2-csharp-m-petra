@@ -1,6 +1,7 @@
 ﻿using Assets.Source.Actors.CharacterName;
 using System;
 using System.Text.RegularExpressions;
+using Assets.Source.Core;
 using UnityEngine;
 using Cursor = Assets.Source.Actors.CharacterName.Cursor;
 
@@ -18,16 +19,17 @@ namespace DungeonCrawl.Core
 
         private void WelcomeScreen()
         {
+            UserInterface.Singleton.SetText("Press Enter to select", UserInterface.TextPosition.BottomRight);
             CameraController.Singleton.Position = (0, 0);
             LoadWelcomeTable();
         }
 
-        public static void LoadWelcomeTable()
+        private static void LoadWelcomeTable()
         {
             var Chars = Regex.Split(Resources.Load<TextAsset>("characters").text, "\r\n|\r|\n");
-            var heigth = 9;
+            var height = 9;
             var width = 5;
-            for (var y = 0; y < heigth; y++)
+            for (var y = 0; y < height; y++)
             {
                 var line = Chars[y];
                 for (var x = 0; x < width; x++)

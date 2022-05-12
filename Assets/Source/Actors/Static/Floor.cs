@@ -2,7 +2,7 @@
 {
     public class Floor : Actor
     {
-        public override int DefaultSpriteId => 1;
+        protected override int DefaultSpriteId => 1;
         public override string DefaultName
         {
             get => "Floor";

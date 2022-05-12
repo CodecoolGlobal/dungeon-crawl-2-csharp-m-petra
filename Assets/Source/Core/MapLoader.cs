@@ -198,7 +198,7 @@ namespace DungeonCrawl.Core
             }
         }
 
-        public static char ReverseSwitch(Actor actor) =>
+        private static char ReverseSwitch(Actor actor) =>
             actor is null
                 ? ' '
                 : actor.DefaultName switch

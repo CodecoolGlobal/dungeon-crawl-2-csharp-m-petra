@@ -1,11 +1,19 @@
-﻿using DungeonCrawl.Actors;
+﻿using Assets.Source.Core;
+using DungeonCrawl.Actors;
+using DungeonCrawl.Actors.Characters;
 
 namespace Assets.Source.Actors.CharacterName
 {
     public class Char : Actor
     {
-        public override int DefaultSpriteId { get; }
+        protected override int DefaultSpriteId { get; }
         public override string DefaultName { get; set; }
+
+        protected override bool OnCollision(Actor anotherActor)
+        {
+            UserInterface.Singleton.SetText("Press Enter to select", UserInterface.TextPosition.BottomRight);
+            return true;
+        }
     }
     public class Enter : Char
     {
@@ -14,7 +22,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "!";
             set { }
         }
-        public override int DefaultSpriteId => 981;
+
+        protected override int DefaultSpriteId => 981;
     }
     public class BackSpace : Char
     {
@@ -23,7 +32,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "<";
             set { }
         }
-        public override int DefaultSpriteId => 990;
+
+        protected override int DefaultSpriteId => 990;
     }
     public class Empty : Char
     {
@@ -32,7 +42,8 @@ namespace Assets.Source.Actors.CharacterName
             get => " ";
             set { }
         }
-        public override int DefaultSpriteId => 1029;
+
+        protected override int DefaultSpriteId => 1029;
     }
     public class Hyphen : Char
     {
@@ -41,7 +52,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "-";
             set { }
         }
-        public override int DefaultSpriteId => 996;
+
+        protected override int DefaultSpriteId => 996;
     }
     public class Zero : Char
     {
@@ -50,7 +62,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "0";
             set { }
         }
-        public override int DefaultSpriteId => 850;
+
+        protected override int DefaultSpriteId => 850;
     }
     public class One : Char
     {
@@ -59,7 +72,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "1";
             set { }
         }
-        public override int DefaultSpriteId => 851;
+
+        protected override int DefaultSpriteId => 851;
     }
     public class Two : Char
     {
@@ -68,7 +82,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "2";
             set { }
         }
-        public override int DefaultSpriteId => 852;
+
+        protected override int DefaultSpriteId => 852;
     }
     public class Three : Char
     {
@@ -77,7 +92,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "3";
             set { }
         }
-        public override int DefaultSpriteId => 853;
+
+        protected override int DefaultSpriteId => 853;
     }
     public class Four : Char
     {
@@ -86,7 +102,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "4";
             set { }
         }
-        public override int DefaultSpriteId => 854;
+
+        protected override int DefaultSpriteId => 854;
     }
     public class Five : Char
     {
@@ -95,7 +112,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "5";
             set { }
         }
-        public override int DefaultSpriteId => 855;
+
+        protected override int DefaultSpriteId => 855;
     }
     public class Six : Char
     {
@@ -104,7 +122,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "6";
             set { }
         }
-        public override int DefaultSpriteId => 856;
+
+        protected override int DefaultSpriteId => 856;
     }
     public class Seven : Char
     {
@@ -113,7 +132,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "7";
             set { }
         }
-        public override int DefaultSpriteId => 857;
+
+        protected override int DefaultSpriteId => 857;
     }
     public class Eight : Char
     {
@@ -122,7 +142,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "8";
             set { }
         }
-        public override int DefaultSpriteId => 858;
+
+        protected override int DefaultSpriteId => 858;
     }
     public class Nine : Char
     {
@@ -131,7 +152,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "9";
             set { }
         }
-        public override int DefaultSpriteId => 859;
+
+        protected override int DefaultSpriteId => 859;
     }
     public class A : Char
     {
@@ -140,7 +162,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "A";
             set { }
         }
-        public override int DefaultSpriteId => 898;
+
+        protected override int DefaultSpriteId => 898;
     }
     public class B : Char
     {
@@ -149,7 +172,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "B";
             set { }
         }
-        public override int DefaultSpriteId => 899;
+
+        protected override int DefaultSpriteId => 899;
     }
     public class C : Char
     {
@@ -158,7 +182,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "C";
             set { }
         }
-        public override int DefaultSpriteId => 900;
+
+        protected override int DefaultSpriteId => 900;
     }
     public class D : Char
     {
@@ -167,7 +192,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "D";
             set { }
         }
-        public override int DefaultSpriteId => 901;
+
+        protected override int DefaultSpriteId => 901;
     }
     public class E : Char
     {
@@ -176,7 +202,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "E";
             set { }
         }
-        public override int DefaultSpriteId => 902;
+
+        protected override int DefaultSpriteId => 902;
     }
     public class F : Char
     {
@@ -185,7 +212,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "F";
             set { }
         }
-        public override int DefaultSpriteId => 903;
+
+        protected override int DefaultSpriteId => 903;
     }
     public class G : Char
     {
@@ -194,7 +222,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "G";
             set { }
         }
-        public override int DefaultSpriteId => 904;
+
+        protected override int DefaultSpriteId => 904;
     }
     public class H : Char
     {
@@ -203,7 +232,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "H";
             set { }
         }
-        public override int DefaultSpriteId => 905;
+
+        protected override int DefaultSpriteId => 905;
     }
     public class I : Char
     {
@@ -212,7 +242,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "I";
             set { }
         }
-        public override int DefaultSpriteId => 906;
+
+        protected override int DefaultSpriteId => 906;
     }
     public class J : Char
     {
@@ -221,7 +252,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "J";
             set { }
         }
-        public override int DefaultSpriteId => 907;
+
+        protected override int DefaultSpriteId => 907;
     }
     public class K : Char
     {
@@ -230,7 +262,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "K";
             set { }
         }
-        public override int DefaultSpriteId => 908;
+
+        protected override int DefaultSpriteId => 908;
     }
     public class L : Char
     {
@@ -239,7 +272,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "L";
             set { }
         }
-        public override int DefaultSpriteId => 909;
+
+        protected override int DefaultSpriteId => 909;
     }
     public class M : Char
     {
@@ -248,7 +282,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "M";
             set { }
         }
-        public override int DefaultSpriteId => 910;
+
+        protected override int DefaultSpriteId => 910;
     }
     public class N : Char
     {
@@ -257,7 +292,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "N";
             set { }
         }
-        public override int DefaultSpriteId => 946;
+
+        protected override int DefaultSpriteId => 946;
     }
     public class O : Char
     {
@@ -266,7 +302,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "O";
             set { }
         }
-        public override int DefaultSpriteId => 947;
+
+        protected override int DefaultSpriteId => 947;
     }
     public class P : Char
     {
@@ -275,7 +312,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "P";
             set { }
         }
-        public override int DefaultSpriteId => 948;
+
+        protected override int DefaultSpriteId => 948;
     }
     public class Q : Char
     {
@@ -284,7 +322,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "Q";
             set { }
         }
-        public override int DefaultSpriteId => 949;
+
+        protected override int DefaultSpriteId => 949;
     }
     public class R : Char
     {
@@ -293,7 +332,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "R";
             set { }
         }
-        public override int DefaultSpriteId => 950;
+
+        protected override int DefaultSpriteId => 950;
     }
     public class S : Char
     {
@@ -302,7 +342,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "S";
             set { }
         }
-        public override int DefaultSpriteId => 951;
+
+        protected override int DefaultSpriteId => 951;
     }
     public class T : Char
     {
@@ -311,7 +352,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "T";
             set { }
         }
-        public override int DefaultSpriteId => 952;
+
+        protected override int DefaultSpriteId => 952;
     }
     public class U : Char
     {
@@ -320,7 +362,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "U";
             set { }
         }
-        public override int DefaultSpriteId => 953;
+
+        protected override int DefaultSpriteId => 953;
     }
     public class V : Char
     {
@@ -329,7 +372,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "V";
             set { }
         }
-        public override int DefaultSpriteId => 954;
+
+        protected override int DefaultSpriteId => 954;
     }
     public class W : Char
     {
@@ -338,7 +382,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "W";
             set { }
         }
-        public override int DefaultSpriteId => 955;
+
+        protected override int DefaultSpriteId => 955;
     }
     public class X : Char
     {
@@ -347,7 +392,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "X";
             set { }
         }
-        public override int DefaultSpriteId => 956;
+
+        protected override int DefaultSpriteId => 956;
     }
     public class Y : Char
     {
@@ -356,7 +402,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "Y";
             set { }
         }
-        public override int DefaultSpriteId => 957;
+
+        protected override int DefaultSpriteId => 957;
     }
     public class Z : Char
     {
@@ -365,7 +412,8 @@ namespace Assets.Source.Actors.CharacterName
             get => "Z";
             set { }
         }
-        public override int DefaultSpriteId => 958;
+
+        protected override int DefaultSpriteId => 958;
     }
 
 }

@@ -8,15 +8,14 @@ namespace Assets.Source.Actors.Static
 {
     public class Money : Actor
     {
-       
-        public override int DefaultSpriteId => 232;
+        protected override int DefaultSpriteId => 232;
         public override string DefaultName
         {
             get => "Money";
             set { }
         }
 
-        public override bool OnCollision(Actor anotherActor)
+        protected override bool OnCollision(Actor anotherActor)
         {
             
             if (anotherActor is Player player)

@@ -4,7 +4,7 @@ namespace DungeonCrawl.Actors.Static
 {
     public class Stair : Actor
     {
-        public override int DefaultSpriteId => 287;
+        protected override int DefaultSpriteId => 287;
         public override string DefaultName
         {
             get => "Stair";
@@ -12,7 +12,8 @@ namespace DungeonCrawl.Actors.Static
         }
 
         public override bool Detectable => true;
-        public override bool OnCollision(Actor anotherActor)
+
+        protected override bool OnCollision(Actor anotherActor)
         {
             if (anotherActor is Player)
             {

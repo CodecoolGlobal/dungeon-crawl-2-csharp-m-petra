@@ -10,7 +10,8 @@ namespace DungeonCrawl.Actors.Characters
         public abstract int Health { get; set; }
         public abstract int Money { get; set; }
         public abstract int Strength { get; set; }
-        public void ApplyDamage(int damage)
+
+        private void ApplyDamage(int damage)
         {
             Sounds("walk");
             Health -= damage;
@@ -24,7 +25,7 @@ namespace DungeonCrawl.Actors.Characters
             }
         }
 
-        public void Figth(Player player)
+        protected void Fight(Player player)
         {
             while (player.Health > 0)
             {
@@ -49,11 +50,10 @@ namespace DungeonCrawl.Actors.Characters
         /// <summary>
         ///     All characters are drawn "above" floor etc
         /// </summary>
-        public override int Z => -1;
+        protected override int Z => -1;
 
-        public async void DeleteDisplay()
+        private async void DeleteDisplay()
         {
-
             await Task.Delay(TimeSpan.FromSeconds(2));
             UserInterface.Singleton.SetText("", UserInterface.TextPosition.TopRight);
         }

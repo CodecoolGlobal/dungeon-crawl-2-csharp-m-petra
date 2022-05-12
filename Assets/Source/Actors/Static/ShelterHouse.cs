@@ -7,15 +7,14 @@ namespace Assets.Source.Actors.Static
 {
     public class ShelterHouse : Actor
     {
-        
-        public override int DefaultSpriteId => 912;
+        protected override int DefaultSpriteId => 912;
         public override string DefaultName
         {
             get => "ShelterHouse";
             set { }
         }
 
-        public override bool OnCollision(Actor anotherActor)
+        protected override bool OnCollision(Actor anotherActor)
         {
             if (anotherActor is Player player)
             {

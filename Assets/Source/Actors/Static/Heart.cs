@@ -7,15 +7,14 @@ namespace Assets.Source.Actors.Static
 {
     public class Heart : Actor
     {
-        
-        public override int DefaultSpriteId => 518;
+        protected override int DefaultSpriteId => 518;
         public override string DefaultName
         {
             get => "Heart";
             set { }
         }
 
-        public override bool OnCollision(Actor anotherActor)
+        protected override bool OnCollision(Actor anotherActor)
         {
             
             if (anotherActor is Player player)

@@ -5,13 +5,14 @@ namespace Assets.Source.Actors.Static
 {
     public class RedWall : Actor
     {
-        public override int DefaultSpriteId => 564;
+        protected override int DefaultSpriteId => 564;
         public override string DefaultName
         {
             get => "RedWall";
             set { }
         }
-        public override bool OnCollision(Actor anotherActor)
+
+        protected override bool OnCollision(Actor anotherActor)
         {
             if (anotherActor is Player player)
             {

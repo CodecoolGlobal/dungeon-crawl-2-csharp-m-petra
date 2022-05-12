@@ -4,14 +4,14 @@ namespace DungeonCrawl.Actors.Static
 {
     public class Wall : Actor
     {
-        public override int DefaultSpriteId => 825;
+        protected override int DefaultSpriteId => 825;
         public override string DefaultName
         {
             get => "Wall";
             set { }
         }
 
-        public override bool OnCollision(Actor anotherActor)
+        protected override bool OnCollision(Actor anotherActor)
         {
             if (anotherActor is Player player)
             {

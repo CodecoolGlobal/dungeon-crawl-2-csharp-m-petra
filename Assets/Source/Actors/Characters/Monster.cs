@@ -4,11 +4,11 @@ namespace DungeonCrawl.Actors.Characters
 {
     internal class Monster : Character
     {
-        public override bool OnCollision(Actor anotherActor)
+        protected override bool OnCollision(Actor anotherActor)
         {
             if (anotherActor is Player player)
             {
-                Figth(player);
+                Fight(player);
                 return true;
             }
             return false;
@@ -19,7 +19,7 @@ namespace DungeonCrawl.Actors.Characters
             Debug.Log("Well, I am monster...");
         }
 
-        public override int DefaultSpriteId => 317;
+        protected override int DefaultSpriteId => 317;
         public override string DefaultName
         {
             get => "Monster";

@@ -4,7 +4,7 @@ namespace DungeonCrawl.Actors.Characters
 {
     internal class Ghost : Character
     {
-        public override int DefaultSpriteId => 314;
+        protected override int DefaultSpriteId => 314;
         public override string DefaultName
         {
             get => "Ghost";
@@ -15,11 +15,11 @@ namespace DungeonCrawl.Actors.Characters
         public override int Strength { get; set; } = 3;
         public override int Money { get; set; }
 
-        public override bool OnCollision(Actor anotherActor)
+        protected override bool OnCollision(Actor anotherActor)
         {
             if (anotherActor is Player player)
             {
-                Figth(player);
+                Fight(player);
 
                 return true;
             }
@@ -60,6 +60,6 @@ namespace DungeonCrawl.Actors.Characters
         }
 
         private float nextActionTime = 0.0f;
-        public float period = 0.7f;
+        private float period = 0.7f;
     }
 }
