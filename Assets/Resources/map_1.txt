@@ -1,14 +1,14 @@
 55 20
 HHHHHHHHHHHHH            bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-H-----g---t-H    HHHHHHHH,,,,,,,,,,,,r,,,,,,,,,,,,,c,,b
+H---------t-H    HHHHHHHH,,,,,,,,,,,,r,,,,,,,,,,,,,c,,b
 H--s--------HHHHHH-o----H,,,,,f,,,c,,r,,,,,,b,,,,h,,,,b
 H--------s------------t-H,,,b,,,,,,,,r,,,c,,,,,,,i,,,,b
 H----t------HHHHHH---m--H,,,,,,rrrrrrr,,,,,,,,,,,i,c,,b
-H-g---------H    H------H,,,,,,r,,b,,,,,b,,,,hiiii,,,,b
+H-----------H    H------H,,,,,,r,,b,,,,,b,,,,hiiii,,,,b
 H---s----t--H    H------H,c,,,,r,,,,,,,,,,,,,,,,,i,f,,b
-H----------gH    Ht-----H,,,,,,r,,h,,,,iiih,,b,,,i,,,,b
+H-----------H    Ht-----H,,,,,,r,,h,,,,iiih,,b,,,i,,,,b
 HHHHH--HHHHHH    H-o----HHH,,,,r,,i,,,,i,,,,,,,,,i,,,,b
-    H--H         H--------Hffffr,,i,,,,iiiiiiiiiiiih,,b
+    H--H         H--------Hffffr,,i,,,,iiiiiiiiiiii5,,b
     H--H         H--------aiiiiuiiiiiiiih,,,,,c,,,b,,,b
     H--H         H------t-Hffffr,,,,,,,i,,,,,,,,,,,,,,b
   HHH--HHHH      H-t----HHH,,,,r,,,c,,,iiiiiih,,,f,,,,b                              

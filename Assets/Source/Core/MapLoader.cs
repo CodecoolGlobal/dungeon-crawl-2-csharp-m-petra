@@ -180,6 +180,9 @@ namespace DungeonCrawl.Core
                 case '4':
                     ActorManager.Singleton.Spawn<SideWalk2>(position);
                     break;
+                case '5':
+                    ActorManager.Singleton.Spawn<ShelterHouse>(position);
+                    break;
                 case ' ':
                     break;
                 default:
