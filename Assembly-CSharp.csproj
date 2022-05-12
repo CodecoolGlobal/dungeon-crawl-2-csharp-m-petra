@@ -8,8 +8,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{4851A34D-435D-4540-B87A-67CBD4070B66}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -54,7 +53,6 @@
     <UnityVersion>2021.1.24f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Source\Actors\CaracterName\B.cs" />
     <Compile Include="Assets\Source\Actors\Static\Items\Key.cs" />
     <Compile Include="Assets\Source\Actors\Static\Wall.cs" />
     <Compile Include="Assets\Source\Actors\Static\OpenDoor.cs" />
@@ -96,7 +94,7 @@
     <Compile Include="Assets\Source\Actors\Static\SideWalk2.cs" />
     <Compile Include="Assets\Source\Core\ActorManager.cs" />
     <Compile Include="Assets\Source\Actors\Static\River.cs" />
-    <Compile Include="Assets\Source\Actors\CaracterName\A.cs" />
+    <Compile Include="Assets\Source\Actors\CaracterName\Abc.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
