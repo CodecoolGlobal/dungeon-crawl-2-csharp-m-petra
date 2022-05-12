@@ -78,9 +78,9 @@ namespace DungeonCrawl.Actors.Characters
         protected override void OnDeath()
         {
             Debug.Log("Oh no, I'm dead!");
-           
+
             DisplayHealth(true);
-            
+
         }
 
         public override int DefaultSpriteId => 24;
@@ -93,6 +93,7 @@ namespace DungeonCrawl.Actors.Characters
         public void DisplayHealth(bool death)
         {
             var message = death ? "You died" : $"Health: {Health}";
+            UserInterface.Singleton.SetText("", UserInterface.TextPosition.TopCenter);
             UserInterface.Singleton.SetText(message, UserInterface.TextPosition.TopCenter);
         }
 

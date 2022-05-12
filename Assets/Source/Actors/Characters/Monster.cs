@@ -13,7 +13,6 @@ namespace DungeonCrawl.Actors.Characters
 
                 return true;
             }
-
             return false;
         }
 
@@ -21,6 +20,8 @@ namespace DungeonCrawl.Actors.Characters
         {
             Debug.Log("Well, I am monster...");
         }
+
+
 
         public override int DefaultSpriteId => 317;
 

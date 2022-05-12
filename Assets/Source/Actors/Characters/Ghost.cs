@@ -62,6 +62,7 @@ namespace DungeonCrawl.Actors.Characters
             //OnUpdate(Time.deltaTime * 1000);
         }
 
+
         private float nextActionTime = 0.0f;
         public float period = 0.7f;
     }

@@ -21,11 +21,8 @@ namespace DungeonCrawl.Actors.Characters
             if (anotherActor is Player player)
             {
                 Figth(player);
-
                 return true;
             }
-
-
             return false;
         }
 
@@ -69,6 +66,8 @@ namespace DungeonCrawl.Actors.Characters
             //OnUpdate(Time.deltaTime * 0.2f);
             //OnUpdate(Time.deltaTime * 1000);
         }
+
+
 
         private float nextActionTime = 0.0f;
         public float period = 0.7f;
