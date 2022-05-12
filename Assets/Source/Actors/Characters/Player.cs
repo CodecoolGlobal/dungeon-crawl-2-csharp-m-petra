@@ -1,47 +1,89 @@
+
+﻿using System;
+ using UnityEditor.PackageManager;
+using UnityEditorInternal;
 using Assets.Source.Actors.Static;
 using Assets.Source.Core;
 using DungeonCrawl.Actors.Static;
 using DungeonCrawl.Core;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
+ using System.Runtime.CompilerServices;
+ using UnityEngine;
 
 namespace DungeonCrawl.Actors.Characters
 {
+  
+    
     public class Player : Character
 
     {
+
+        //public static AudioClip stepSound;
+        //public static AudioSource audioSrc;
+
+        public  void Sounds(string fileName)
+        {
+            AudioSource audio = GetComponent<AudioSource>();
+            if (audio == null) audio= gameObject.AddComponent<AudioSource>();
+
+           audio.clip = Resources.Load<AudioClip>(fileName);
+           audio.Play();
+            
+
+        }
+
+        //[SerializeField] private AudioSource stepSoundeffect;
+
         public int GateCount = 0;
+
         public List<Item> Inventory = new List<Item>();
 
         protected override void OnUpdate(float deltaTime)
         {
+            
             if (Input.GetKeyDown(KeyCode.W))
             {
+                
+               Sounds("try");
+                
+                
                 // Move up
                 TryMove(Direction.Up);
+                //stepSoundeffect.Play();
+
             }
 
             if (Input.GetKeyDown(KeyCode.S))
             {
+                Sounds("try");
+
                 // Move down
                 TryMove(Direction.Down);
+                /*stepSoundeffect.Play()*/;
+                //var audioSource = GetComponent<AudioSource>();
+                //audioSource.Play();
             }
 
             if (Input.GetKeyDown(KeyCode.A))
             {
+                Sounds("try");
                 // Move left
                 TryMove(Direction.Left);
+                //stepSoundeffect.Play();
             }
 
             if (Input.GetKeyDown(KeyCode.D))
             {
+                Sounds("try");
                 // Move right
                 TryMove(Direction.Right);
+                //stepSoundeffect.Play();
             }
 
             if (Input.GetKeyDown(KeyCode.E))
             {
+                Sounds("pickUp");
                 var item = ActorManager.Singleton.GetActorAt<Item>(this.Position);
                 if (item != null)
                 {

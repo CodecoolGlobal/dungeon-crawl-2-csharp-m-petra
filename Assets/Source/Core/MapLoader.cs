@@ -36,6 +36,7 @@ namespace DungeonCrawl.Core
                     var character = line[x];
                     if (character == 'p')
                     {
+
                         if (oldPlayer == null)
                         {
                             player = ActorManager.Singleton.Spawn<Player>((x, -y));
