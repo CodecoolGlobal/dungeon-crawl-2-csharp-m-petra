@@ -17,11 +17,8 @@ namespace DungeonCrawl.Core
         }
         private void WelcomeScreen()
         {
-
             CameraController.Singleton.Position = (0, 0);
             LoadWelcomeTable();
-            //UserInterface.Singleton.SetText("valami", UserInterface.TextPosition.MiddleCenter);
-
         }
         public static void LoadWelcomeTable()
         {

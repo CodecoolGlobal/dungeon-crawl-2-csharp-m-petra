@@ -16,6 +16,7 @@ namespace DungeonCrawl.Actors.Characters
 
         public override int Health { get; set; } = 30;
         public override int Strength { get; set; } = 3;
+        public override int Money { get; set; }
 
         public override bool OnCollision(Actor anotherActor)
         {
@@ -61,6 +62,7 @@ namespace DungeonCrawl.Actors.Characters
             //OnUpdate(Time.deltaTime * 0.2f);
             //OnUpdate(Time.deltaTime * 1000);
         }
+
 
         private float nextActionTime = 0.0f;
         public float period = 0.7f;

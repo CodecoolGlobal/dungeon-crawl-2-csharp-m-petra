@@ -7,7 +7,7 @@ namespace Assets.Source.Actors.Static
         public override int DefaultSpriteId => 667;
         public override string DefaultName
         {
-            get => "Bridge";
+            get => "SideWalk2";
             set { }
         }
     }

@@ -1,20 +1,20 @@
 96 19
 #############                                                                                   
 #iitiiiiisii################################################################################### 
-#iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii#........s......1.........q...............o......2..# 
-#isiii......................iiiiiitii1iiii#...................................................# 
-#iiiii.iiiii######iiiiiiiii.iii1iiiiiiitii#...........s..........................s............# 
-#iiiii.iiiii#    #iiiiiiiii.iiiiiiiiiiiiii#...1..............s...........s................1...# 
-#itiii.iitii#    #iiqiiiiii............iii#..........................................s........# 
-#iiiii.iiiii#    #iiii2iiiiiiiiiiiiiii.iii#........q....2.......o.............................# 
-#####i.i#####    #iitiiiigiiiiitiiiiii.iii#........................#########################..# 
-    #i.i#        #####################.###########################TTTTTTTT44444TTTTTTTTTT###.###
-    #i.i#        #.iiiiiii.iiiiiii.#TT.............TT.........TTT#TTT1TTTT4TTT4TTTTT1TTTT#.....#
-  ###...###      #.iniiini.iininii.#TTTTTTTTTTTTTT....TTTTTTT.TTT#TTTTTTTT4TkT4TTTTTTTTTT#.....#
-  #.......#      #.iininii.iiiiiii.#T..........TTTTTTTT...TTT.TTT#TTT1TTTT4TTT4TTTTT1TTTT#.....#
-  #.1.....#      #.iniiini............TTTTTTTT..........T.....TTT#TTTTTTTT44444TTTTTTTTTT#.....#
+#iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii#.....?................#iiiii.............o......2.?# 
+#isiii......................iiiiiitii1iiii#.TTTTTTTTTTTTTTTT.TT..#iiyii.......................# 
+#iiiii.iiiii######iiiiiiiii.iii1iiiiii........T...........TT.TT..#iiiii..........s............# 
+#iiiii.iiiii#    #iiiiiiiii.iiiiiiiiii.iii#.T...TT.TT.T.T.TT.TT..#.......s................1...# 
+#iyiii.iitii#    #iiqiiiiii............iii#.TTTT2T....T.T..y.TT..#...................s........# 
+#iiiii.iiiii#    #iiii2iiiiiiiiiiiiiiiiiii#TTqTTTT.TTdT...TTTTT..#............q...............# 
+#####i.i#####    #iitiiiigiiiiitiiiiiiiiii#........TTdTTTT.......#.#########################..# 
+    #i.i#        ##########################.TTTTTTTTTdTTTTTTTTT..#.TTTTTTT44444TTTTTTTTTT###.###
+    #i.i#        #.iiiiiii.iiiiiii.#Tq2TTTT........TT.........T.T#.TT1TTTT4TTT4TTTTT1TTTT#.....#
+  ###...###      #.iniiini.iininii.#TTTTTTTTTTTTTT....TTTTTTT.T.T#........4.kT4TTTTTTTTTT#.....#
+  #.......#      #.iininii.iiiiiii.#T..........TTTTTTTT...TTT.TT.#TTT1TTTT4TTT4TTTTT1TTTT#.....#
+  #.1.....#      #.iniiini............TTTTTTTT..........T........#TTTTTTTT44444TTTTTTTTTT#.....#
   #.......#      #.iininii.iiiiiii.#######################################################.#####
   #.......#      #.iniiini.iininii.#ttttttttttttttttttttttttttttttttttttttttttttttttttttt...ttt#
   #....1..#      #.iininii.iiiiiii.......s.....s......s......s.....s.....s......s.....s.....ttt#
-  #.p.....#      #s...............s#ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt#
+  #.p.....#      #s..?............s#ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt#
   ##d######      ############################################################################### 

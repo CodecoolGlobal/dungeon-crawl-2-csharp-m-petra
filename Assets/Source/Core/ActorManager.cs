@@ -12,6 +12,7 @@ namespace DungeonCrawl.Core
     /// </summary>
     public class ActorManager : MonoBehaviour
     {
+        //public AudioSource AudioSource;
         /// <summary>
         ///     ActorManager singleton
         /// </summary>

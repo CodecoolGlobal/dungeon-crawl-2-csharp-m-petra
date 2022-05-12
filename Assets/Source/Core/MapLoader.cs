@@ -36,12 +36,15 @@ namespace DungeonCrawl.Core
                     var character = line[x];
                     if (character == 'p')
                     {
+
                         if (oldPlayer == null)
                         {
                             player = ActorManager.Singleton.Spawn<Player>((x, -y));
                             player.Name = name;
                             CameraController.Singleton.Position = (x, -y);
                             UserInterface.Singleton.SetText("Inventory:", UserInterface.TextPosition.TopLeft);
+                            player.DisplayHealth(false);
+                            UserInterface.Singleton.SetText($"Money: {player.Money} $", UserInterface.TextPosition.BottomCenter);
                         }
                         else
                         {
@@ -175,9 +178,23 @@ namespace DungeonCrawl.Core
                     ActorManager.Singleton.Spawn<Web>(position);
                     break;
                 case 'T':
+                    ActorManager.Singleton.Spawn<FenceHor>(position);
                     break;
                 case '4':
                     ActorManager.Singleton.Spawn<SideWalk2>(position);
+                    break;
+                case '5':
+                    ActorManager.Singleton.Spawn<ShelterHouse>(position);
+                    break;
+                case 'y':
+                    ActorManager.Singleton.Spawn<SideWalk>(position);
+                    ActorManager.Singleton.Spawn<Money>(position);
+                    
+                    break;
+                case '?':
+                    ActorManager.Singleton.Spawn<Floor>(position);
+                    ActorManager.Singleton.Spawn<Heart>(position);
+                    
                     break;
                 case ' ':
                     break;
