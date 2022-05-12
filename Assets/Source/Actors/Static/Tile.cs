@@ -10,9 +10,5 @@ namespace Assets.Source.Actors.Static
             get => "Tile";
             set { }
         }
-        public override bool OnCollision(Actor anotherActor)
-        {
-            return true;
-        }
     }
 }

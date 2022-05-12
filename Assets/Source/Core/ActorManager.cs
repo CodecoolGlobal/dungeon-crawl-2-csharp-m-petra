@@ -45,7 +45,6 @@ namespace DungeonCrawl.Core
             return _allActors.FirstOrDefault(actor => actor.Detectable && actor.Position == position);
         }
 
-
         public Actor GetActorForDrawMap((int x, int y) position)
         {
             var actor = _allActors.FirstOrDefault(actor => actor.Detectable && actor.Position == position);
@@ -84,13 +83,11 @@ namespace DungeonCrawl.Core
         public void DestroyAllActors()
         {
             var actors = _allActors.ToArray();
-
             foreach (var actor in actors)
             {
                 if (actor is Player) continue;
                 DestroyActor(actor);
             }
-
         }
 
         /// <summary>
@@ -137,7 +134,5 @@ namespace DungeonCrawl.Core
 
             return component;
         }
-
-
     }
 }

@@ -1,4 +1,5 @@
 ﻿using DungeonCrawl.Actors;
+
 namespace Assets.Source.Actors.Static
 {
     public class Labirynth : Actor
@@ -9,10 +10,5 @@ namespace Assets.Source.Actors.Static
             get => "Labirynth";
             set { }
         }
-        public override bool OnCollision(Actor anotherActor)
-        {
-            return true;
-        }
     }
-
 }

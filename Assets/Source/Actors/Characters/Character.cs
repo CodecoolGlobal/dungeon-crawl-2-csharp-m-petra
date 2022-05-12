@@ -24,7 +24,6 @@ namespace DungeonCrawl.Actors.Characters
             }
         }
 
-
         public void Figth(Player player)
         {
             while (player.Health > 0)
@@ -32,7 +31,7 @@ namespace DungeonCrawl.Actors.Characters
 
                 ApplyDamage(player.Strength);
 
-                player.DisplayHealth(false);
+                player.DisplayHealth();
 
                 if (this.Health <= 0)
                 {
@@ -58,8 +57,5 @@ namespace DungeonCrawl.Actors.Characters
             await Task.Delay(TimeSpan.FromSeconds(2));
             UserInterface.Singleton.SetText("", UserInterface.TextPosition.TopRight);
         }
-
     }
-
 }
-

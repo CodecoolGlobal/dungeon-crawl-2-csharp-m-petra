@@ -1,7 +1,7 @@
 ﻿using DungeonCrawl.Actors;
+
 namespace Assets.Source.Actors.Static
 {
-
     public class River : Actor
     {
         public override int DefaultSpriteId => 247;
@@ -9,11 +9,6 @@ namespace Assets.Source.Actors.Static
         {
             get => "River";
             set { }
-        }
-
-        public override bool OnCollision(Actor anotherActor)
-        {
-            return true;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using DungeonCrawl.Actors;
+using DungeonCrawl.Actors.Characters;
 
 namespace Assets.Source.Actors.Static
 {
@@ -12,6 +13,19 @@ namespace Assets.Source.Actors.Static
         }
         public override bool OnCollision(Actor anotherActor)
         {
+            if (anotherActor is Player player)
+            {
+                switch (player.Name)
+                {
+                    case "ELMAZ":
+                    case "PETRA":
+                    case "BALINT":
+                    case "BENCE":
+                    case "KRISZ":
+                    case "MATYI":
+                        return true;
+                }
+            }
             return false;
         }
     }

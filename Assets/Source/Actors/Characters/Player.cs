@@ -1,23 +1,16 @@
-
-﻿using System;
- using UnityEditor.PackageManager;
-using UnityEditorInternal;
 using Assets.Source.Actors.Static;
 using Assets.Source.Core;
 using DungeonCrawl.Actors.Static;
 using DungeonCrawl.Core;
 using System.Collections.Generic;
 using System.Linq;
- using System.Runtime.CompilerServices;
- using UnityEngine;
+using UnityEngine;
 
 namespace DungeonCrawl.Actors.Characters
 {
-  
-    
     public class Player : Character
-
     {
+        public string Name { get; set; }
 
         //public static AudioClip stepSound;
         //public static AudioSource audioSrc;
@@ -26,19 +19,15 @@ namespace DungeonCrawl.Actors.Characters
 
         //[SerializeField] private AudioSource stepSoundeffect;
 
-        public int GateCount = 0;
-
         public List<Item> Inventory = new List<Item>();
 
         protected override void OnUpdate(float deltaTime)
         {
-            
+
             if (Input.GetKeyDown(KeyCode.W))
             {
-                
-               Sounds("try");
-                
-                
+                Sounds("try");
+
                 // Move up
                 TryMove(Direction.Up);
                 //stepSoundeffect.Play();
@@ -83,9 +72,7 @@ namespace DungeonCrawl.Actors.Characters
                 if (item != null)
                 {
                     UserInterface.Singleton.SetText("", UserInterface.TextPosition.BottomRight);
-
                     Inventory.Add(item);
-
                     DisplayInventory();
 
                     // Having a weapon increases attack strength.
@@ -95,7 +82,6 @@ namespace DungeonCrawl.Actors.Characters
                     }
 
                     ActorManager.Singleton.DestroyActor(item);
-
                 }
             }
         }
@@ -103,7 +89,6 @@ namespace DungeonCrawl.Actors.Characters
         private void DisplayInventory()
         {
             var inventoryDisplay = Inventory.Aggregate("Inventory:\n", (current, invItem) => current + $"{invItem.DefaultName}\n");
-
             UserInterface.Singleton.SetText(inventoryDisplay, UserInterface.TextPosition.TopLeft);
         }
 
@@ -115,9 +100,7 @@ namespace DungeonCrawl.Actors.Characters
         protected override void OnDeath()
         {
             Debug.Log("Oh no, I'm dead!");
-
-            DisplayHealth(true);
-
+            DisplayHealth();
         }
 
         public override int DefaultSpriteId => 24;
@@ -127,16 +110,14 @@ namespace DungeonCrawl.Actors.Characters
             set { }
         }
 
-        public void DisplayHealth(bool death)
+        public void DisplayHealth()
         {
-            var message = death ? "You died" : $"Health: {Health}";
-            UserInterface.Singleton.SetText("", UserInterface.TextPosition.TopCenter);
+            var message = Health <= 0 ? "You died" : $"{Name} Health: {Health} ";
             UserInterface.Singleton.SetText(message, UserInterface.TextPosition.TopCenter);
         }
 
         public override int Health { get; set; } = 50;
         public override int Strength { get; set; } = 5;
         public override int Money { get; set; } = 0;
-
     }
 }

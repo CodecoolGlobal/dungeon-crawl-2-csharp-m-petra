@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Assets.Source.Core;
-using DungeonCrawl.Actors;
+﻿using DungeonCrawl.Actors;
 using DungeonCrawl.Actors.Characters;
 using DungeonCrawl.Core;
 using UnityEngine;
-
 
 namespace Assets.Source.Actors.Static
 {
@@ -30,7 +23,7 @@ namespace Assets.Source.Actors.Static
               
                 player.Sounds("pickUp");
                 player.Health += 5;
-                player.DisplayHealth(false);
+                player.DisplayHealth();
                 ActorManager.Singleton.DestroyActor(this);
                
             }
@@ -38,5 +31,4 @@ namespace Assets.Source.Actors.Static
             return true;
         }
     }
-
 }

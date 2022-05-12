@@ -1,4 +1,5 @@
 ﻿using DungeonCrawl.Actors;
+
 namespace Assets.Source.Actors.Static
 {
     public class Grass : Actor
@@ -8,11 +9,6 @@ namespace Assets.Source.Actors.Static
         {
             get => "Grass";
             set { }
-        }
-
-        public override bool OnCollision(Actor anotherActor)
-        {
-            return true;
         }
     }
 }

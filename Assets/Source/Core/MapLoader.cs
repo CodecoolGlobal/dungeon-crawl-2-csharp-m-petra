@@ -18,7 +18,7 @@ namespace DungeonCrawl.Core
         ///     Constructs map from txt file and spawns actors at appropriate positions
         /// </summary>
         /// <param name="id"></param>
-        public static void LoadMap(int id, Player oldPlayer = null)
+        public static void LoadMap(int id, Player oldPlayer = null, string name = null)
         {
             var lines = Regex.Split(Resources.Load<TextAsset>($"map_{id}").text, "\r\n|\r|\n");
 
@@ -36,13 +36,13 @@ namespace DungeonCrawl.Core
                     var character = line[x];
                     if (character == 'p')
                     {
-
                         if (oldPlayer == null)
                         {
                             player = ActorManager.Singleton.Spawn<Player>((x, -y));
+                            player.Name = name;
                             CameraController.Singleton.Position = (x, -y);
                             UserInterface.Singleton.SetText("Inventory:", UserInterface.TextPosition.TopLeft);
-                            player.DisplayHealth(false);
+                            player.DisplayHealth();
                             UserInterface.Singleton.SetText($"Money: {player.Money} $", UserInterface.TextPosition.BottomCenter);
                         }
                         else
@@ -60,10 +60,9 @@ namespace DungeonCrawl.Core
                             player.Inventory = oldPlayer.Inventory;
                             player.Strength = oldPlayer.Strength;
                             player.Health = oldPlayer.Health;
-                            player.GateCount = oldPlayer.GateCount;
+                            player.Name = oldPlayer.Name;
                             ActorManager.Singleton.DestroyActor(oldPlayer);
                         }
-
                         CameraController.Singleton.Size = 10;
                         ActorManager.Singleton.Spawn<Floor>((x, -y));
                     }
@@ -77,7 +76,6 @@ namespace DungeonCrawl.Core
                 for (var x = 0; x < width; x++)
                 {
                     var character = line[x];
-
                     SpawnActor(character, (x, -y), player);
                 }
             }
@@ -188,12 +186,10 @@ namespace DungeonCrawl.Core
                 case 'y':
                     ActorManager.Singleton.Spawn<SideWalk>(position);
                     ActorManager.Singleton.Spawn<Money>(position);
-                    
                     break;
                 case '?':
                     ActorManager.Singleton.Spawn<Floor>(position);
                     ActorManager.Singleton.Spawn<Heart>(position);
-                    
                     break;
                 case ' ':
                     break;
@@ -201,7 +197,6 @@ namespace DungeonCrawl.Core
                     throw new ArgumentOutOfRangeException();
             }
         }
-
 
         public static char ReverseSwitch(Actor actor) =>
             actor is null
@@ -228,12 +223,10 @@ namespace DungeonCrawl.Core
                     _ => '?'
                 };
 
-
         public static void DrawInFile(int id)
         {
             var width = 0;
             var height = 0;
-
             if (id == 3)
             {
                 width = 25;
@@ -247,7 +240,6 @@ namespace DungeonCrawl.Core
             var Map = $"{width} {height}\n";
             for (var y = 0; y < height; y++)
             {
-
                 for (var x = 0; x < width; x++)
                 {
                     Map += $"{ReverseSwitch(ActorManager.Singleton.GetActorForDrawMap((x, -y)))}";
@@ -255,9 +247,7 @@ namespace DungeonCrawl.Core
                 }
                 Map += "\n";
             }
-            //File.WriteAllText(@$"C:\Users\kissb\Desktop\Codecool_OOP\dungeon-crawl-1-csharp-Elmaz-Doszaki\Assets\Resources\map_{id}.txt", Map);
-
+            // File.WriteAllText(@$"C:\Users\kissb\Desktop\Codecool_OOP\dungeon-crawl-1-csharp-Elmaz-Doszaki\Assets\Resources\map_{id}.txt", Map);
         }
-
     }
 }
