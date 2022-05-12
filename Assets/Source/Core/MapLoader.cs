@@ -37,7 +37,7 @@ namespace DungeonCrawl.Core
 
                     if (character == 'p')
                     {
-
+                        
                         player = ActorManager.Singleton.Spawn<Player>((x, -y));
                         CameraController.Singleton.Size = 10;
                         CameraController.Singleton.Position = (x, -y+1);

@@ -7,9 +7,14 @@ namespace DungeonCrawl.Core
     /// </summary>
     public class GameManager : MonoBehaviour
     {
+        
+        
         private void Start()
         {
             MapLoader.LoadMap(1);
+            
         }
+
+
     }
 }
