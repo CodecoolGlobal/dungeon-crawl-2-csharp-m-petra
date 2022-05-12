@@ -17,7 +17,6 @@ namespace Assets.Source.Actors.Static
 
         public override bool OnCollision(Actor anotherActor)
         {
-            //TODO if inventory contains a key
             if (anotherActor is Player player)
             {
                 if (player.Inventory.Any(x => x is Key))

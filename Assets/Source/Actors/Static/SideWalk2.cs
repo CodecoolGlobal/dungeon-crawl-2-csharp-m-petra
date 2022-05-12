@@ -2,7 +2,6 @@
 
 namespace Assets.Source.Actors.Static
 {
-
     public class SideWalk2 : Actor
     {
         public override int DefaultSpriteId => 667;
@@ -11,10 +10,5 @@ namespace Assets.Source.Actors.Static
             get => "Bridge";
             set { }
         }
-        public override bool OnCollision(Actor anotherActor)
-        {
-            return true;
-        }
     }
-
 }

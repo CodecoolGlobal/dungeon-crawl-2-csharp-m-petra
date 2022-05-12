@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DungeonCrawl.Actors;
+﻿using DungeonCrawl.Actors;
 
 namespace Assets.Source.Actors.CaracterName
 {
-    public class Enter : Actor
+    public class Char : Actor
+    {
+        public override int DefaultSpriteId { get; }
+        public override string DefaultName { get; set; }
+    }
+    public class Enter : Char
     {
         public override string DefaultName
         {
@@ -16,7 +16,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 981;
     }
-    public class BackSpace : Actor
+    public class BackSpace : Char
     {
         public override string DefaultName
         {
@@ -25,7 +25,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 990;
     }
-    public class Empty : Actor
+    public class Empty : Char
     {
         public override string DefaultName
         {
@@ -34,7 +34,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 1029;
     }
-    public class Hyphen : Actor
+    public class Hyphen : Char
     {
         public override string DefaultName
         {
@@ -43,7 +43,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 996;
     }
-    public class Zero : Actor
+    public class Zero : Char
     {
         public override string DefaultName
         {
@@ -52,7 +52,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 850;
     }
-    public class One : Actor
+    public class One : Char
     {
         public override string DefaultName
         {
@@ -61,7 +61,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 851;
     }
-    public class Two : Actor
+    public class Two : Char
     {
         public override string DefaultName
         {
@@ -70,7 +70,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 852;
     }
-    public class Three : Actor
+    public class Three : Char
     {
         public override string DefaultName
         {
@@ -79,7 +79,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 853;
     }
-    public class Four : Actor
+    public class Four : Char
     {
         public override string DefaultName
         {
@@ -88,7 +88,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 854;
     }
-    public class Five : Actor
+    public class Five : Char
     {
         public override string DefaultName
         {
@@ -97,7 +97,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 855;
     }
-    public class Six : Actor
+    public class Six : Char
     {
         public override string DefaultName
         {
@@ -106,7 +106,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 856;
     }
-    public class Seven : Actor
+    public class Seven : Char
     {
         public override string DefaultName
         {
@@ -115,7 +115,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 857;
     }
-    public class Eight : Actor
+    public class Eight : Char
     {
         public override string DefaultName
         {
@@ -124,7 +124,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 858;
     }
-    public class Nine : Actor
+    public class Nine : Char
     {
         public override string DefaultName
         {
@@ -133,7 +133,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 859;
     }
-    public class A : Actor
+    public class A : Char
     {
         public override string DefaultName
         {
@@ -142,7 +142,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 898;
     }
-    public class B : Actor
+    public class B : Char
     {
         public override string DefaultName
         {
@@ -151,7 +151,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 899;
     }
-    public class C : Actor
+    public class C : Char
     {
         public override string DefaultName
         {
@@ -160,7 +160,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 900;
     }
-    public class D : Actor
+    public class D : Char
     {
         public override string DefaultName
         {
@@ -169,7 +169,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 901;
     }
-    public class E : Actor
+    public class E : Char
     {
         public override string DefaultName
         {
@@ -178,7 +178,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 902;
     }
-    public class F : Actor
+    public class F : Char
     {
         public override string DefaultName
         {
@@ -187,7 +187,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 903;
     }
-    public class G : Actor
+    public class G : Char
     {
         public override string DefaultName
         {
@@ -196,7 +196,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 904;
     }
-    public class H : Actor
+    public class H : Char
     {
         public override string DefaultName
         {
@@ -205,7 +205,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 905;
     }
-    public class I : Actor
+    public class I : Char
     {
         public override string DefaultName
         {
@@ -214,7 +214,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 906;
     }
-    public class J : Actor
+    public class J : Char
     {
         public override string DefaultName
         {
@@ -223,7 +223,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 907;
     }
-    public class K : Actor
+    public class K : Char
     {
         public override string DefaultName
         {
@@ -232,7 +232,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 908;
     }
-    public class L : Actor
+    public class L : Char
     {
         public override string DefaultName
         {
@@ -241,7 +241,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 909;
     }
-    public class M : Actor
+    public class M : Char
     {
         public override string DefaultName
         {
@@ -250,7 +250,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 910;
     }
-    public class N : Actor
+    public class N : Char
     {
         public override string DefaultName
         {
@@ -259,7 +259,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 946;
     }
-    public class O : Actor
+    public class O : Char
     {
         public override string DefaultName
         {
@@ -268,7 +268,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 947;
     }
-    public class P : Actor
+    public class P : Char
     {
         public override string DefaultName
         {
@@ -277,7 +277,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 948;
     }
-    public class Q : Actor
+    public class Q : Char
     {
         public override string DefaultName
         {
@@ -286,7 +286,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 949;
     }
-    public class R : Actor
+    public class R : Char
     {
         public override string DefaultName
         {
@@ -295,7 +295,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 950;
     }
-    public class S : Actor
+    public class S : Char
     {
         public override string DefaultName
         {
@@ -304,7 +304,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 951;
     }
-    public class T : Actor
+    public class T : Char
     {
         public override string DefaultName
         {
@@ -313,7 +313,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 952;
     }
-    public class U : Actor
+    public class U : Char
     {
         public override string DefaultName
         {
@@ -322,7 +322,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 953;
     }
-    public class V : Actor
+    public class V : Char
     {
         public override string DefaultName
         {
@@ -331,7 +331,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 954;
     }
-    public class W : Actor
+    public class W : Char
     {
         public override string DefaultName
         {
@@ -340,7 +340,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 955;
     }
-    public class X : Actor
+    public class X : Char
     {
         public override string DefaultName
         {
@@ -349,7 +349,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 956;
     }
-    public class Y : Actor
+    public class Y : Char
     {
         public override string DefaultName
         {
@@ -358,7 +358,7 @@ namespace Assets.Source.Actors.CaracterName
         }
         public override int DefaultSpriteId => 957;
     }
-    public class Z : Actor
+    public class Z : Char
     {
         public override string DefaultName
         {

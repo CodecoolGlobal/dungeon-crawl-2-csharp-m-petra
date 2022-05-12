@@ -2,7 +2,6 @@
 
 namespace Assets.Source.Actors.Static
 {
-
     public class Skull : Actor
     {
         public override int DefaultSpriteId => 720;
@@ -11,10 +10,5 @@ namespace Assets.Source.Actors.Static
             get => "Skull";
             set { }
         }
-        public override bool OnCollision(Actor anotherActor)
-        {
-            return true;
-        }
     }
-
 }

@@ -1,7 +1,8 @@
-﻿using System;
+﻿using Assets.Source.Actors.CaracterName;
+using System;
 using System.Text.RegularExpressions;
-using Assets.Source.Actors.CaracterName;
 using UnityEngine;
+using Cursor = Assets.Source.Actors.CaracterName.Cursor;
 
 namespace DungeonCrawl.Core
 {
@@ -13,7 +14,6 @@ namespace DungeonCrawl.Core
         private void Start()
         {
             WelcomeScreen();
-            //MapLoader.LoadMap(1);
         }
         private void WelcomeScreen()
         {
@@ -26,7 +26,7 @@ namespace DungeonCrawl.Core
         public static void LoadWelcomeTable()
         {
             var Chars = Regex.Split(Resources.Load<TextAsset>("characters").text, "\r\n|\r|\n");
-            
+
             var heigth = 9;
             var width = 5;
 
@@ -37,17 +37,17 @@ namespace DungeonCrawl.Core
                 {
                     var character = line[x];
                     SpawnTable(character, (x, -y));
-                    CameraController.Singleton.Position = (x, -y);
                 }
             }
         }
 
         private static void SpawnTable(char c, (int x, int y) position)
         {
-
             switch (c)
             {
                 case 'A':
+                    ActorManager.Singleton.Spawn<Cursor>(position);
+                    CameraController.Singleton.Position = (position.x, position.y);
                     ActorManager.Singleton.Spawn<A>(position);
                     break;
                 case 'B':

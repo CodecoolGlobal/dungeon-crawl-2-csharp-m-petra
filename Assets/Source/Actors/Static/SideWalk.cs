@@ -10,9 +10,5 @@ namespace Assets.Source.Actors.Static
             get => "SideWalk";
             set { }
         }
-        public override bool OnCollision(Actor anotherActor)
-        {
-            return true;
-        }
     }
 }

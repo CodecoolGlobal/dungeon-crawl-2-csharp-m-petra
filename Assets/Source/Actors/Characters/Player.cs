@@ -9,8 +9,8 @@ using UnityEngine;
 namespace DungeonCrawl.Actors.Characters
 {
     public class Player : Character
-
     {
+        public string Name { get; set; }
         public int GateCount = 0;
         public List<Item> Inventory = new List<Item>();
 

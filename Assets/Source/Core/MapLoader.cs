@@ -18,7 +18,7 @@ namespace DungeonCrawl.Core
         ///     Constructs map from txt file and spawns actors at appropriate positions
         /// </summary>
         /// <param name="id"></param>
-        public static void LoadMap(int id, Player oldPlayer = null)
+        public static void LoadMap(int id, Player oldPlayer = null, string name = null)
         {
             var lines = Regex.Split(Resources.Load<TextAsset>($"map_{id}").text, "\r\n|\r|\n");
 
@@ -39,6 +39,7 @@ namespace DungeonCrawl.Core
                         if (oldPlayer == null)
                         {
                             player = ActorManager.Singleton.Spawn<Player>((x, -y));
+                            player.Name = name;
                             CameraController.Singleton.Position = (x, -y);
                             UserInterface.Singleton.SetText("Inventory:", UserInterface.TextPosition.TopLeft);
                         }
@@ -57,7 +58,7 @@ namespace DungeonCrawl.Core
                             player.Inventory = oldPlayer.Inventory;
                             player.Strength = oldPlayer.Strength;
                             player.Health = oldPlayer.Health;
-                            player.GateCount = oldPlayer.GateCount;
+                            player.Name = oldPlayer.Name;
                             ActorManager.Singleton.DestroyActor(oldPlayer);
                         }
 
