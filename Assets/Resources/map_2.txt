@@ -1,16 +1,16 @@
 96 19
 #############                                                                                   
 #iitiiiiisii################################################################################### 
-#iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii#......................#..q...............o......2..# 
-#isiii......................iiiiiitii1iiii#.TTTTTTTTTTTTTTTT.TT..#............................# 
-#iiiii.iiiii######iiiiiiiii.iii1iiiiii........T...........TT.TT..#...............s............# 
+#iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii#......................#iiiii.............o......2..# 
+#isiii......................iiiiiitii1iiii#.TTTTTTTTTTTTTTTT.TT..#iiyii.......................# 
+#iiiii.iiiii######iiiiiiiii.iii1iiiiii........T...........TT.TT..#iiiii..........s............# 
 #iiiii.iiiii#    #iiiiiiiii.iiiiiiiiii.iii#.T...TT.TT.T.T.TT.TT..#.......s................1...# 
-#itiii.iitii#    #iiqiiiiii............iii#.TTTT2T....T.T....TT..#...................s........# 
-#iiiii.iiiii#    #iiii2iiiiiiiiiiiiiiiiiii#TTqTTTT.TTdT...TTTTT..#............................# 
+#iyiii.iitii#    #iiqiiiiii............iii#.TTTT2T....T.T..y.TT..#...................s........# 
+#iiiii.iiiii#    #iiii2iiiiiiiiiiiiiiiiiii#TTqTTTT.TTdT...TTTTT..#............q...............# 
 #####i.i#####    #iitiiiigiiiiitiiiiiiiiii#........TTdTTTT.......#.#########################..# 
-    #i.i#        ##########################.TTTTTTTTTdTTTTTTTTT..#TTTTTTTT44444TTTTTTTTTT###.###
-    #i.i#        #.iiiiiii.iiiiiii.#Tq2TTTT........TT.........T.T#TTT1TTTT4TTT4TTTTT1TTTT#.....#
-  ###...###      #.iniiini.iininii.#TTTTTTTTTTTTTT....TTTTTTT.T.T#TTTTTTTT4TkT4TTTTTTTTTT#.....#
+    #i.i#        ##########################.TTTTTTTTTdTTTTTTTTT..#.TTTTTTT44444TTTTTTTTTT###.###
+    #i.i#        #.iiiiiii.iiiiiii.#Tq2TTTT........TT.........T.T#.TT1TTTT4TTT4TTTTT1TTTT#.....#
+  ###...###      #.iniiini.iininii.#TTTTTTTTTTTTTT....TTTTTTT.T.T#........4.kT4TTTTTTTTTT#.....#
   #.......#      #.iininii.iiiiiii.#T..........TTTTTTTT...TTT.TT.#TTT1TTTT4TTT4TTTTT1TTTT#.....#
   #.1.....#      #.iniiini............TTTTTTTT..........T........#TTTTTTTT44444TTTTTTTTTT#.....#
   #.......#      #.iininii.iiiiiii.#######################################################.#####

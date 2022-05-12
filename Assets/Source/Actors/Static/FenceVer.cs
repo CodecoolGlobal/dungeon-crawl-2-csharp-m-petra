@@ -16,13 +16,15 @@ namespace Assets.Source.Actors.Static
         {
             if (anotherActor is Player)
             {
-                UserInterface.Singleton.SetText("After a nuclear explosion, \n" +
-                                                " much of civilization was completely extinct. \n" +
-                                                " However, a couple of people survived \n" +
-                                                " and now live in the oasis. \n " +
-                                                "If you want to survive too, you have to find \n " +
-                                                "the key and use it to get into the oasis. \n" +
-                                                "You will then be sheltered in the red house.", UserInterface.TextPosition.MiddleLeft);
+                var message = "After a nuclear explosion, \n" +
+                              " a large part of our civilization has gone completely extinct. \n" +
+                              " However, a couple of people survived \n" +
+                              " and now live in the oasis. \n " +
+                              "If you want to survive as well, you have to find \n " +
+                              "the key and use it to get into the oasis. \n" +
+                              "After that, you need to collect 100$ and \n " +
+                              "You will be sheltered in the red house.";
+                UserInterface.Singleton.SetText(message, UserInterface.TextPosition.MiddleLeft);
             }
             return true;
         }
