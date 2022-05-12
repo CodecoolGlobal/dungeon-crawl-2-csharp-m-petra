@@ -41,6 +41,7 @@ namespace DungeonCrawl.Core
                             player = ActorManager.Singleton.Spawn<Player>((x, -y));
                             CameraController.Singleton.Position = (x, -y);
                             UserInterface.Singleton.SetText("Inventory:", UserInterface.TextPosition.TopLeft);
+                            player.DisplayHealth(false);
                         }
                         else
                         {
@@ -174,6 +175,7 @@ namespace DungeonCrawl.Core
                     ActorManager.Singleton.Spawn<Web>(position);
                     break;
                 case 'T':
+                    ActorManager.Singleton.Spawn<FenceHor>(position);
                     break;
                 case '4':
                     ActorManager.Singleton.Spawn<SideWalk2>(position);

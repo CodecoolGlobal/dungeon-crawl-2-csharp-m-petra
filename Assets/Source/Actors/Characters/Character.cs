@@ -24,12 +24,14 @@ namespace DungeonCrawl.Actors.Characters
         {
             while (player.Health > 0)
             {
+                player.DisplayHealth(false);
                 ApplyDamage(player.Strength);
                 if (this.Health <= 0)
                 {
                     break;
                 }
                 player.ApplyDamage(this.Strength);
+                
             }
         }
 

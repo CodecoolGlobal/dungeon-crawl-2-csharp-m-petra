@@ -1,12 +1,12 @@
 55 20
 HHHHHHHHHHHHH            bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-H---------t-H    HHHHHHHH,,,,,,,,,,,,r,,,,,,,,,,,,,c,,b
+H-----g---t-H    HHHHHHHH,,,,,,,,,,,,r,,,,,,,,,,,,,c,,b
 H--s--------HHHHHH-o----H,,,,,f,,,c,,r,,,,,,b,,,,h,,,,b
 H--------s------------t-H,,,b,,,,,,,,r,,,c,,,,,,,i,,,,b
 H----t------HHHHHH---m--H,,,,,,rrrrrrr,,,,,,,,,,,i,c,,b
-H-----------H    H------H,,,,,,r,,b,,,,,b,,,,hiiii,,,,b
+H-g---------H    H------H,,,,,,r,,b,,,,,b,,,,hiiii,,,,b
 H---s----t--H    H------H,c,,,,r,,,,,,,,,,,,,,,,,i,f,,b
-H-----------H    Ht-----H,,,,,,r,,h,,,,iiih,,b,,,i,,,,b
+H----------gH    Ht-----H,,,,,,r,,h,,,,iiih,,b,,,i,,,,b
 HHHHH--HHHHHH    H-o----HHH,,,,r,,i,,,,i,,,,,,,,,i,,,,b
     H--H         H--------Hffffr,,i,,,,iiiiiiiiiiiih,,b
     H--H         H--------aiiiiuiiiiiiiih,,,,,c,,,b,,,b
@@ -16,6 +16,6 @@ HHHHH--HHHHHH    H-o----HHH,,,,r,,i,,,,i,,,,,,,,,i,,,,b
   H-t---o-H      H------H,,c,,,rrrrrrrrrrr,,iiiiih,,b,b
   H--p----H      H---t--H,,,,,,,,,,,,,,,,r,b,,,,,,,,,,b
   H-------H      H------H,,,,f,,,c,,,,,,,r,,,,,b,,,,,,b
-  H-----t-H      H----o-H,,,,,,,,,,,,,,,,r,,,c,,,,f,,,b
+  Hz----t-H      H----o-H,,,,,,,,,,,,,,,,r,,,c,,,,f,,,b
   H--S----H      Ht-----H,,,,b,,,,,,,,,,,r,,,,,,,,,,,,b
   HHHHHHHHH      HHHdHHHHbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
