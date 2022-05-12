@@ -189,6 +189,11 @@ namespace DungeonCrawl.Core
                     ActorManager.Singleton.Spawn<Money>(position);
                     
                     break;
+                case '?':
+                    ActorManager.Singleton.Spawn<Floor>(position);
+                    ActorManager.Singleton.Spawn<Heart>(position);
+                    
+                    break;
                 case ' ':
                     break;
                 default:

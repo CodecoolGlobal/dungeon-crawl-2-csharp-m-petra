@@ -1,7 +1,7 @@
 96 19
 #############                                                                                   
 #iitiiiiisii################################################################################### 
-#iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii#......................#iiiii.............o......2..# 
+#iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii#.....?................#iiiii.............o......2.?# 
 #isiii......................iiiiiitii1iiii#.TTTTTTTTTTTTTTTT.TT..#iiyii.......................# 
 #iiiii.iiiii######iiiiiiiii.iii1iiiiii........T...........TT.TT..#iiiii..........s............# 
 #iiiii.iiiii#    #iiiiiiiii.iiiiiiiiii.iii#.T...TT.TT.T.T.TT.TT..#.......s................1...# 
@@ -16,5 +16,5 @@
   #.......#      #.iininii.iiiiiii.#######################################################.#####
   #.......#      #.iniiini.iininii.#ttttttttttttttttttttttttttttttttttttttttttttttttttttt...ttt#
   #....1..#      #.iininii.iiiiiii.......s.....s......s......s.....s.....s......s.....s.....ttt#
-  #.p.....#      #s...............s#ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt#
+  #.p.....#      #s..?............s#ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt#
   ##d######      ############################################################################### 
