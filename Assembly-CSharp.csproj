@@ -96,6 +96,8 @@
     <Compile Include="Assets\Source\Actors\Static\SideWalk2.cs" />
     <Compile Include="Assets\Source\Core\ActorManager.cs" />
     <Compile Include="Assets\Source\Actors\Static\River.cs" />
+    <Compile Include="Assets\Source\Actors\CaracterName\Abc.cs" />
+    <Compile Include="Assets\Source\Actors\CaracterName\Cursor.cs" />
     <Compile Include="Assets\Source\Actors\Static\Heart.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +105,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\Resources\characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />

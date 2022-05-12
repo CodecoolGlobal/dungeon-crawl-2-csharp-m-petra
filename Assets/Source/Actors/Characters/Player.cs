@@ -13,11 +13,9 @@ using System.Linq;
 
 namespace DungeonCrawl.Actors.Characters
 {
-  
-    
     public class Player : Character
-
     {
+        public string Name { get; set; }
 
         //public static AudioClip stepSound;
         //public static AudioSource audioSrc;
@@ -27,15 +25,11 @@ namespace DungeonCrawl.Actors.Characters
             AudioSource audio = GetComponent<AudioSource>();
             if (audio == null) audio= gameObject.AddComponent<AudioSource>();
 
-           audio.clip = Resources.Load<AudioClip>(fileName);
-           audio.Play();
-            
-
+            audio.clip = Resources.Load<AudioClip>(fileName);
+            audio.Play();
         }
 
         //[SerializeField] private AudioSource stepSoundeffect;
-
-        public int GateCount = 0;
 
         public List<Item> Inventory = new List<Item>();
 

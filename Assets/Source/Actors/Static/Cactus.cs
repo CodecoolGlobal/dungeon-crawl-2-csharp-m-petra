@@ -2,7 +2,6 @@
 
 namespace Assets.Source.Actors.Static
 {
-
     public class Cactus : Actor
     {
         public override int DefaultSpriteId => 53;
@@ -13,11 +12,6 @@ namespace Assets.Source.Actors.Static
                 return "Cactus";
             }
             set { }
-        }
-
-        public override bool OnCollision(Actor anotherActor)
-        {
-            return true;
         }
     }
 }

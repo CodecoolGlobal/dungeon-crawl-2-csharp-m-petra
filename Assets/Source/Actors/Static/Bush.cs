@@ -16,5 +16,4 @@ namespace Assets.Source.Actors.Static
             return false;
         }
     }
-
 }
