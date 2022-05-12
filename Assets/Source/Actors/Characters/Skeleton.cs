@@ -15,7 +15,7 @@ namespace DungeonCrawl.Actors.Characters
 
         public override int Health { get; set; } = 20;
         public override int Strength { get; set; } = 2;
-
+        public override int Money { get; set; }
         public override bool OnCollision(Actor anotherActor)
         {
             if (anotherActor is Player player)

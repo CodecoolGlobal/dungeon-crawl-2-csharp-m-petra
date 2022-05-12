@@ -42,6 +42,7 @@ namespace DungeonCrawl.Core
                             CameraController.Singleton.Position = (x, -y);
                             UserInterface.Singleton.SetText("Inventory:", UserInterface.TextPosition.TopLeft);
                             player.DisplayHealth(false);
+                            UserInterface.Singleton.SetText($"Money: {player.Money} $", UserInterface.TextPosition.BottomCenter);
                         }
                         else
                         {
@@ -182,6 +183,11 @@ namespace DungeonCrawl.Core
                     break;
                 case '5':
                     ActorManager.Singleton.Spawn<ShelterHouse>(position);
+                    break;
+                case 'y':
+                    ActorManager.Singleton.Spawn<SideWalk>(position);
+                    ActorManager.Singleton.Spawn<Money>(position);
+                    
                     break;
                 case ' ':
                     break;
