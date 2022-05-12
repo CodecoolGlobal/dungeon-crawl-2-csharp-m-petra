@@ -1,18 +1,22 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace DungeonCrawl.Actors.Characters
 {
     internal class Ghost : Character
     {
         public override int DefaultSpriteId => 314;
-        public override string DefaultName => "Ghost";
+        public override string DefaultName
+        {
+            get => "Ghost";
+            set { }
+        }
 
 
         public Player Player { get; set; }
 
         public override int Health { get; set; } = 30;
         public override int Strength { get; set; } = 3;
+        public override int Money { get; set; }
 
         public override bool OnCollision(Actor anotherActor)
         {
@@ -36,7 +40,7 @@ namespace DungeonCrawl.Actors.Characters
 
             if (Player.Position.x < Position.x)
                 TryMove(Direction.Up);
-            
+
             if (Player.Position.x > Position.x)
                 TryMove(Direction.Down);
 
@@ -58,6 +62,7 @@ namespace DungeonCrawl.Actors.Characters
             //OnUpdate(Time.deltaTime * 0.2f);
             //OnUpdate(Time.deltaTime * 1000);
         }
+
 
         private float nextActionTime = 0.0f;
         public float period = 0.7f;

@@ -1,18 +1,21 @@
-﻿using DungeonCrawl.Actors;
+﻿
+using DungeonCrawl.Actors;
+
 namespace Assets.Source.Actors.Static
 {
-    public class OpenDoor : Actor
+
+    public class Twig : Actor
     {
-        public override int DefaultSpriteId => 437;
+        public override int DefaultSpriteId => 101;
         public override string DefaultName
         {
-            get => "OpenDoor";
+            get => "Twig";
             set { }
         }
-
         public override bool OnCollision(Actor anotherActor)
         {
             return true;
         }
     }
+
 }

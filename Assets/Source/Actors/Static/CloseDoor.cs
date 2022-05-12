@@ -1,27 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DungeonCrawl.Actors;
+﻿using DungeonCrawl.Actors;
+using DungeonCrawl.Actors.Characters;
+using DungeonCrawl.Actors.Static;
 using DungeonCrawl.Core;
+using System.Linq;
 
 namespace Assets.Source.Actors.Static
 {
     public class CloseDoor : Actor
     {
         public override int DefaultSpriteId => 434;
-        public override string DefaultName => "CloseDoor";
+        public override string DefaultName
+        {
+            get => "CloseDoor";
+            set { }
+        }
+
         public override bool OnCollision(Actor anotherActor)
         {
             //TODO if inventory contains a key
-            if (true)
+            if (anotherActor is Player player)
             {
-                ActorManager.Singleton.DestroyActor(this);
-                ActorManager.Singleton.Spawn<OpenDoor>((10,-14));
-                return true;
+                if (player.Inventory.Any(x => x is Key))
+                {
+                    ActorManager.Singleton.DestroyActor(this);
+                    ActorManager.Singleton.Spawn<OpenDoor>((this.Position));
+                    return true;
+                }
             }
-            return false;
+            return true;
         }
     }
 }

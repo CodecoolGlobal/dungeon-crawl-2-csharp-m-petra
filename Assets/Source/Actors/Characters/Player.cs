@@ -16,7 +16,9 @@ namespace DungeonCrawl.Actors.Characters
   
     
     public class Player : Character
+
     {
+
         //public static AudioClip stepSound;
         //public static AudioSource audioSrc;
 
@@ -32,6 +34,8 @@ namespace DungeonCrawl.Actors.Characters
         }
 
         //[SerializeField] private AudioSource stepSoundeffect;
+
+        public int GateCount = 0;
 
         public List<Item> Inventory = new List<Item>();
 
@@ -116,12 +120,28 @@ namespace DungeonCrawl.Actors.Characters
         protected override void OnDeath()
         {
             Debug.Log("Oh no, I'm dead!");
+
+            DisplayHealth(true);
+
         }
 
         public override int DefaultSpriteId => 24;
-        public override string DefaultName => "Player";
+        public override string DefaultName
+        {
+            get => "Player";
+            set { }
+        }
+
+        public void DisplayHealth(bool death)
+        {
+            var message = death ? "You died" : $"Health: {Health}";
+            UserInterface.Singleton.SetText("", UserInterface.TextPosition.TopCenter);
+            UserInterface.Singleton.SetText(message, UserInterface.TextPosition.TopCenter);
+        }
+
         public override int Health { get; set; } = 50;
         public override int Strength { get; set; } = 5;
+        public override int Money { get; set; } = 0;
 
     }
 }

@@ -1,12 +1,17 @@
 ﻿using DungeonCrawl.Actors;
+
 namespace Assets.Source.Actors.Static
 {
-    public class OpenDoor : Actor
+
+    public class Cactus : Actor
     {
-        public override int DefaultSpriteId => 437;
+        public override int DefaultSpriteId => 53;
         public override string DefaultName
         {
-            get => "OpenDoor";
+            get
+            {
+                return "Cactus";
+            }
             set { }
         }
 

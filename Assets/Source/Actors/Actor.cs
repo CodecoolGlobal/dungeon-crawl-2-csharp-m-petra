@@ -52,6 +52,8 @@ namespace DungeonCrawl.Actors
                     
                     CameraController.Singleton.Position = (targetPosition.x, targetPosition.y);
                     UserInterface.Singleton.SetText("", UserInterface.TextPosition.BottomRight);
+                    UserInterface.Singleton.SetText("", UserInterface.TextPosition.MiddleLeft);
+
                 }
                 // No obstacle found, just move
                 Position = targetPosition;
@@ -81,15 +83,17 @@ namespace DungeonCrawl.Actors
         /// </summary>
         public void ChangeMap()
         {
-            if (this.Position == (20, -18))
+            if (this is Player player)
             {
                 ActorManager.Singleton.DestroyAllActors();
-                MapLoader.LoadMap(2);
-            }
-            else
-            {
-                ActorManager.Singleton.DestroyAllActors();
-                MapLoader.LoadMap(1);
+                if (player.Position == (20, -18))
+                {
+                    MapLoader.LoadMap(2, player);
+                }
+                else
+                {
+                    MapLoader.LoadMap(1, player);
+                }
             }
         }
 
@@ -131,6 +135,6 @@ namespace DungeonCrawl.Actors
         /// <summary>
         ///     Default name assigned to this actor type
         /// </summary>
-        public abstract string DefaultName { get; }
+        public abstract string DefaultName { get; set; }
     }
 }

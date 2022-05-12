@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 
 namespace DungeonCrawl.Actors.Characters
@@ -8,20 +7,22 @@ namespace DungeonCrawl.Actors.Characters
     public class Skeleton : Character
     {
         public override int DefaultSpriteId => 316;
-        public override string DefaultName => "Skeleton";
+        public override string DefaultName
+        {
+            get => "Skeleton";
+            set { }
+        }
+
         public override int Health { get; set; } = 20;
         public override int Strength { get; set; } = 2;
-
+        public override int Money { get; set; }
         public override bool OnCollision(Actor anotherActor)
         {
             if (anotherActor is Player player)
             {
                 Figth(player);
-
                 return true;
             }
-
-
             return false;
         }
 
@@ -65,6 +66,8 @@ namespace DungeonCrawl.Actors.Characters
             //OnUpdate(Time.deltaTime * 0.2f);
             //OnUpdate(Time.deltaTime * 1000);
         }
+
+
 
         private float nextActionTime = 0.0f;
         public float period = 0.7f;

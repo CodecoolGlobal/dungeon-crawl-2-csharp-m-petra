@@ -1,15 +1,15 @@
 ﻿using DungeonCrawl.Actors;
+
 namespace Assets.Source.Actors.Static
 {
-    public class OpenDoor : Actor
+    public class SideWalk : Actor
     {
-        public override int DefaultSpriteId => 437;
+        public override int DefaultSpriteId => 0;
         public override string DefaultName
         {
-            get => "OpenDoor";
+            get => "SideWalk";
             set { }
         }
-
         public override bool OnCollision(Actor anotherActor)
         {
             return true;

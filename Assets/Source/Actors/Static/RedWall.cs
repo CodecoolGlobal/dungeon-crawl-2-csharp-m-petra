@@ -1,18 +1,18 @@
 ﻿using DungeonCrawl.Actors;
+
 namespace Assets.Source.Actors.Static
 {
-    public class OpenDoor : Actor
+    public class RedWall : Actor
     {
-        public override int DefaultSpriteId => 437;
+        public override int DefaultSpriteId => 564;
         public override string DefaultName
         {
-            get => "OpenDoor";
+            get => "RedWall";
             set { }
         }
-
         public override bool OnCollision(Actor anotherActor)
         {
-            return true;
+            return false;
         }
     }
 }
