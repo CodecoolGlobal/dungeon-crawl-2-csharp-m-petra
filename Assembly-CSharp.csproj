@@ -74,7 +74,6 @@
     <Compile Include="Assets\Source\Actors\Static\Forest.cs" />
     <Compile Include="Assets\Source\Actors\Static\House.cs" />
     <Compile Include="Assets\Source\Actors\Static\Items\Sword.cs" />
-    <Compile Include="Assets\Source\Actors\CaracterName\TableItem.cs" />
     <Compile Include="Assets\Source\Actors\Characters\Character.cs" />
     <Compile Include="Assets\Source\Actors\Static\RedWall.cs" />
     <Compile Include="Assets\Source\Actors\Static\Cactus.cs" />
@@ -100,7 +99,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
-    <None Include="Assets\Resources\caracters.txt" />
+    <None Include="Assets\Resources\characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
