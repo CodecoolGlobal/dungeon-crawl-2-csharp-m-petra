@@ -4,7 +4,7 @@ namespace Assets.Source.Actors.Static
 {
     public class FenceHor : Actor
     {
-        public override int DefaultSpriteId => 192;
+        public override int DefaultSpriteId => 152;
         public override string DefaultName
         {
             get => "FenceHor";
