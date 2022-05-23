@@ -51,7 +51,7 @@ namespace Assets.Source.Actors.CharacterName
                     var name = String.Join("", Name.ToArray());
                     ActorManager.Singleton.DestroyAllActors();
                     ActorManager.Singleton.DestroyActor(this);
-                    MapLoader.LoadMap(1, null, name);
+                    MapLoader.LoadMap(1,  null,name);
                 }
                 else
                 {
