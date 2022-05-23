@@ -12,10 +12,18 @@ namespace DungeonCrawl.Actors.Characters
     {
         public string Name { get; set; }
 
+        public void InitPlayer(Player player)
+        {
+            Inventory = player.Inventory;
+            Strength = player.Strength;
+            Health = player.Health;
+            Name = player.Name;
+        }
+
         //public static AudioClip stepSound;
         //public static AudioSource audioSrc;
 
-        
+
 
         //[SerializeField] private AudioSource stepSoundeffect;
 
