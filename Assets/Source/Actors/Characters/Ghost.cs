@@ -27,11 +27,6 @@ namespace DungeonCrawl.Actors.Characters
             return false;
         }
 
-        protected override void OnDeath()
-        {
-            Debug.Log("Well, I am ghost...");
-        }
-
         protected override void OnUpdate(float deltaTime)
         {
             if (Player.Position.x < Position.x)
@@ -51,12 +46,9 @@ namespace DungeonCrawl.Actors.Characters
         {
             if (Time.time > nextActionTime)
             {
-                nextActionTime += period;
+                nextActionTime = Time.time + period;
                 OnUpdate(Time.deltaTime);
             }
-
-            //OnUpdate(Time.deltaTime * 0.2f);
-            //OnUpdate(Time.deltaTime * 1000);
         }
 
         private float nextActionTime = 0.0f;

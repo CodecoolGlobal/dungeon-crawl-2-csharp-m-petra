@@ -14,11 +14,6 @@ namespace DungeonCrawl.Actors.Characters
             return false;
         }
 
-        protected override void OnDeath()
-        {
-            Debug.Log("Well, I am monster...");
-        }
-
         protected override int DefaultSpriteId => 317;
         public override string DefaultName
         {
