@@ -26,12 +26,6 @@ namespace DungeonCrawl.Actors.Characters
             return false;
         }
 
-        protected override void OnDeath()
-        {
-            Sounds("door");
-            Debug.Log("Well, I was already dead anyway...");
-        }
-
         protected override void OnUpdate(float deltaTime)
         {
             //TODO get Player position
@@ -61,12 +55,9 @@ namespace DungeonCrawl.Actors.Characters
         {
             if (Time.time > nextActionTime)
             {
-                nextActionTime += period;
+                nextActionTime = Time.time + period;
                 OnUpdate(Time.deltaTime);
             }
-
-            //OnUpdate(Time.deltaTime * 0.2f);
-            //OnUpdate(Time.deltaTime * 1000);
         }
 
         private float nextActionTime = 0.0f;

@@ -2,6 +2,8 @@
 using DungeonCrawl.Core;
 using System;
 using System.Threading.Tasks;
+using DungeonCrawl.Actors.Static;
+using UnityEngine;
 
 namespace DungeonCrawl.Actors.Characters
 {
@@ -45,7 +47,25 @@ namespace DungeonCrawl.Actors.Characters
             }
         }
 
-        protected abstract void OnDeath();
+        protected virtual void OnDeath()
+        {
+            Sounds("door");
+            Debug.Log($"Well, I was a {DefaultName}...");
+            ItemDrop();
+        }
+
+        private void ItemDrop()
+        {
+            var random = new System.Random();
+            var x = random.Next(0, 5);
+            switch (x)
+            {
+                case 0:
+                    ActorManager.Singleton.Spawn<Sword>(Position);
+                    break;
+
+            }
+        }
 
         /// <summary>
         ///     All characters are drawn "above" floor etc
