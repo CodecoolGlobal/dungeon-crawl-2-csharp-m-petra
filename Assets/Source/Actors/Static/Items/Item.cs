@@ -18,5 +18,7 @@ namespace Assets.Source.Actors.Static
             }
             return true;
         }
+
+        protected override int Z => -1;
     }
 }
