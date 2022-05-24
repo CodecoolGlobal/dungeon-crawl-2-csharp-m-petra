@@ -14,5 +14,6 @@ namespace DungeonCrawl.Actors.Static
             get => "Sword";
             set { }
         }
+        public int Attack => 5;
     }
 }
