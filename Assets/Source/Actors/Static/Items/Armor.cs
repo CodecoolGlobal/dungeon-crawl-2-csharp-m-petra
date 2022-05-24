@@ -1,7 +1,8 @@
 ﻿namespace Assets.Source.Actors.Static
 {
-    public abstract class Armor : Item { 
-  
+    public abstract class Armor : Item
+    {
+        public virtual int Defense { get; set; } = 3;
     }
 
     public class Shield1 : Armor

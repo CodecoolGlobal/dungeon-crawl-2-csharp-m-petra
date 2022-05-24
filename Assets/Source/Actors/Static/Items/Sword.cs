@@ -4,6 +4,7 @@ namespace DungeonCrawl.Actors.Static
 {
     public abstract class Weapon : Item
     {
+        public int Attack => 5;
     }
 
     public class Sword : Weapon
@@ -14,7 +15,7 @@ namespace DungeonCrawl.Actors.Static
             get => "Widow-maker";
             set { }
         }
-        public int Attack => 5;
+        
     }
 
     public class Sword1:Weapon
