@@ -11,12 +11,13 @@ namespace Assets.Source.Actors.Static
         {
             if (anotherActor is Player)
             {
-
                 UserInterface.Singleton.SetText($"Press E to pick up {DefaultName}", UserInterface.TextPosition.BottomRight);
                 Sounds("findItem");
 
             }
             return true;
         }
+
+        protected override int Z => -1;
     }
 }

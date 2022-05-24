@@ -20,6 +20,7 @@ namespace DungeonCrawl.Actors.Characters
             Strength = player.Strength;
             Health = player.Health;
             Name = player.Name;
+            Defense = player.Defense;
         }
 
         //public static AudioClip stepSound;
@@ -85,9 +86,14 @@ namespace DungeonCrawl.Actors.Characters
                     Inventory.Add(item);
 
                     // Having a weapon increases attack strength.
-                    if (item is Sword sword)
+                    if (item is Weapon weapon)
                     {
-                        Strength += sword.Attack;
+                        Strength += weapon.Attack;
+                    }
+
+                    if (item is Armor armor)
+                    {
+                        Defense += armor.Defense;
                     }
 
                     ActorManager.Singleton.DestroyActor(item);
@@ -143,5 +149,6 @@ namespace DungeonCrawl.Actors.Characters
         public override int Health { get; set; } = 50;
         public override int Strength { get; set; } = 5;
         public override int Money { get; set; } = 0;
+        public override int Defense { get; set; } = 0;
     }
 }

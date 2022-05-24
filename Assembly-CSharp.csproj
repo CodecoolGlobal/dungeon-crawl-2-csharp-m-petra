@@ -80,6 +80,7 @@
     <Compile Include="Assets\Source\Actors\Static\Forest.cs" />
     <Compile Include="Assets\Source\Actors\Static\House.cs" />
     <Compile Include="Assets\Source\Actors\Static\Items\Sword.cs" />
+    <Compile Include="Assets\Source\Actors\Static\Items\Armor.cs" />
     <Compile Include="Assets\Source\Actors\Characters\Character.cs" />
     <Compile Include="Assets\Source\Actors\Static\RedWall.cs" />
     <Compile Include="Assets\Source\Actors\Static\Cactus.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Assets\Source\Actors\Static\FenceHor.cs" />
     <Compile Include="Assets\Source\Actors\CharacterName\Cursor.cs" />
     <Compile Include="Assets\Source\Actors\Static\FenceVer.cs" />
+    <Compile Include="Assets\Source\Actors\Static\Items\Weapon.cs" />
     <Compile Include="Assets\Source\Actors\Characters\Skeleton.cs" />
     <Compile Include="Assets\Source\Core\MapLoader.cs" />
     <Compile Include="Assets\Source\Utilities.cs" />
