@@ -12,6 +12,8 @@ namespace DungeonCrawl.Actors.Characters
     {
         public string Name { get; set; }
 
+        private bool _IsTrue = true;
+
         public void InitPlayer(Player player)
         {
             Inventory = player.Inventory;
@@ -81,7 +83,6 @@ namespace DungeonCrawl.Actors.Characters
                 {
                     UserInterface.Singleton.SetText("", UserInterface.TextPosition.BottomRight);
                     Inventory.Add(item);
-                    DisplayInventory();
 
                     // Having a weapon increases attack strength.
                     if (item is Sword sword)
@@ -91,13 +92,28 @@ namespace DungeonCrawl.Actors.Characters
 
                     ActorManager.Singleton.DestroyActor(item);
                 }
+
+                
+            }
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                DisplayInventory();
             }
         }
 
         private void DisplayInventory()
         {
-            var inventoryDisplay = Inventory.Aggregate("Inventory:\n", (current, invItem) => current + $"{invItem.DefaultName}\n");
-            UserInterface.Singleton.SetText(inventoryDisplay, UserInterface.TextPosition.TopLeft);
+            if (_IsTrue)
+            {
+                var inventoryDisplay = Inventory.Aggregate("Inventory:\n", (current, invItem) => current + $"{invItem.DefaultName}\n");
+                UserInterface.Singleton.SetText(inventoryDisplay, UserInterface.TextPosition.TopLeft);
+                _IsTrue = false;
+            }
+            else
+            {
+                UserInterface.Singleton.SetText("", UserInterface.TextPosition.TopLeft);
+                _IsTrue = true;
+            }
         }
 
         protected override bool OnCollision(Actor anotherActor)
