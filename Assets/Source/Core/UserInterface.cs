@@ -28,6 +28,16 @@ namespace Assets.Source.Core
 
         private TextMeshProUGUI[] _textComponents;
 
+        public void Clear()
+        {
+            foreach (var component in _textComponents)
+            {
+                if (component.text != null)
+                    component.text = null;
+                    
+            }
+        }
+
         private void Awake()
         {
             if (Singleton != null)
