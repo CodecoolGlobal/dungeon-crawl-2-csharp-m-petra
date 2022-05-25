@@ -5,6 +5,7 @@ using DungeonCrawl.Actors.Characters;
 using DungeonCrawl.Actors.Static;
 using System;
 using System.Text.RegularExpressions;
+using Assets.Source.Actors.Characters;
 using UnityEngine;
 
 namespace DungeonCrawl.Core
@@ -81,6 +82,9 @@ namespace DungeonCrawl.Core
 
         private static void SpawnActor(char c, (int x, int y) position, Player player)
         {
+
+            Skull skull = null;
+
             switch (c)
             {
                 case '#':
@@ -161,7 +165,11 @@ namespace DungeonCrawl.Core
                     ActorManager.Singleton.Spawn<Twig>(position);
                     break;
                 case 'q':
-                    ActorManager.Singleton.Spawn<Skull>(position);
+                    skull = ActorManager.Singleton.Spawn<Skull>(position);
+                    break;
+                case '9':
+                    Pirate pirate = ActorManager.Singleton.Spawn<Pirate>(position);
+                    pirate.Skull = skull;
                     break;
                 case 'n':
                     ActorManager.Singleton.Spawn<Cemetery>(position);

@@ -108,7 +108,6 @@ namespace DungeonCrawl.Actors
                 }
                 else
                 {
-                    
                     MapLoader.LoadMap(1, player);
                 }
             }

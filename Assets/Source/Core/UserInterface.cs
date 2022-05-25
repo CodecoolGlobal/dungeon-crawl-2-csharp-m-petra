@@ -1,4 +1,4 @@
-﻿using TMPro;
+﻿using TMPro; // Q ez mi?
 using UnityEngine;
 
 namespace Assets.Source.Core
