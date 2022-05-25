@@ -32,6 +32,7 @@ namespace DungeonCrawl.Actors.Characters
 
         public List<Item> Inventory = new List<Item>();
 
+       
         protected override void OnUpdate(float deltaTime)
         {
 
