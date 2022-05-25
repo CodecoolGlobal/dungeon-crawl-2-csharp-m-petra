@@ -13,8 +13,6 @@ namespace DungeonCrawl.Actors.Characters
     {
         public string Name { get; set; }
 
-        private bool _IsTrue = true;
-
         public void InitPlayer(Player player)
         {
             Inventory = player.Inventory;
@@ -43,7 +41,7 @@ namespace DungeonCrawl.Actors.Characters
                 // Move up
                 TryMove(Direction.Up);
                 //stepSoundeffect.Play();
-
+                DisplayInventory(false);
             }
 
 
@@ -59,6 +57,7 @@ namespace DungeonCrawl.Actors.Characters
                 //    //var audioSource = GetComponent<AudioSource>();
                 //    //audioSource.Play();
                 //}
+                DisplayInventory(false);
             }
 
             if (Input.GetKeyDown(KeyCode.A))
@@ -67,6 +66,7 @@ namespace DungeonCrawl.Actors.Characters
                 // Move left
                 TryMove(Direction.Left);
                 //stepSoundeffect.Play();
+                DisplayInventory(false);
             }
 
             if (Input.GetKeyDown(KeyCode.D))
@@ -75,6 +75,7 @@ namespace DungeonCrawl.Actors.Characters
                 // Move right
                 TryMove(Direction.Right);
                 //stepSoundeffect.Play();
+                DisplayInventory(false);
             }
 
             if (Input.GetKeyDown(KeyCode.E))
@@ -99,30 +100,33 @@ namespace DungeonCrawl.Actors.Characters
 
                     ActorManager.Singleton.DestroyActor(item);
                 }
+                DisplayInventory(false);
 
-                
             }
             if (Input.GetKeyDown(KeyCode.I))
             {
-                DisplayInventory();
+
+                DisplayInventory(true);
             }
         }
 
-        private void DisplayInventory()
+        private void DisplayInventory(bool isTrue)
         {
-            UserInterface.Singleton.Clear();
-            CameraController.Singleton.Position = (200, 200);
-            //if (_IsTrue)
-            //{
-            //    var inventoryDisplay = Inventory.Aggregate("Inventory:\n", (current, invItem) => current + $"{invItem.DefaultName}\n");
-            //    UserInterface.Singleton.SetText(inventoryDisplay, UserInterface.TextPosition.TopLeft);
-            //    _IsTrue = false;
-            //}
-            //else
-            //{
-            //    UserInterface.Singleton.SetText("", UserInterface.TextPosition.TopLeft);
-            //    _IsTrue = true;
-            //}
+            if (isTrue)
+            {
+                UserInterface.Singleton.Clear();
+                CameraController.Singleton.Position = (this.Position.x, this.Position.y + 200);
+                var inventoryDisplay = Inventory.Aggregate("Inventory:\n", (current, invItem) => current + $"{invItem.DefaultName}\n");
+                UserInterface.Singleton.SetText(inventoryDisplay, UserInterface.TextPosition.TopLeft);
+
+            }
+            else
+            { 
+                    UserInterface.Singleton.Clear();
+                    CameraController.Singleton.Position = (this.Position.x, this.Position.y);
+                    this.DisplayHealth();
+                    this.DisplayMoney();
+            }
         }
 
         protected override bool OnCollision(Actor anotherActor)
@@ -147,6 +151,13 @@ namespace DungeonCrawl.Actors.Characters
         {
             var message = Health <= 0 ? "You died" : $"{Name} Health: {Health} ";
             UserInterface.Singleton.SetText(message, UserInterface.TextPosition.TopCenter);
+            
+        }
+
+        public void DisplayMoney()
+        {
+            var message = $"Coins:{Money}$";
+            UserInterface.Singleton.SetText(message, UserInterface.TextPosition.BottomCenter);
         }
 
         public override int Health { get; set; } = 50;
