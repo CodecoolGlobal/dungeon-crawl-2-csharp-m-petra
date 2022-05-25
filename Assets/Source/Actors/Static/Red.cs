@@ -1,13 +1,17 @@
-﻿using DungeonCrawl.Actors;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using DungeonCrawl.Actors;
 
 namespace Assets.Source.Actors.Static
 {
-    public class River : Actor
+    public class Red : Actor
     {
-        protected override int DefaultSpriteId => 247;
+        protected override int DefaultSpriteId => 533;
         public override string DefaultName
         {
-            get => "River";
+            get => "Red";
             set { }
         }
 
@@ -16,4 +20,5 @@ namespace Assets.Source.Actors.Static
             return false;
         }
     }
+ 
 }

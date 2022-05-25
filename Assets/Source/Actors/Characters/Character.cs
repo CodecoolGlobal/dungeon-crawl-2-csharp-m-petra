@@ -31,7 +31,7 @@ namespace DungeonCrawl.Actors.Characters
         {
             while (player.Health > 0)
             {
-
+                CameraController.Singleton.Position= (495, 205);
                 ApplyDamage(player.Strength);
 
                 player.DisplayHealth();
