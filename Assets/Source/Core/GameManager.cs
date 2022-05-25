@@ -1,7 +1,7 @@
 ﻿using Assets.Source.Actors.CharacterName;
+using Assets.Source.Core;
 using System;
 using System.Text.RegularExpressions;
-using Assets.Source.Core;
 using UnityEngine;
 using Cursor = Assets.Source.Actors.CharacterName.Cursor;
 

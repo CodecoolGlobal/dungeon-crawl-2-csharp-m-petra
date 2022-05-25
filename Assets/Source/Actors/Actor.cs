@@ -1,5 +1,4 @@
-﻿using System;
-using Assets.Source.Core;
+﻿using Assets.Source.Core;
 using DungeonCrawl.Actors.Characters;
 using DungeonCrawl.Actors.Static;
 using DungeonCrawl.Core;
@@ -80,7 +79,7 @@ namespace DungeonCrawl.Actors
 
                         if (actorAtTargetPosition is Stair)
                         {
-                            
+
                             ChangeMap();
                         }
                     }
@@ -97,18 +96,18 @@ namespace DungeonCrawl.Actors
         {
             if (this is Player player)
             {
-                
-                
+
+
                 ActorManager.Singleton.DestroyAllActors();
-                
+
                 if (player.Position == (20, -18))
                 {
-                    
+
                     MapLoader.LoadMap(2, player);
                 }
                 else
                 {
-                    
+
                     MapLoader.LoadMap(1, player);
                 }
             }

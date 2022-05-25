@@ -57,7 +57,7 @@ namespace DungeonCrawl.Core
                                 player = ActorManager.Singleton.Spawn<Player>((x, -y));
                                 CameraController.Singleton.Position = (x, -y);
                             }
-                            
+
                             player.InitPlayer(oldPlayer);
                             ActorManager.Singleton.DestroyActor(oldPlayer);
                         }

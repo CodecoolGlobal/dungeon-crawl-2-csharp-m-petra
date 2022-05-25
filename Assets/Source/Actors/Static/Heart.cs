@@ -1,7 +1,6 @@
 ﻿using DungeonCrawl.Actors;
 using DungeonCrawl.Actors.Characters;
 using DungeonCrawl.Core;
-using UnityEngine;
 
 namespace Assets.Source.Actors.Static
 {
@@ -16,17 +15,17 @@ namespace Assets.Source.Actors.Static
 
         protected override bool OnCollision(Actor anotherActor)
         {
-            
+
             if (anotherActor is Player player)
             {
-              
+
                 player.Sounds("pickUp");
                 player.Health += 5;
                 player.DisplayHealth();
                 ActorManager.Singleton.DestroyActor(this);
-               
+
             }
-            
+
             return true;
         }
     }

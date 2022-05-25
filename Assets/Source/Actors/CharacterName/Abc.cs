@@ -1,6 +1,5 @@
 ﻿using Assets.Source.Core;
 using DungeonCrawl.Actors;
-using DungeonCrawl.Actors.Characters;
 
 namespace Assets.Source.Actors.CharacterName
 {

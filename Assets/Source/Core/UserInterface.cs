@@ -1,4 +1,6 @@
-﻿using TMPro;
+﻿using System;
+using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 
 namespace Assets.Source.Core
@@ -49,6 +51,12 @@ namespace Assets.Source.Core
         public void SetText(string text, TextPosition textPosition)
         {
             _textComponents[(int)textPosition].text = text;
+        }
+
+        public async void DeleteDisplay(int time)
+        {
+            await Task.Delay(TimeSpan.FromSeconds(time));
+            UserInterface.Singleton.SetText("", UserInterface.TextPosition.TopRight);
         }
     }
 }
