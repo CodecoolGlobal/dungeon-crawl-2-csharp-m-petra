@@ -16,7 +16,7 @@ namespace Assets.Source.Actors.Characters
         /// <summary>
         ///     Id of the default sprite of this actor type
         /// </summary>
-        protected override int DefaultSpriteId { get; }
+        protected override int DefaultSpriteId { get; } = 317;
         /// <summary>
         ///     Default name assigned to this actor type
         /// </summary>
