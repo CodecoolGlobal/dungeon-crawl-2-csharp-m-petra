@@ -2,6 +2,7 @@ using Assets.Source.Actors.Static;
 using Assets.Source.Core;
 using DungeonCrawl.Actors.Static;
 using DungeonCrawl.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -109,17 +110,19 @@ namespace DungeonCrawl.Actors.Characters
 
         private void DisplayInventory()
         {
-            if (_IsTrue)
-            {
-                var inventoryDisplay = Inventory.Aggregate("Inventory:\n", (current, invItem) => current + $"{invItem.DefaultName}\n");
-                UserInterface.Singleton.SetText(inventoryDisplay, UserInterface.TextPosition.TopLeft);
-                _IsTrue = false;
-            }
-            else
-            {
-                UserInterface.Singleton.SetText("", UserInterface.TextPosition.TopLeft);
-                _IsTrue = true;
-            }
+            UserInterface.Singleton.Clear();
+            CameraController.Singleton.Position = (200, 200);
+            //if (_IsTrue)
+            //{
+            //    var inventoryDisplay = Inventory.Aggregate("Inventory:\n", (current, invItem) => current + $"{invItem.DefaultName}\n");
+            //    UserInterface.Singleton.SetText(inventoryDisplay, UserInterface.TextPosition.TopLeft);
+            //    _IsTrue = false;
+            //}
+            //else
+            //{
+            //    UserInterface.Singleton.SetText("", UserInterface.TextPosition.TopLeft);
+            //    _IsTrue = true;
+            //}
         }
 
         protected override bool OnCollision(Actor anotherActor)
