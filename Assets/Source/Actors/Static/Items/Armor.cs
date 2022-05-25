@@ -21,17 +21,18 @@
 
         public override string DefaultName
         {
-            get=>"Invincible"; 
-            set{ }
+            get => "Invincible";
+            set { }
         }
     }
 
     public class Shield3 : Armor
     {
         protected override int DefaultSpriteId => 231;
-        public override string DefaultName { 
-            get=>"Stonewall";
-            set{ }
+        public override string DefaultName
+        {
+            get => "Stonewall";
+            set { }
         }
     }
 }

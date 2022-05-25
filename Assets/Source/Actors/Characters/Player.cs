@@ -1,3 +1,4 @@
+using Assets.Source.Actors.Skill;
 using Assets.Source.Actors.Static;
 using Assets.Source.Core;
 using DungeonCrawl.Actors.Static;
@@ -5,6 +6,7 @@ using DungeonCrawl.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace DungeonCrawl.Actors.Characters
@@ -21,14 +23,7 @@ namespace DungeonCrawl.Actors.Characters
             Name = player.Name;
             Defense = player.Defense;
         }
-
-        //public static AudioClip stepSound;
-        //public static AudioSource audioSrc;
-
-
-
-        //[SerializeField] private AudioSource stepSoundeffect;
-
+        
         public List<Item> Inventory = new List<Item>();
 
         protected override void OnUpdate(float deltaTime)
@@ -37,27 +32,15 @@ namespace DungeonCrawl.Actors.Characters
             if (Input.GetKeyDown(KeyCode.W))
             {
                 Sounds("try");
-
                 // Move up
                 TryMove(Direction.Up);
-                //stepSoundeffect.Play();
-                DisplayInventory(false);
             }
-
-
 
             if (Input.GetKeyDown(KeyCode.S))
             {
                 Sounds("try");
-
                 // Move down
-
                 TryMove(Direction.Down);
-                //    /*stepSoundeffect.Play()*/;
-                //    //var audioSource = GetComponent<AudioSource>();
-                //    //audioSource.Play();
-                //}
-                DisplayInventory(false);
             }
 
             if (Input.GetKeyDown(KeyCode.A))
@@ -65,8 +48,6 @@ namespace DungeonCrawl.Actors.Characters
                 Sounds("try");
                 // Move left
                 TryMove(Direction.Left);
-                //stepSoundeffect.Play();
-                DisplayInventory(false);
             }
 
             if (Input.GetKeyDown(KeyCode.D))
@@ -74,8 +55,6 @@ namespace DungeonCrawl.Actors.Characters
                 Sounds("try");
                 // Move right
                 TryMove(Direction.Right);
-                //stepSoundeffect.Play();
-                DisplayInventory(false);
             }
 
             if (Input.GetKeyDown(KeyCode.E))
@@ -100,32 +79,90 @@ namespace DungeonCrawl.Actors.Characters
 
                     ActorManager.Singleton.DestroyActor(item);
                 }
-                DisplayInventory(false);
-
             }
+
             if (Input.GetKeyDown(KeyCode.I))
             {
+                DisplayInventory();
+            }
 
-                DisplayInventory(true);
+            if (Input.GetKeyDown(KeyCode.UpArrow) && Inventory.Any(x => x is Weapon))
+            {
+                // Strike up
+                SwordStrike(Direction.Up);
+            }
+            if (Input.GetKeyDown(KeyCode.DownArrow) && Inventory.Any(x => x is Weapon))
+            {
+                // Strike down
+                SwordStrike(Direction.Down);
+            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && Inventory.Any(x => x is Weapon))
+            {
+                // Strike left
+                SwordStrike(Direction.Left);
+            }
+            if (Input.GetKeyDown(KeyCode.RightArrow) && Inventory.Any(x => x is Weapon))
+            {
+                // Strike right
+                SwordStrike(Direction.Right);
             }
         }
 
-        private void DisplayInventory(bool isTrue)
+        private void SwordStrike(Direction direction)
         {
-            if (isTrue)
+            var targetPosition = TargetPosition(direction);
+
+            var swordStrike = ActorManager.Singleton.Spawn<SwordStrike>(targetPosition);
+            swordStrike.transform.eulerAngles = direction switch
             {
-                UserInterface.Singleton.Clear();
-                CameraController.Singleton.Position = (this.Position.x, this.Position.y + 200);
+                Direction.Up => Vector3.forward * 45,
+                Direction.Down => Vector3.forward * 225,
+                Direction.Left => Vector3.forward * 135,
+                Direction.Right => Vector3.forward * 315,
+                _ => swordStrike.transform.eulerAngles
+            };
+
+            var damage = 50;
+
+            AttackTarget(targetPosition, damage);
+
+            DeleteStrike(0.2, swordStrike);
+        }
+
+        private void AttackTarget((int x, int y) targetPosition, int damage)
+        {
+            var actorAtTargetPosition = ActorManager.Singleton.GetActorAt(targetPosition);
+            if (actorAtTargetPosition is Character character)
+            {
+                character.ApplyDamage(damage);
+            }
+        }
+
+        private (int x, int y) TargetPosition(Direction direction)
+        {
+            var vector = direction.ToVector();
+            (int x, int y) targetPosition = (Position.x + vector.x, Position.y + vector.y);
+            return targetPosition;
+        }
+
+        private async void DeleteStrike(double time, Actor actor)
+        {
+            await Task.Delay(TimeSpan.FromSeconds(time));
+            ActorManager.Singleton.DestroyActor(actor);
+        }
+
+        private void DisplayInventory()
+        {
+            if (_IsTrue)
+            {
                 var inventoryDisplay = Inventory.Aggregate("Inventory:\n", (current, invItem) => current + $"{invItem.DefaultName}\n");
                 UserInterface.Singleton.SetText(inventoryDisplay, UserInterface.TextPosition.TopLeft);
-
+                _IsTrue = false;
             }
             else
-            { 
-                    UserInterface.Singleton.Clear();
-                    CameraController.Singleton.Position = (this.Position.x, this.Position.y);
-                    this.DisplayHealth();
-                    this.DisplayMoney();
+            {
+                UserInterface.Singleton.SetText("", UserInterface.TextPosition.TopLeft);
+                _IsTrue = true;
             }
         }
 
@@ -151,18 +188,10 @@ namespace DungeonCrawl.Actors.Characters
         {
             var message = Health <= 0 ? "You died" : $"{Name} Health: {Health} ";
             UserInterface.Singleton.SetText(message, UserInterface.TextPosition.TopCenter);
-            
-        }
-
-        public void DisplayMoney()
-        {
-            var message = $"Coins:{Money}$";
-            UserInterface.Singleton.SetText(message, UserInterface.TextPosition.BottomCenter);
         }
 
         public override int Health { get; set; } = 50;
         public override int Strength { get; set; } = 5;
         public override int Money { get; set; } = 0;
-        public override int Defense { get; set; } = 0;
     }
 }
