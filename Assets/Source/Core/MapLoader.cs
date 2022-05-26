@@ -60,6 +60,7 @@ namespace DungeonCrawl.Core
                             }
 
                             player.InitPlayer(oldPlayer);
+                            player.ChangeOutfit();
                             ActorManager.Singleton.DestroyActor(oldPlayer);
                         }
                         CameraController.Singleton.Size = 10;

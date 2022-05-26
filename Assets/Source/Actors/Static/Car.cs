@@ -9,7 +9,12 @@ namespace Assets.Source.Actors.Static
 {
     public class Car:Actor
     {
-        protected override int DefaultSpriteId => 91;
+        protected override int DefaultSpriteId
+        {
+            get => 91;
+            set => throw new NotImplementedException();
+        }
+
         public override string DefaultName
         {
             get => "Car";

@@ -9,7 +9,11 @@ namespace Assets.Source.Actors.Static
 {
     public class Rail : Actor
     {
-        protected override int DefaultSpriteId => 967;
+        protected override int DefaultSpriteId
+        {
+            get => 967;
+            set => throw new NotImplementedException();
+        }
 
         public override string DefaultName
         {

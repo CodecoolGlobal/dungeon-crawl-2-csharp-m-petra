@@ -6,7 +6,12 @@ namespace Assets.Source.Actors.Static
 {
     public class FenceVer : Actor
     {
-        protected override int DefaultSpriteId => 753;
+        protected override int DefaultSpriteId
+        {
+            get => 753;
+            set => throw new System.NotImplementedException();
+        }
+
         public override string DefaultName
         {
             get => "FenceVer";

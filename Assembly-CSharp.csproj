@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -53,6 +53,9 @@
     <UnityVersion>2021.1.24f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="D:\Programs\MicrosoftVisualStudio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Assets\Source\Actors\Static\Items\Key.cs" />
     <Compile Include="Assets\Source\Actors\Static\ShelterHouse.cs" />
     <Compile Include="Assets\Source\Actors\Static\Wall.cs" />
@@ -62,6 +65,7 @@
     <Compile Include="Assets\Source\Actors\Static\Twig.cs" />
     <Compile Include="Assets\Source\Actors\Static\Trap.cs" />
     <Compile Include="Assets\Source\Actors\Static\Floor.cs" />
+    <Compile Include="Assets\Source\Actors\Static\Items\CrossBow.cs" />
     <Compile Include="Assets\Source\Core\CameraController.cs" />
     <Compile Include="Assets\Source\Actors\Static\SideWalk.cs" />
     <Compile Include="Assets\Source\Actors\Static\Labirynth.cs" />
@@ -88,10 +92,10 @@
     <Compile Include="Assets\Source\Actors\Skill\SwordStrike.cs" />
     <Compile Include="Assets\Source\Actors\CharacterName\Cursor.cs" />
     <Compile Include="Assets\Source\Actors\Static\FenceVer.cs" />
-    <Compile Include="Assets\Source\Actors\Static\Items\Weapon.cs" />
     <Compile Include="Assets\Source\Actors\Characters\Skeleton.cs" />
     <Compile Include="Assets\Source\Core\MapLoader.cs" />
     <Compile Include="Assets\Source\Utilities.cs" />
+    <Compile Include="Assets\Source\Actors\Skill\Arrow.cs" />
     <Compile Include="Assets\Source\Actors\Static\Items\Item.cs" />
     <Compile Include="Assets\Source\Actors\Static\Tile.cs" />
     <Compile Include="Assets\Source\Actors\CharacterName\Abc.cs" />
@@ -109,7 +113,6 @@
     <Compile Include="Assets\Source\Actors\Static\Items\Book.cs" />
     <Compile Include="Assets\Source\Actors\Static\River.cs" />
     <Compile Include="Assets\Source\Actors\Static\Cat.cs" />
-    <Compile Include="Assets\Source\Actors\Static\Items\CrossBow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

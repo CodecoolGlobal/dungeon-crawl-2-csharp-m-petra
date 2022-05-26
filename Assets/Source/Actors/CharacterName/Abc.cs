@@ -5,7 +5,7 @@ namespace Assets.Source.Actors.CharacterName
 {
     public class Char : Actor
     {
-        protected override int DefaultSpriteId { get; }
+        protected override int DefaultSpriteId { get; set; }
         public override string DefaultName { get; set; }
 
         protected override bool OnCollision(Actor anotherActor)

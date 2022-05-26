@@ -4,7 +4,12 @@ namespace Assets.Source.Actors.Static
 {
     public class Cemetery : Actor
     {
-        protected override int DefaultSpriteId => 672;
+        protected override int DefaultSpriteId
+        {
+            get => 672;
+            set => throw new System.NotImplementedException();
+        }
+
         public override string DefaultName
         {
             get => "Cemetery";

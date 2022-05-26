@@ -12,12 +12,20 @@
             get => "Durex";
             set { }
         }
-        protected override int DefaultSpriteId => 228;
+        protected override int DefaultSpriteId
+        {
+            get => 228;
+            set => throw new System.NotImplementedException();
+        }
     }
 
     public class Shield2 : Armor
     {
-        protected override int DefaultSpriteId => 230;
+        protected override int DefaultSpriteId
+        {
+            get => 230;
+            set => throw new System.NotImplementedException();
+        }
 
         public override string DefaultName
         {
@@ -28,7 +36,12 @@
 
     public class Shield3 : Armor
     {
-        protected override int DefaultSpriteId => 231;
+        protected override int DefaultSpriteId
+        {
+            get => 231;
+            set => throw new System.NotImplementedException();
+        }
+
         public override string DefaultName
         {
             get => "Stonewall";

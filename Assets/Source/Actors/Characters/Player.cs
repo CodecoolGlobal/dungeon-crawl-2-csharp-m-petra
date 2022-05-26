@@ -7,7 +7,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Assets.Source.Actors.Static.Items;
 using UnityEngine;
+using Weapon = DungeonCrawl.Actors.Static.Weapon;
 
 namespace DungeonCrawl.Actors.Characters
 {
@@ -15,7 +17,7 @@ namespace DungeonCrawl.Actors.Characters
     {
         public string Name { get; set; }
 
-        public Item SkillItem { get; set; } = null;
+        private Item SkillItem { get; set; }
 
         public void InitPlayer(Player player)
         {
@@ -24,11 +26,11 @@ namespace DungeonCrawl.Actors.Characters
             Health = player.Health;
             Name = player.Name;
             Defense = player.Defense;
+            SkillItem = player.SkillItem;
         }
         
         public List<Item> Inventory = new List<Item>();
 
-       
         protected override void OnUpdate(float deltaTime)
         {
 
@@ -80,6 +82,7 @@ namespace DungeonCrawl.Actors.Characters
                     if (item is Weapon weapon)
                     {
                         Strength += weapon.Attack;
+                        ChangeOutfit();
                     }
 
                     if (item is Armor armor)
@@ -96,46 +99,121 @@ namespace DungeonCrawl.Actors.Characters
                 DisplayInventory();
             }
 
-            if (Input.GetKeyDown(KeyCode.UpArrow) && (Input.GetKeyDown(KeyCode.RightArrow)) && Inventory.Any(x => x is Sword))
+            if (Input.GetKeyDown(KeyCode.UpArrow) && Input.GetKeyDown(KeyCode.RightArrow))
             {
                 // Strike upright
-                SwordStrike(Direction.UpRight);
+                UseClassSkill(Direction.UpRight);
             }
-            else if (Input.GetKeyDown(KeyCode.UpArrow) && (Input.GetKeyDown(KeyCode.LeftArrow)) && Inventory.Any(x => x is Sword))
+            else if (Input.GetKeyDown(KeyCode.UpArrow) && Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 // Strike upleft
-                SwordStrike(Direction.UpLeft);
+                UseClassSkill(Direction.UpLeft);
             }
-            else if (Input.GetKeyDown(KeyCode.DownArrow) && (Input.GetKeyDown(KeyCode.LeftArrow)) && Inventory.Any(x => x is Sword))
+            else if (Input.GetKeyDown(KeyCode.DownArrow) && Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 // Strike downleft
-                SwordStrike(Direction.DownLeft);
+                UseClassSkill(Direction.DownLeft);
             }
-            else if (Input.GetKeyDown(KeyCode.DownArrow) && (Input.GetKeyDown(KeyCode.RightArrow)) && Inventory.Any(x => x is Sword))
+            else if (Input.GetKeyDown(KeyCode.DownArrow) && Input.GetKeyDown(KeyCode.RightArrow))
             {
                 // Strike downright
-                SwordStrike(Direction.DownRight);
+                UseClassSkill(Direction.DownRight);
             }
-            else if (Input.GetKeyDown(KeyCode.UpArrow) && Inventory.Any(x => x is Sword))
+            else if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 // Strike up
-                SwordStrike(Direction.Up);
+                UseClassSkill(Direction.Up);
             }
-            else if (Input.GetKeyDown(KeyCode.DownArrow) && Inventory.Any(x => x is Sword))
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 // Strike down
-                SwordStrike(Direction.Down);
+                UseClassSkill(Direction.Down);
             }
-            else if (Input.GetKeyDown(KeyCode.LeftArrow) && Inventory.Any(x => x is Sword))
+            else if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 // Strike left
-                SwordStrike(Direction.Left);
+                UseClassSkill(Direction.Left);
             }
-            else if (Input.GetKeyDown(KeyCode.RightArrow) && Inventory.Any(x => x is Sword))
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 // Strike right
-                SwordStrike(Direction.Right);
+                UseClassSkill(Direction.Right);
             }
+        }
+
+        private void UseClassSkill(Direction direction)
+        {
+            switch (SkillItem?.DefaultName)
+            {
+                case "Scroll" when Inventory.Any(x => x is Sword):
+                    SwordStrike(direction);
+                    break;
+                case "Book" when Inventory.Any(x => x is CrossBow):
+                    ShootArrow(direction);
+                    break;
+            }
+        }
+
+        private void ShootArrow(Direction direction)
+        {
+            var targetPosition = TargetPosition(direction);
+            var crossBow = ActorManager.Singleton.Spawn<CrossBow>(targetPosition);
+
+            crossBow.transform.eulerAngles = direction switch
+            {
+                Direction.Up => Vector3.forward * 90,
+                Direction.Down => Vector3.forward * 270,
+                Direction.Left => Vector3.forward * 180,
+                Direction.Right => Vector3.forward * 1,
+                Direction.UpRight => Vector3.forward * 45,
+                Direction.UpLeft => Vector3.forward * 135,
+                Direction.DownLeft => Vector3.forward * 225,
+                Direction.DownRight => Vector3.forward * 315,
+                _ => crossBow.transform.eulerAngles
+            };
+
+            DeleteSprite(0.5, crossBow);
+
+            FlyingArrows(direction, targetPosition);
+        }
+
+        private async void FlyingArrows(Direction direction, (int x, int y) position)
+        {
+            var range = 4;
+            var time = 0.0;
+            for (int i = 0; i < range; i++)
+            {
+                await Task.Delay(TimeSpan.FromSeconds(time));
+                position = FlyingArrow(direction, position);
+                time += 0.08;
+            }
+        }
+
+        private (int x, int y) FlyingArrow(Direction direction, (int x, int y) position)
+        {
+            var targetPosition = TargetPosition(direction, position);
+
+            var arrow = ActorManager.Singleton.Spawn<Arrow>(targetPosition);
+            arrow.transform.eulerAngles = direction switch
+            {
+                Direction.Up => Vector3.forward * 45,
+                Direction.Down => Vector3.forward * 225,
+                Direction.Left => Vector3.forward * 135,
+                Direction.Right => Vector3.forward * 315,
+                Direction.UpRight => Vector3.forward * 1,
+                Direction.UpLeft => Vector3.forward * 90,
+                Direction.DownLeft => Vector3.forward * 180,
+                Direction.DownRight => Vector3.forward * 270,
+                _ => arrow.transform.eulerAngles
+            };
+
+            var damage = 50;
+
+            AttackTarget(targetPosition, damage);
+
+            DeleteSprite(0.12, arrow);
+
+            return targetPosition;
         }
 
         private void SwitchSkillItem(Item item)
@@ -151,9 +229,32 @@ namespace DungeonCrawl.Actors.Characters
                     ActorManager.Singleton.Spawn<Scroll>(Position);
                 }
             }
-
+            
             SkillItem = item;
+            ChangeOutfit();
             ActorManager.Singleton.DestroyActor(item);
+        }
+
+        public void ChangeOutfit()
+        {
+            if (SkillItem.DefaultName == "Book" && Inventory.Any(x => x is CrossBow))
+            {
+                if (DefaultSpriteId != 75)
+                {
+                    var newPlayer = ActorManager.Singleton.Spawn<Ranger>(Position);
+                    newPlayer.InitPlayer(this);
+                    ActorManager.Singleton.DestroyActor(this);
+                }
+            }
+            else if (SkillItem.DefaultName == "Scroll" && Inventory.Any(x => x is Sword))
+            {
+                if (DefaultSpriteId != 27)
+                {
+                    var newPlayer = ActorManager.Singleton.Spawn<Warrior>(Position);
+                    newPlayer.InitPlayer(this);
+                    ActorManager.Singleton.DestroyActor(this);
+                }
+            }
         }
 
         private void SwordStrike(Direction direction)
@@ -170,7 +271,7 @@ namespace DungeonCrawl.Actors.Characters
                 Direction.UpRight => Vector3.forward * 1,
                 Direction.UpLeft => Vector3.forward * 90,
                 Direction.DownLeft => Vector3.forward * 180,
-                Direction.DownRight => Vector3.forward * 260,
+                Direction.DownRight => Vector3.forward * 270,
                 _ => swordStrike.transform.eulerAngles
             };
 
@@ -178,7 +279,7 @@ namespace DungeonCrawl.Actors.Characters
 
             AttackTarget(targetPosition, damage);
 
-            DeleteStrike(0.2, swordStrike);
+            DeleteSprite(0.2, swordStrike);
         }
 
         private void AttackTarget((int x, int y) targetPosition, int damage)
@@ -197,7 +298,14 @@ namespace DungeonCrawl.Actors.Characters
             return targetPosition;
         }
 
-        private async void DeleteStrike(double time, Actor actor)
+        private (int x, int y) TargetPosition(Direction direction, (int x, int y) position)
+        {
+            var vector = direction.ToVector();
+            (int x, int y) targetPosition = (position.x + vector.x, position.y + vector.y);
+            return targetPosition;
+        }
+
+        private async void DeleteSprite(double time, Actor actor)
         {
             await Task.Delay(TimeSpan.FromSeconds(time));
             ActorManager.Singleton.DestroyActor(actor);
@@ -229,7 +337,12 @@ namespace DungeonCrawl.Actors.Characters
             DisplayHealth();
         }
 
-        protected override int DefaultSpriteId => 24;
+        protected override int DefaultSpriteId
+        {
+            get => 24;
+            set { }
+        }
+
         public override string DefaultName
         {
             get => "Player";
@@ -247,5 +360,15 @@ namespace DungeonCrawl.Actors.Characters
         public override int Money { get; set; } = 0;
         public bool _IsTrue = true;
         protected override int Z => -2;
+    }
+
+    internal class Warrior : Player
+    {
+        protected override int DefaultSpriteId { get; set; } = 27;
+    }
+
+    public class Ranger : Player
+    {
+        protected override int DefaultSpriteId { get; set; } = 75;
     }
 }

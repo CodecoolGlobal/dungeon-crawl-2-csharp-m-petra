@@ -5,7 +5,12 @@ namespace Assets.Source.Actors.Static
 {
     public class RedWall : Actor
     {
-        protected override int DefaultSpriteId => 564;
+        protected override int DefaultSpriteId
+        {
+            get => 564;
+            set => throw new System.NotImplementedException();
+        }
+
         public override string DefaultName
         {
             get => "RedWall";

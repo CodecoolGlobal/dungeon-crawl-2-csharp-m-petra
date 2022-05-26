@@ -9,7 +9,11 @@ namespace Assets.Source.Actors.Static
 {
     public class Building : Actor
     {
-        protected override int DefaultSpriteId => 144;
+        protected override int DefaultSpriteId
+        {
+            get => 144;
+            set => throw new NotImplementedException();
+        }
 
         public override string DefaultName
         {

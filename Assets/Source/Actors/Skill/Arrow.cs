@@ -1,19 +1,24 @@
-﻿using DungeonCrawl.Actors;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using DungeonCrawl.Actors;
 
 namespace Assets.Source.Actors.Skill
 {
-    public class SwordStrike : Actor
+    internal class Arrow : Actor
     {
         protected override int Z => -2;
         protected override int DefaultSpriteId
         {
-            get => 552;
-            set => throw new System.NotImplementedException();
+            get => 279;
+            set => throw new NotImplementedException();
         }
 
         public override string DefaultName
         {
-            get => "SwordStrike";
+            get => "Arrow";
             set { }
         }
 

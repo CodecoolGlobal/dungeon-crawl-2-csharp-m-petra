@@ -4,7 +4,12 @@ namespace Assets.Source.Actors.Static
 {
     public class House : Actor
     {
-        protected override int DefaultSpriteId => 963;
+        protected override int DefaultSpriteId
+        {
+            get => 963;
+            set => throw new System.NotImplementedException();
+        }
+
         public override string DefaultName
         {
             get => "House";

@@ -7,7 +7,12 @@ namespace Assets.Source.Actors.Static
 {
     public class Money : Actor
     {
-        protected override int DefaultSpriteId => 232;
+        protected override int DefaultSpriteId
+        {
+            get => 232;
+            set => throw new System.NotImplementedException();
+        }
+
         public override string DefaultName
         {
             get => "Money";

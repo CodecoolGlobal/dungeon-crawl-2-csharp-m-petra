@@ -4,12 +4,21 @@ namespace DungeonCrawl.Actors.Static
 {
     public abstract class Weapon : Item
     {
-        public int Attack => 5;
+        public int Attack
+        {
+            get => 5;
+            set => throw new System.NotImplementedException();
+        }
     }
 
     public class Sword : Weapon
     {
-        protected override int DefaultSpriteId => 367;
+        protected override int DefaultSpriteId
+        {
+            get => 367;
+            set => throw new System.NotImplementedException();
+        }
+
         public override string DefaultName
         {
             get => "Widow-maker";
@@ -20,7 +29,11 @@ namespace DungeonCrawl.Actors.Static
 
     public class Sword1 : Weapon
     {
-        protected override int DefaultSpriteId => 464;
+        protected override int DefaultSpriteId
+        {
+            get => 464;
+            set => throw new System.NotImplementedException();
+        }
 
         public override string DefaultName
         {
@@ -31,7 +44,12 @@ namespace DungeonCrawl.Actors.Static
 
     public class Sword2 : Weapon
     {
-        protected override int DefaultSpriteId => 465;
+        protected override int DefaultSpriteId
+        {
+            get => 465;
+            set => throw new System.NotImplementedException();
+        }
+
         public override string DefaultName
         {
             get => "Kings-bane";
