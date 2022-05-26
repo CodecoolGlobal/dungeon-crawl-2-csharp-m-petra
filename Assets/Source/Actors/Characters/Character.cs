@@ -86,35 +86,22 @@ namespace DungeonCrawl.Actors.Characters
         {
             var random = new System.Random();
             var x = random.Next(0, 45);
-            Item item;
-            switch (x)
+            Item item = x switch
             {
-                case 0:
-                    item = ActorManager.Singleton.Spawn<Sword>(Position);
+                0 => ActorManager.Singleton.Spawn<Sword>(Position),
+                1 => ActorManager.Singleton.Spawn<Shield2>(Position),
+                2 => ActorManager.Singleton.Spawn<Sword2>(Position),
+                3 => ActorManager.Singleton.Spawn<Shield3>(Position),
+                4 => ActorManager.Singleton.Spawn<Sword1>(Position),
+                5 => ActorManager.Singleton.Spawn<Shield1>(Position),
+                _ => null
+            };
 
-                    UserInterface.Singleton.SetText($"Press E to pick up {item.DefaultName}\n", UserInterface.TextPosition.BottomRight);
-                    break;
-                case 7:
-                    item = ActorManager.Singleton.Spawn<Shield2>(Position);
-                    UserInterface.Singleton.SetText($"Press E to pick up {item.DefaultName}\n", UserInterface.TextPosition.BottomRight);
-                    break;
-                case 11:
-                    item = ActorManager.Singleton.Spawn<Sword2>(Position);
-                    UserInterface.Singleton.SetText($"Press E to pick up {item.DefaultName}\n", UserInterface.TextPosition.BottomRight);
-                    break;
-                case 14:
-                    item = ActorManager.Singleton.Spawn<Shield3>(Position);
-                    UserInterface.Singleton.SetText($"Press E to pick up {item.DefaultName}\n", UserInterface.TextPosition.BottomRight);
-                    break;
-                case 8:
-                    item = ActorManager.Singleton.Spawn<Sword1>(Position);
-                    UserInterface.Singleton.SetText($"Press E to pick up {item.DefaultName}\n", UserInterface.TextPosition.BottomRight);
-                    break;
-                case 3:
-                    item = ActorManager.Singleton.Spawn<Shield1>(Position);
-                    UserInterface.Singleton.SetText($"Press E to pick up {item.DefaultName}\n", UserInterface.TextPosition.BottomRight);
-                    break;
-
+            var anotherActor = ActorManager.Singleton.GetActorAt<Player>(Position);
+            if (anotherActor == null) return;
+            if (item != null)
+            {
+                UserInterface.Singleton.SetText($"Press E to pick up {item.DefaultName}\n", UserInterface.TextPosition.BottomRight);
             }
         }
 
