@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Assets.Source.Core;
 using DungeonCrawl.Actors;
 using DungeonCrawl.Actors.Characters;
+using DungeonCrawl.Core;
 
 namespace Assets.Source.Actors.Static
 {
@@ -20,15 +21,15 @@ namespace Assets.Source.Actors.Static
 
         protected override bool OnCollision(Actor anotherActor)
         {
-            
-            if (anotherActor is Player player)
+            if (anotherActor is not Player player) return false;
+            player.Health -= 4;
+            player.DisplayHealth();
+            if (player.Health <= 0)
             {
-                player.Health -= 4;
-                player.DisplayHealth();
-                return true;
+                ActorManager.Singleton.DestroyActor(player);
             }
-            return false;
-            
+            return true;
+
 
         }
     }
