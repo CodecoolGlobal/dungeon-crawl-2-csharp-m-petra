@@ -193,5 +193,6 @@ namespace DungeonCrawl.Actors.Characters
         public override int Health { get; set; } = 50;
         public override int Strength { get; set; } = 5;
         public override int Money { get; set; } = 0;
+        public bool _IsTrue = true;
     }
 }
