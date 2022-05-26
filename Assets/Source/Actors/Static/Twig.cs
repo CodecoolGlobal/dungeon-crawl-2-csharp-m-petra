@@ -10,6 +10,9 @@ namespace Assets.Source.Actors.Static
             get => "Twig";
             set { }
         }
-
+        protected override bool OnCollision(Actor anotherActor)
+        {
+            return false;
+        }
     }
 }
