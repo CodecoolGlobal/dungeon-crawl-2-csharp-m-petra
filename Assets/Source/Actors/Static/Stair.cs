@@ -4,7 +4,12 @@ namespace DungeonCrawl.Actors.Static
 {
     public class Stair : Actor
     {
-        protected override int DefaultSpriteId => 287;
+        protected override int DefaultSpriteId
+        {
+            get => 287;
+            set => throw new System.NotImplementedException();
+        }
+
         public override string DefaultName
         {
             get => "Stair";

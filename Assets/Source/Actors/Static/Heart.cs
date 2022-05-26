@@ -6,7 +6,12 @@ namespace Assets.Source.Actors.Static
 {
     public class Heart : Actor
     {
-        protected override int DefaultSpriteId => 518;
+        protected override int DefaultSpriteId
+        {
+            get => 518;
+            set => throw new System.NotImplementedException();
+        }
+
         public override string DefaultName
         {
             get => "Heart";

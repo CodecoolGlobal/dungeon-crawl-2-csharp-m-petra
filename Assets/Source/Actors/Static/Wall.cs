@@ -4,7 +4,12 @@ namespace DungeonCrawl.Actors.Static
 {
     public class Wall : Actor
     {
-        protected override int DefaultSpriteId => 825;
+        protected override int DefaultSpriteId
+        {
+            get => 825;
+            set => throw new System.NotImplementedException();
+        }
+
         public override string DefaultName
         {
             get => "Wall";

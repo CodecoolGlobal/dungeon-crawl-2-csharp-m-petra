@@ -1,18 +1,16 @@
-﻿using DungeonCrawl.Actors;
-
-namespace Assets.Source.Actors.Static
+﻿namespace Assets.Source.Actors.Static
 {
-    public class SideWalk2 : Actor
+    internal class Book : Item
     {
         protected override int DefaultSpriteId
         {
-            get => 667;
+            get => 284;
             set => throw new System.NotImplementedException();
         }
 
         public override string DefaultName
         {
-            get => "SideWalk2";
+            get => "Book";
             set { }
         }
     }

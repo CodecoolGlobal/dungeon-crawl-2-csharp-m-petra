@@ -4,7 +4,12 @@ namespace Assets.Source.Actors.Static
 {
     public class OpenDoor : Actor
     {
-        protected override int DefaultSpriteId => 437;
+        protected override int DefaultSpriteId
+        {
+            get => 437;
+            set => throw new System.NotImplementedException();
+        }
+
         public override string DefaultName
         {
             get => "OpenDoor";

@@ -136,17 +136,25 @@ namespace DungeonCrawl.Actors
         /// <summary>
         ///     Can this actor be detected with ActorManager.GetActorAt()? Should be false for purely cosmetic actors
         /// </summary>
-        public virtual bool Detectable => true;
+        public virtual bool Detectable
+        {
+            get => true;
+            set => throw new System.NotImplementedException();
+        }
 
         /// <summary>
         ///     Z position of this Actor (0 by default)
         /// </summary>
-        protected virtual int Z => 0;
+        protected virtual int Z
+        {
+            get => 0;
+            set => throw new System.NotImplementedException();
+        }
 
         /// <summary>
         ///     Id of the default sprite of this actor type
         /// </summary>
-        protected abstract int DefaultSpriteId { get; }
+        protected abstract int DefaultSpriteId { get; set; }
 
         /// <summary>
         ///     Default name assigned to this actor type

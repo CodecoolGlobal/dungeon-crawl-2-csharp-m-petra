@@ -4,7 +4,12 @@ namespace DungeonCrawl.Actors.Characters
 {
     internal class Ghost : Character
     {
-        protected override int DefaultSpriteId => 314;
+        protected override int DefaultSpriteId
+        {
+            get => 314;
+            set => throw new System.NotImplementedException();
+        }
+
         public override string DefaultName
         {
             get => "Ghost";

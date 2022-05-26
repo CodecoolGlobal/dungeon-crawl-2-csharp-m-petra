@@ -3,27 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DungeonCrawl.Actors;
+using DungeonCrawl.Actors.Static;
 
-namespace Assets.Source.Actors.Static
+namespace Assets.Source.Actors.Static.Items
 {
-    public class Rail : Actor
+    internal class CrossBow : Weapon
     {
         protected override int DefaultSpriteId
         {
-            get => 967;
+            get => 278;
             set => throw new NotImplementedException();
         }
 
         public override string DefaultName
         {
-            get => "Rail";
+            get => "Cross-bow";
             set { }
-        }
-
-        protected override bool OnCollision(Actor anotherActor)
-        {
-            return false;
         }
     }
 }

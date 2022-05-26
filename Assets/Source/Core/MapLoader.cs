@@ -5,6 +5,7 @@ using DungeonCrawl.Actors.Characters;
 using DungeonCrawl.Actors.Static;
 using System;
 using System.Text.RegularExpressions;
+using Assets.Source.Actors.Static.Items;
 using UnityEngine;
 
 namespace DungeonCrawl.Core
@@ -59,6 +60,7 @@ namespace DungeonCrawl.Core
                             }
 
                             player.InitPlayer(oldPlayer);
+                            player.ChangeOutfit();
                             ActorManager.Singleton.DestroyActor(oldPlayer);
                         }
                         CameraController.Singleton.Size = 10;
@@ -83,6 +85,18 @@ namespace DungeonCrawl.Core
         {
             switch (c)
             {
+                case '0':
+                    ActorManager.Singleton.Spawn<CrossBow>(position);
+                    ActorManager.Singleton.Spawn<Floor>(position);
+                    break;
+                case '7':
+                    ActorManager.Singleton.Spawn<Book>(position);
+                    ActorManager.Singleton.Spawn<Floor>(position);
+                    break;
+                case '8':
+                    ActorManager.Singleton.Spawn<Scroll>(position);
+                    ActorManager.Singleton.Spawn<Floor>(position);
+                    break;
                 case '#':
                     ActorManager.Singleton.Spawn<RedWall>(position);
                     break;

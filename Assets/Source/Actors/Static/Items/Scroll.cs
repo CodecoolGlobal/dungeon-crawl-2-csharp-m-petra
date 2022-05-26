@@ -3,27 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DungeonCrawl.Actors;
 
 namespace Assets.Source.Actors.Static
 {
-    public class Rail : Actor
+    internal class Scroll : Item
     {
         protected override int DefaultSpriteId
         {
-            get => 967;
+            get => 752;
             set => throw new NotImplementedException();
         }
 
         public override string DefaultName
         {
-            get => "Rail";
+            get => "Scroll";
             set { }
-        }
-
-        protected override bool OnCollision(Actor anotherActor)
-        {
-            return false;
         }
     }
 }

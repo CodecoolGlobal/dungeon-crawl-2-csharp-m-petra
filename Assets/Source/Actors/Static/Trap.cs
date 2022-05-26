@@ -12,7 +12,12 @@ namespace Assets.Source.Actors.Static
 {
     public class Trap : Actor
     {
-        protected override int DefaultSpriteId => 118;
+        protected override int DefaultSpriteId
+        {
+            get => 118;
+            set => throw new NotImplementedException();
+        }
+
         public override string DefaultName
         {
             get => "Trap";

@@ -12,7 +12,12 @@
             return false;
         }
 
-        protected override int DefaultSpriteId => 317;
+        protected override int DefaultSpriteId
+        {
+            get => 317;
+            set => throw new System.NotImplementedException();
+        }
+
         public override string DefaultName
         {
             get => "Monster";

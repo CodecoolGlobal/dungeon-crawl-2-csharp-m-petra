@@ -5,7 +5,12 @@ namespace DungeonCrawl.Actors.Characters
 {
     public class Skeleton : Character
     {
-        protected override int DefaultSpriteId => 316;
+        protected override int DefaultSpriteId
+        {
+            get => 316;
+            set => throw new NotImplementedException();
+        }
+
         public override string DefaultName
         {
             get => "Skeleton";

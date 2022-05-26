@@ -4,7 +4,12 @@ namespace Assets.Source.Actors.Static
 {
     public class Twig : Actor
     {
-        protected override int DefaultSpriteId => 101;
+        protected override int DefaultSpriteId
+        {
+            get => 101;
+            set => throw new System.NotImplementedException();
+        }
+
         public override string DefaultName
         {
             get => "Twig";

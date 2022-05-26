@@ -10,7 +10,12 @@ namespace Assets.Source.Actors.CharacterName
 {
     public class Cursor : Player
     {
-        protected override int DefaultSpriteId => 613;
+        protected override int DefaultSpriteId
+        {
+            get => 613;
+            set => throw new NotImplementedException();
+        }
+
         private new List<string> Name = new List<string>();
 
         protected override void OnUpdate(float deltaTime)
