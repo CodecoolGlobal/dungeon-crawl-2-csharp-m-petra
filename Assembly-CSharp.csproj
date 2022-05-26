@@ -53,6 +53,9 @@
     <UnityVersion>2021.1.24f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="D:\Programs\MicrosoftVisualStudio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Assets\Source\Actors\Static\Items\Key.cs" />
     <Compile Include="Assets\Source\Actors\Static\ShelterHouse.cs" />
     <Compile Include="Assets\Source\Actors\Static\Wall.cs" />
@@ -72,23 +75,24 @@
     <Compile Include="Assets\Source\Actors\Static\Spider.cs" />
     <Compile Include="Assets\Source\Actors\Static\Bridge.cs" />
     <Compile Include="Assets\Source\Actors\Characters\Player.cs" />
-    <Compile Include="Assets\SoundManagerScript.cs" />
     <Compile Include="Assets\Source\Actors\Static\Cemetery.cs" />
     <Compile Include="Assets\Source\Actors\Static\Forest.cs" />
     <Compile Include="Assets\Source\Actors\Static\House.cs" />
     <Compile Include="Assets\Source\Actors\Static\Items\Sword.cs" />
     <Compile Include="Assets\Source\Actors\Static\Car.cs" />
+    <Compile Include="Assets\Source\Actors\Static\Items\Armor.cs" />
     <Compile Include="Assets\Source\Actors\Characters\Character.cs" />
     <Compile Include="Assets\Source\Actors\Static\RedWall.cs" />
     <Compile Include="Assets\Source\Actors\Static\Cactus.cs" />
     <Compile Include="Assets\Source\Actors\Static\Web.cs" />
     <Compile Include="Assets\Source\Actors\Static\FenceHor.cs" />
+    <Compile Include="Assets\Source\Actors\Skill\SwordStrike.cs" />
     <Compile Include="Assets\Source\Actors\CharacterName\Cursor.cs" />
     <Compile Include="Assets\Source\Actors\Static\FenceVer.cs" />
+    <Compile Include="Assets\Source\Actors\Static\Items\Weapon.cs" />
     <Compile Include="Assets\Source\Actors\Characters\Skeleton.cs" />
     <Compile Include="Assets\Source\Core\MapLoader.cs" />
     <Compile Include="Assets\Source\Utilities.cs" />
-    <Compile Include="Assets\SoundManager.cs" />
     <Compile Include="Assets\Source\Actors\Static\Items\Item.cs" />
     <Compile Include="Assets\Source\Actors\Static\Tile.cs" />
     <Compile Include="Assets\Source\Actors\CharacterName\Abc.cs" />

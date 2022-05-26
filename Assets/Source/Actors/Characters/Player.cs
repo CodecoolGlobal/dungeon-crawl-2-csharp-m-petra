@@ -1,9 +1,12 @@
+using Assets.Source.Actors.Skill;
 using Assets.Source.Actors.Static;
 using Assets.Source.Core;
 using DungeonCrawl.Actors.Static;
 using DungeonCrawl.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace DungeonCrawl.Actors.Characters
@@ -18,15 +21,9 @@ namespace DungeonCrawl.Actors.Characters
             Strength = player.Strength;
             Health = player.Health;
             Name = player.Name;
+            Defense = player.Defense;
         }
-
-        //public static AudioClip stepSound;
-        //public static AudioSource audioSrc;
-
-
-
-        //[SerializeField] private AudioSource stepSoundeffect;
-
+        
         public List<Item> Inventory = new List<Item>();
 
         protected override void OnUpdate(float deltaTime)
@@ -35,26 +32,15 @@ namespace DungeonCrawl.Actors.Characters
             if (Input.GetKeyDown(KeyCode.W))
             {
                 Sounds("try");
-
                 // Move up
                 TryMove(Direction.Up);
-                //stepSoundeffect.Play();
-
             }
-
-
 
             if (Input.GetKeyDown(KeyCode.S))
             {
                 Sounds("try");
-
                 // Move down
-
                 TryMove(Direction.Down);
-                //    /*stepSoundeffect.Play()*/;
-                //    //var audioSource = GetComponent<AudioSource>();
-                //    //audioSource.Play();
-                //}
             }
 
             if (Input.GetKeyDown(KeyCode.A))
@@ -62,7 +48,6 @@ namespace DungeonCrawl.Actors.Characters
                 Sounds("try");
                 // Move left
                 TryMove(Direction.Left);
-                //stepSoundeffect.Play();
             }
 
             if (Input.GetKeyDown(KeyCode.D))
@@ -70,7 +55,6 @@ namespace DungeonCrawl.Actors.Characters
                 Sounds("try");
                 // Move right
                 TryMove(Direction.Right);
-                //stepSoundeffect.Play();
             }
 
             if (Input.GetKeyDown(KeyCode.E))
@@ -81,23 +65,105 @@ namespace DungeonCrawl.Actors.Characters
                 {
                     UserInterface.Singleton.SetText("", UserInterface.TextPosition.BottomRight);
                     Inventory.Add(item);
-                    DisplayInventory();
 
                     // Having a weapon increases attack strength.
-                    if (item is Sword sword)
+                    if (item is Weapon weapon)
                     {
-                        Strength += sword.Attack;
+                        Strength += weapon.Attack;
+                    }
+
+                    if (item is Armor armor)
+                    {
+                        Defense += armor.Defense;
                     }
 
                     ActorManager.Singleton.DestroyActor(item);
                 }
             }
+
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                DisplayInventory();
+            }
+
+            if (Input.GetKeyDown(KeyCode.UpArrow) && Inventory.Any(x => x is Weapon))
+            {
+                // Strike up
+                SwordStrike(Direction.Up);
+            }
+            if (Input.GetKeyDown(KeyCode.DownArrow) && Inventory.Any(x => x is Weapon))
+            {
+                // Strike down
+                SwordStrike(Direction.Down);
+            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && Inventory.Any(x => x is Weapon))
+            {
+                // Strike left
+                SwordStrike(Direction.Left);
+            }
+            if (Input.GetKeyDown(KeyCode.RightArrow) && Inventory.Any(x => x is Weapon))
+            {
+                // Strike right
+                SwordStrike(Direction.Right);
+            }
+        }
+
+        private void SwordStrike(Direction direction)
+        {
+            var targetPosition = TargetPosition(direction);
+
+            var swordStrike = ActorManager.Singleton.Spawn<SwordStrike>(targetPosition);
+            swordStrike.transform.eulerAngles = direction switch
+            {
+                Direction.Up => Vector3.forward * 45,
+                Direction.Down => Vector3.forward * 225,
+                Direction.Left => Vector3.forward * 135,
+                Direction.Right => Vector3.forward * 315,
+                _ => swordStrike.transform.eulerAngles
+            };
+
+            var damage = 50;
+
+            AttackTarget(targetPosition, damage);
+
+            DeleteStrike(0.2, swordStrike);
+        }
+
+        private void AttackTarget((int x, int y) targetPosition, int damage)
+        {
+            var actorAtTargetPosition = ActorManager.Singleton.GetActorAt(targetPosition);
+            if (actorAtTargetPosition is Character character)
+            {
+                character.ApplyDamage(damage);
+            }
+        }
+
+        private (int x, int y) TargetPosition(Direction direction)
+        {
+            var vector = direction.ToVector();
+            (int x, int y) targetPosition = (Position.x + vector.x, Position.y + vector.y);
+            return targetPosition;
+        }
+
+        private async void DeleteStrike(double time, Actor actor)
+        {
+            await Task.Delay(TimeSpan.FromSeconds(time));
+            ActorManager.Singleton.DestroyActor(actor);
         }
 
         private void DisplayInventory()
         {
-            var inventoryDisplay = Inventory.Aggregate("Inventory:\n", (current, invItem) => current + $"{invItem.DefaultName}\n");
-            UserInterface.Singleton.SetText(inventoryDisplay, UserInterface.TextPosition.TopLeft);
+            if (_IsTrue)
+            {
+                var inventoryDisplay = Inventory.Aggregate("Inventory:\n", (current, invItem) => current + $"{invItem.DefaultName}\n");
+                UserInterface.Singleton.SetText(inventoryDisplay, UserInterface.TextPosition.TopLeft);
+                _IsTrue = false;
+            }
+            else
+            {
+                UserInterface.Singleton.SetText("", UserInterface.TextPosition.TopLeft);
+                _IsTrue = true;
+            }
         }
 
         protected override bool OnCollision(Actor anotherActor)
@@ -127,5 +193,6 @@ namespace DungeonCrawl.Actors.Characters
         public override int Health { get; set; } = 50;
         public override int Strength { get; set; } = 5;
         public override int Money { get; set; } = 0;
+        public bool _IsTrue = true;
     }
 }

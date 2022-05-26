@@ -1,4 +1,6 @@
-﻿using TMPro;
+﻿using System;
+using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 
 namespace Assets.Source.Core
@@ -28,6 +30,16 @@ namespace Assets.Source.Core
 
         private TextMeshProUGUI[] _textComponents;
 
+        public void Clear()
+        {
+            foreach (var component in _textComponents)
+            {
+                if (component.text != null)
+                    component.text = null;
+                    
+            }
+        }
+
         private void Awake()
         {
             if (Singleton != null)
@@ -49,6 +61,12 @@ namespace Assets.Source.Core
         public void SetText(string text, TextPosition textPosition)
         {
             _textComponents[(int)textPosition].text = text;
+        }
+
+        public async void DeleteDisplay(int time)
+        {
+            await Task.Delay(TimeSpan.FromSeconds(time));
+            UserInterface.Singleton.SetText("", UserInterface.TextPosition.TopRight);
         }
     }
 }

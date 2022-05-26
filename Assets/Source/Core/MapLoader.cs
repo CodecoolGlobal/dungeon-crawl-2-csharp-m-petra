@@ -41,7 +41,7 @@ namespace DungeonCrawl.Core
                             player = ActorManager.Singleton.Spawn<Player>((x, -y));
                             player.Name = name;
                             CameraController.Singleton.Position = (x, -y);
-                            UserInterface.Singleton.SetText("Inventory:", UserInterface.TextPosition.TopLeft);
+                            //UserInterface.Singleton.SetText("Inventory:", UserInterface.TextPosition.TopLeft);
                             player.DisplayHealth();
                             UserInterface.Singleton.SetText($"Money: {player.Money} $", UserInterface.TextPosition.BottomCenter);
                         }
@@ -57,7 +57,7 @@ namespace DungeonCrawl.Core
                                 player = ActorManager.Singleton.Spawn<Player>((x, -y));
                                 CameraController.Singleton.Position = (x, -y);
                             }
-                            
+
                             player.InitPlayer(oldPlayer);
                             ActorManager.Singleton.DestroyActor(oldPlayer);
                         }

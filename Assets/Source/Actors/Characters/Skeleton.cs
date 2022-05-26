@@ -17,13 +17,9 @@ namespace DungeonCrawl.Actors.Characters
 
         protected override bool OnCollision(Actor anotherActor)
         {
-            if (anotherActor is Player player)
-            {
-                
-                Fight(player);
-                return true;
-            }
-            return false;
+            if (!(anotherActor is Player player)) return false;
+            Fight(player);
+            return true;
         }
 
         protected override void OnUpdate(float deltaTime)

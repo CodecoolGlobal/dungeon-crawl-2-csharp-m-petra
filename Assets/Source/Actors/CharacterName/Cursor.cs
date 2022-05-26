@@ -1,17 +1,17 @@
-﻿using DungeonCrawl.Actors.Characters;
-using System.Collections.Generic;
-using Assets.Source.Core;
-using DungeonCrawl.Core;
+﻿using Assets.Source.Core;
 using DungeonCrawl;
-using UnityEngine;
+using DungeonCrawl.Actors.Characters;
+using DungeonCrawl.Core;
 using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Assets.Source.Actors.CharacterName
 {
     public class Cursor : Player
     {
         protected override int DefaultSpriteId => 613;
-        private List<string> Name = new List<string>();
+        private new List<string> Name = new List<string>();
 
         protected override void OnUpdate(float deltaTime)
         {
@@ -51,7 +51,7 @@ namespace Assets.Source.Actors.CharacterName
                     var name = String.Join("", Name.ToArray());
                     ActorManager.Singleton.DestroyAllActors();
                     ActorManager.Singleton.DestroyActor(this);
-                    MapLoader.LoadMap(1,  null,name);
+                    MapLoader.LoadMap(1, null, name);
                 }
                 else
                 {

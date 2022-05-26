@@ -10,7 +10,5 @@ namespace DungeonCrawl.Actors.Static
             get => "Key";
             set { }
         }
-
-        protected override int Z => -1;
     }
 }
