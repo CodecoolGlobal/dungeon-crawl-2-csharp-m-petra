@@ -5,6 +5,7 @@ using DungeonCrawl.Actors.Characters;
 using DungeonCrawl.Actors.Static;
 using System;
 using System.Text.RegularExpressions;
+using Assets.Source.Actors.Static.Items;
 using UnityEngine;
 
 namespace DungeonCrawl.Core
@@ -77,6 +78,10 @@ namespace DungeonCrawl.Core
                     SpawnActor(character, (x, -y), player);
                 }
             }
+
+            ActorManager.Singleton.Spawn<Book>(38, -27);
+            ActorManager.Singleton.Spawn<Scroll>(36, -27);
+
         }
 
         private static void SpawnActor(char c, (int x, int y) position, Player player)

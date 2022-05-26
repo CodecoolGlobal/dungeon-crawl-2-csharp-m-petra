@@ -110,6 +110,8 @@
     <Compile Include="Assets\Source\Core\ActorManager.cs" />
     <Compile Include="Assets\Source\Actors\Static\River.cs" />
     <Compile Include="Assets\Source\Actors\Static\Cat.cs" />
+    <Compile Include="Assets\Source\Actors\Static\Items\Book.cs" />
+    <Compile Include="Assets\Source\Actors\Static\Items\Scroll.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

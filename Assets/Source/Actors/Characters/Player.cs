@@ -78,6 +78,8 @@ namespace DungeonCrawl.Actors.Characters
                         Defense += armor.Defense;
                     }
 
+                    
+
                     ActorManager.Singleton.DestroyActor(item);
                 }
             }
