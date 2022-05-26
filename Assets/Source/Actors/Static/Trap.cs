@@ -21,14 +21,18 @@ namespace Assets.Source.Actors.Static
 
         protected override bool OnCollision(Actor anotherActor)
         {
-            if (anotherActor is not Player player) return false;
-            player.Health -= 4;
-            player.DisplayHealth();
+            if (anotherActor is Player player)
+            {
+                player.Health -= 4;
+                player.DisplayHealth();
             if (player.Health <= 0)
             {
                 ActorManager.Singleton.DestroyActor(player);
             }
             return true;
+            }
+
+            return false;
 
 
         }
