@@ -78,16 +78,24 @@ namespace DungeonCrawl.Core
                     SpawnActor(character, (x, -y), player);
                 }
             }
-
-            ActorManager.Singleton.Spawn<Book>(38, -27);
-            ActorManager.Singleton.Spawn<Scroll>(36, -27);
-
         }
 
         private static void SpawnActor(char c, (int x, int y) position, Player player)
         {
             switch (c)
             {
+                case '0':
+                    ActorManager.Singleton.Spawn<CrossBow>(position);
+                    ActorManager.Singleton.Spawn<Floor>(position);
+                    break;
+                case '7':
+                    ActorManager.Singleton.Spawn<Book>(position);
+                    ActorManager.Singleton.Spawn<Floor>(position);
+                    break;
+                case '8':
+                    ActorManager.Singleton.Spawn<Scroll>(position);
+                    ActorManager.Singleton.Spawn<Floor>(position);
+                    break;
                 case '#':
                     ActorManager.Singleton.Spawn<RedWall>(position);
                     break;

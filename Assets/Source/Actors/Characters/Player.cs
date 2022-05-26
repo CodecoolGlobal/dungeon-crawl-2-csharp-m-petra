@@ -15,6 +15,8 @@ namespace DungeonCrawl.Actors.Characters
     {
         public string Name { get; set; }
 
+        public Item SkillItem { get; set; } = null;
+
         public void InitPlayer(Player player)
         {
             Inventory = player.Inventory;
@@ -65,6 +67,13 @@ namespace DungeonCrawl.Actors.Characters
                 if (item != null)
                 {
                     UserInterface.Singleton.SetText("", UserInterface.TextPosition.BottomRight);
+
+                    if (item is Book || item is Scroll)
+                    {
+                        SwitchSkillItem(item);
+                        return;
+                    }
+
                     Inventory.Add(item);
 
                     // Having a weapon increases attack strength.
@@ -78,8 +87,6 @@ namespace DungeonCrawl.Actors.Characters
                         Defense += armor.Defense;
                     }
 
-                    
-
                     ActorManager.Singleton.DestroyActor(item);
                 }
             }
@@ -89,46 +96,64 @@ namespace DungeonCrawl.Actors.Characters
                 DisplayInventory();
             }
 
-            if (Input.GetKeyDown(KeyCode.UpArrow) && (Input.GetKeyDown(KeyCode.RightArrow)) && Inventory.Any(x => x is Weapon))
+            if (Input.GetKeyDown(KeyCode.UpArrow) && (Input.GetKeyDown(KeyCode.RightArrow)) && Inventory.Any(x => x is Sword))
             {
                 // Strike upright
                 SwordStrike(Direction.UpRight);
             }
-            else if (Input.GetKeyDown(KeyCode.UpArrow) && (Input.GetKeyDown(KeyCode.LeftArrow)) && Inventory.Any(x => x is Weapon))
+            else if (Input.GetKeyDown(KeyCode.UpArrow) && (Input.GetKeyDown(KeyCode.LeftArrow)) && Inventory.Any(x => x is Sword))
             {
                 // Strike upleft
                 SwordStrike(Direction.UpLeft);
             }
-            else if (Input.GetKeyDown(KeyCode.DownArrow) && (Input.GetKeyDown(KeyCode.LeftArrow)) && Inventory.Any(x => x is Weapon))
+            else if (Input.GetKeyDown(KeyCode.DownArrow) && (Input.GetKeyDown(KeyCode.LeftArrow)) && Inventory.Any(x => x is Sword))
             {
                 // Strike downleft
                 SwordStrike(Direction.DownLeft);
             }
-            else if (Input.GetKeyDown(KeyCode.DownArrow) && (Input.GetKeyDown(KeyCode.RightArrow)) && Inventory.Any(x => x is Weapon))
+            else if (Input.GetKeyDown(KeyCode.DownArrow) && (Input.GetKeyDown(KeyCode.RightArrow)) && Inventory.Any(x => x is Sword))
             {
                 // Strike downright
                 SwordStrike(Direction.DownRight);
             }
-            else if (Input.GetKeyDown(KeyCode.UpArrow) && Inventory.Any(x => x is Weapon))
+            else if (Input.GetKeyDown(KeyCode.UpArrow) && Inventory.Any(x => x is Sword))
             {
                 // Strike up
                 SwordStrike(Direction.Up);
             }
-            else if (Input.GetKeyDown(KeyCode.DownArrow) && Inventory.Any(x => x is Weapon))
+            else if (Input.GetKeyDown(KeyCode.DownArrow) && Inventory.Any(x => x is Sword))
             {
                 // Strike down
                 SwordStrike(Direction.Down);
             }
-            else if (Input.GetKeyDown(KeyCode.LeftArrow) && Inventory.Any(x => x is Weapon))
+            else if (Input.GetKeyDown(KeyCode.LeftArrow) && Inventory.Any(x => x is Sword))
             {
                 // Strike left
                 SwordStrike(Direction.Left);
             }
-            else if (Input.GetKeyDown(KeyCode.RightArrow) && Inventory.Any(x => x is Weapon))
+            else if (Input.GetKeyDown(KeyCode.RightArrow) && Inventory.Any(x => x is Sword))
             {
                 // Strike right
                 SwordStrike(Direction.Right);
             }
+        }
+
+        private void SwitchSkillItem(Item item)
+        {
+            if (SkillItem?.DefaultName != null)
+            {
+                if (SkillItem.DefaultName == "Book")
+                {
+                    ActorManager.Singleton.Spawn<Book>(Position);
+                }
+                else
+                {
+                    ActorManager.Singleton.Spawn<Scroll>(Position);
+                }
+            }
+
+            SkillItem = item;
+            ActorManager.Singleton.DestroyActor(item);
         }
 
         private void SwordStrike(Direction direction)
@@ -221,5 +246,6 @@ namespace DungeonCrawl.Actors.Characters
         public override int Strength { get; set; } = 5;
         public override int Money { get; set; } = 0;
         public bool _IsTrue = true;
+        protected override int Z => -2;
     }
 }

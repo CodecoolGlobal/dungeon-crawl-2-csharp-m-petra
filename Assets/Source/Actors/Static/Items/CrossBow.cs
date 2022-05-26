@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets.Source.Actors.Static
+namespace Assets.Source.Actors.Static.Items
 {
-    internal class Scroll : Item
+    internal class CrossBow : Weapon
     {
-        protected override int DefaultSpriteId => 752;
+        protected override int DefaultSpriteId => 278;
         public override string DefaultName
         {
-            get => "Scroll";
+            get => "Cross-bow";
             set { }
         }
     }
