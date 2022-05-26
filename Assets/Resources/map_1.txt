@@ -1,21 +1,36 @@
-55 20
+55 35
 HHHHHHHHHHHHH            bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-H---------t-H    HHHHHHHH,,,,,,,,,,,,r,,,,,,,,,,,,,c,,b
-H--s--------HHHHHH-o----H,,,,,f,,,c,,r,,,,,,b,,,,h,,,,b
-H--------s------------t-H,,,b,,,,,,,,r,,,c,,,,,,,i,,,,b
+HHH-------t-H    HHHHHHHH,,,,,,,,,,,,r,,,,,,,,,,,,,c,,b
+HH-s--------HHHHHH-o----H,,,,,f,,,c,,r,,,,,,b,,,,h,,,,b
+H--------s--B---------t-H,,,b,,,,,,,,r,,,c,,,,,,,i,,,,b
 H----t------HHHHHH---m--H,,,,,,rrrrrrr,,,,,,,,,,,i,c,,b
-H-----------H    H------H,,,,,,r,,b,,,,,b,,,,hiiii,,,,b
-H---s----t--H    H------H,c,,,,r,,,,,,,,,,,,,,,,,i,f,,b
-H-----------H    Ht-----H,,,,,,r,,h,,,,iiih,,b,,,i,,,,b
-HHHHH--HHHHHH    H-o----HHH,,,,r,,i,,,,i,,,,,,,,,i,,,,b
-    H--H         H-----?--Hffffr,,i,,,,iiiiiiiiiiii5,,b
-    H--H         H--------aiiiiuiiiiiiiih,,,,,c,,,b,,,b
-    H--H         H------t-Hffffr,,,,,,,i,,,,,,,,,,,,,,b
-  HHH--HHHH      H-t----HHH,,,,r,,,c,,,iiiiiih,,,f,,,,b                              
-  H-------H      H--g---H,,,,,,r,,,,,,,,,,,,i,,,,,,,,,b
-  H-t---o-H      H------H,,c,,,rrrrrrrrrrr,,iiiiih,,b,b
-  H--p----H      H---t--H,,,,,,,,,,,,,,,,r,b,,,,,,,,,,b
-  H-------H      H------H,,,,f,,,c,,,,,,,r,,,,,b,,,,,,b
-  Hz----t-H      H----o-H,,,,,,,,,,,,,,,,r,,,c,,,,f,,,b
-  H--S----H      Ht-----H,,,,b,,,,,,,,,,,r,,,,,,,,,,,,b
-  HHHHHHHHH      HHHdHHHHbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+H----------HH----H------H,,,,,,r,,b,,,,,b,,,,hiiii,,,,b
+H---s----tHHH----H------H,c,,,,r,,,,,,,,,,,,,,,,,i,f,,b
+H-------HHHHH----Ht-----H,,,,,,r,,h,,,,iiih,,b,,,i,,,,b
+H--HH--HHHHHH----H-o----HHH,,,,r,,i,,,,i,,,,,,,,,i,,,,b
+H-HH ..          H-----?--Hffffr,,i,,,,iiiiiiiiiiii5,,b
+H-HH  .......    H--------aiiiiuiiiiiiiih,,,,,c,,,b,,,b
+H--HH       .    H------t-Hffffr,,,,,,,i,,,,,,,,,,,,,,b
+H---HHHHH   ..   H-t----HHH,,,,r,,,c,,,iiiiiih,,,f,,,,b                              
+H-------HH   .   H--g---H,,,,,,r,,,,,,,,,,,,i,,,,,,,,,b
+HH--t---o-H  .   H------H,,c,,,rrrrrrrrrrr,,iiiiih,,b,b
+HHH-------H  .   H---t--H,,,,,,,,,,,,,,,,r,b,,,,,,,,,,b
+HHH-------H  .   H------H,,,,f,,,c,,,,,,,r,,,,,b,,,,,,b
+HHHzB--Bt-H  .   H----o-H,,,,,,,,,,,,,,,,r,,,c,,,,f,,,b
+HHH--S----H  .   Ht-----H,,,,b,,,,,,,,,,,r,,,,,,,,,,,,b
+HHHHHHHHHHHR .  RHHHdHHHHbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+RRRRRRRRRRRR . BRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
+R-----V------.----6-----------V-----------R  n      n R
+R--6------t--.--V----o-V---C------6-----o-R        C  R
+R------------.------------------6----o----R      n   sR
+R-B--C---6---.--t------6--V-------V------B n    ?     R   
+R-o----------.----t----------6------t----n    n  s    R
+R-----t--o---.--------t----------V--------         ?  R
+R--o--------t....-6------VV----C-----p----- n    S ns ?R
+R----6B---------.....................-----R        C  R
+R--------6--------V-----6-----o-----V-----R      n   sR
+R--t----C----6-------------------6----o---B   n ?     R   
+R---------V-------t----6----t------------- n    n  s  R
+RB----6----o-B-------V------------C----V--B        ?  R
+R?-B----t-----V---6------o----6------6---- n    S ns ?R
+RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR                           

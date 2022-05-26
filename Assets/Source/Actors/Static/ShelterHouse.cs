@@ -1,7 +1,6 @@
 ﻿using Assets.Source.Core;
 using DungeonCrawl.Actors;
 using DungeonCrawl.Actors.Characters;
-using UnityEngine;
 
 namespace Assets.Source.Actors.Static
 {

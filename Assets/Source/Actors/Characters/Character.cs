@@ -4,7 +4,6 @@ using System;
 using System.Drawing;
 using System.Threading.Tasks;
 using Assets.Source.Actors.Static;
-using DungeonCrawl.Actors.Static;
 using UnityEngine;
 
 namespace DungeonCrawl.Actors.Characters
@@ -14,8 +13,8 @@ namespace DungeonCrawl.Actors.Characters
         public abstract int Health { get; set; }
         public abstract int Money { get; set; }
         public abstract int Strength { get; set; }
-        public virtual int Defense { get; set; } = 0;
-        private void ApplyDamage(int damage)
+        public int Defense { get; set; } = 0;
+        public void ApplyDamage(int damage)
         {
             Sounds("walk");
             Explode();
@@ -58,7 +57,7 @@ namespace DungeonCrawl.Actors.Characters
         {
             while (player.Health > 0)
             {
-
+                CameraController.Singleton.Position= (495, 205);
                 ApplyDamage(player.Strength);
 
                 player.DisplayHealth();
@@ -66,7 +65,7 @@ namespace DungeonCrawl.Actors.Characters
                 if (this.Health <= 0)
                 {
                     UserInterface.Singleton.SetText($" You have defeated a {DefaultName}", UserInterface.TextPosition.TopRight);
-                    DeleteDisplay();
+                    UserInterface.Singleton.DeleteDisplay(2);
 
                     break;
                 }
@@ -90,8 +89,8 @@ namespace DungeonCrawl.Actors.Characters
             switch (x)
             {
                 case 0:
-                    item =ActorManager.Singleton.Spawn<Sword>(Position);
-                    
+                    item = ActorManager.Singleton.Spawn<Sword>(Position);
+
                     UserInterface.Singleton.SetText($"Press E to pick up {item.DefaultName}\n", UserInterface.TextPosition.BottomRight);
                     break;
                 case 7:
@@ -122,11 +121,5 @@ namespace DungeonCrawl.Actors.Characters
         ///     All characters are drawn "above" floor etc
         /// </summary>
         protected override int Z => -1;
-
-        private async void DeleteDisplay()
-        {
-            await Task.Delay(TimeSpan.FromSeconds(2));
-            UserInterface.Singleton.SetText("", UserInterface.TextPosition.TopRight);
-        }
     }
 }

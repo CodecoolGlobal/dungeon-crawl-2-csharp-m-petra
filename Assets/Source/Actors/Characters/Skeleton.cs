@@ -19,8 +19,8 @@ namespace DungeonCrawl.Actors.Characters
         {
             if (!(anotherActor is Player player)) return false;
             Fight(player);
-            
-          return true;
+
+            return true;
         }
 
         protected override void OnUpdate(float deltaTime)

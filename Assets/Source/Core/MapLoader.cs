@@ -57,7 +57,7 @@ namespace DungeonCrawl.Core
                                 player = ActorManager.Singleton.Spawn<Player>((x, -y));
                                 CameraController.Singleton.Position = (x, -y);
                             }
-                            
+
                             player.InitPlayer(oldPlayer);
                             ActorManager.Singleton.DestroyActor(oldPlayer);
                         }
@@ -188,6 +188,25 @@ namespace DungeonCrawl.Core
                 case '?':
                     ActorManager.Singleton.Spawn<Floor>(position);
                     ActorManager.Singleton.Spawn<Heart>(position);
+                    break;
+                case '6':
+                    ActorManager.Singleton.Spawn<Building>(position);
+                    break;
+                case 'C':
+                    ActorManager.Singleton.Spawn<Cat>(position);
+                    break;
+                case 'B':
+                    ActorManager.Singleton.Spawn<Trap>(position);
+                    
+                    break;
+                case 'V':
+                    ActorManager.Singleton.Spawn<Rail>(position);
+                    break;
+                case 'R':
+                    ActorManager.Singleton.Spawn<Red>(position);
+                    break;
+                case 'O':
+                    ActorManager.Singleton.Spawn<Car>(position);
                     break;
                 case ' ':
                     break;

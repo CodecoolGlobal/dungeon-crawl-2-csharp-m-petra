@@ -17,7 +17,7 @@ namespace DungeonCrawl.Actors.Static
         {
             if (anotherActor is Player)
             {
-                
+
                 return true;
             }
 

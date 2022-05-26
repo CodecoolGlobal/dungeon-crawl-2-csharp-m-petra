@@ -15,26 +15,27 @@ namespace DungeonCrawl.Actors.Static
             get => "Widow-maker";
             set { }
         }
-        
+
     }
 
-    public class Sword1:Weapon
+    public class Sword1 : Weapon
     {
         protected override int DefaultSpriteId => 464;
 
         public override string DefaultName
         {
-            get=>"Maiden-Tear"; 
-            set{ }
+            get => "Maiden-Tear";
+            set { }
         }
     }
 
     public class Sword2 : Weapon
     {
         protected override int DefaultSpriteId => 465;
-        public override string DefaultName { 
-            get=>"Kings-bane";
-            set{ }
+        public override string DefaultName
+        {
+            get => "Kings-bane";
+            set { }
         }
     }
 }

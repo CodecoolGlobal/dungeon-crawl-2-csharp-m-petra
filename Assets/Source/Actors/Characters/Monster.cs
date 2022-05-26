@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace DungeonCrawl.Actors.Characters
+﻿namespace DungeonCrawl.Actors.Characters
 {
     internal class Monster : Character
     {
