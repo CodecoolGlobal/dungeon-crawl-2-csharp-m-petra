@@ -13,6 +13,8 @@ namespace Assets.Source.Actors.Static
             set { }
         }
 
+        protected override int Z => -1;
+
         protected override bool OnCollision(Actor anotherActor)
         {
 

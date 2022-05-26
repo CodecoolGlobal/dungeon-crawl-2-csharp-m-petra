@@ -86,22 +86,42 @@ namespace DungeonCrawl.Actors.Characters
                 DisplayInventory();
             }
 
-            if (Input.GetKeyDown(KeyCode.UpArrow) && Inventory.Any(x => x is Weapon))
+            if (Input.GetKeyDown(KeyCode.UpArrow) && (Input.GetKeyDown(KeyCode.RightArrow)) && Inventory.Any(x => x is Weapon))
+            {
+                // Strike upright
+                SwordStrike(Direction.UpRight);
+            }
+            else if (Input.GetKeyDown(KeyCode.UpArrow) && (Input.GetKeyDown(KeyCode.LeftArrow)) && Inventory.Any(x => x is Weapon))
+            {
+                // Strike upleft
+                SwordStrike(Direction.UpLeft);
+            }
+            else if (Input.GetKeyDown(KeyCode.DownArrow) && (Input.GetKeyDown(KeyCode.LeftArrow)) && Inventory.Any(x => x is Weapon))
+            {
+                // Strike downleft
+                SwordStrike(Direction.DownLeft);
+            }
+            else if (Input.GetKeyDown(KeyCode.DownArrow) && (Input.GetKeyDown(KeyCode.RightArrow)) && Inventory.Any(x => x is Weapon))
+            {
+                // Strike downright
+                SwordStrike(Direction.DownRight);
+            }
+            else if (Input.GetKeyDown(KeyCode.UpArrow) && Inventory.Any(x => x is Weapon))
             {
                 // Strike up
                 SwordStrike(Direction.Up);
             }
-            if (Input.GetKeyDown(KeyCode.DownArrow) && Inventory.Any(x => x is Weapon))
+            else if (Input.GetKeyDown(KeyCode.DownArrow) && Inventory.Any(x => x is Weapon))
             {
                 // Strike down
                 SwordStrike(Direction.Down);
             }
-            if (Input.GetKeyDown(KeyCode.LeftArrow) && Inventory.Any(x => x is Weapon))
+            else if (Input.GetKeyDown(KeyCode.LeftArrow) && Inventory.Any(x => x is Weapon))
             {
                 // Strike left
                 SwordStrike(Direction.Left);
             }
-            if (Input.GetKeyDown(KeyCode.RightArrow) && Inventory.Any(x => x is Weapon))
+            else if (Input.GetKeyDown(KeyCode.RightArrow) && Inventory.Any(x => x is Weapon))
             {
                 // Strike right
                 SwordStrike(Direction.Right);
