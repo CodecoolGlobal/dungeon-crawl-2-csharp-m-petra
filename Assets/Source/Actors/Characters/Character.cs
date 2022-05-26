@@ -1,7 +1,9 @@
-﻿using Assets.Source.Actors.Static;
-using Assets.Source.Core;
-using DungeonCrawl.Actors.Static;
+﻿using Assets.Source.Core;
 using DungeonCrawl.Core;
+using System;
+using System.Drawing;
+using System.Threading.Tasks;
+using Assets.Source.Actors.Static;
 using UnityEngine;
 
 namespace DungeonCrawl.Actors.Characters
@@ -15,15 +17,40 @@ namespace DungeonCrawl.Actors.Characters
         public void ApplyDamage(int damage)
         {
             Sounds("walk");
-            Health -= damage < Defense ? 0 : damage - Defense;
+            Explode();
+            Health -= damage<Defense?0:damage-Defense;
 
             if (Health <= 0)
             {
                 // Die
                 OnDeath();
-
+                
                 ActorManager.Singleton.DestroyActor(this);
             }
+        }
+
+        public void Explode()
+        {
+            
+            ParticleSystem exp = GetComponent<ParticleSystem>();
+            if (exp== null) exp = gameObject.AddComponent<ParticleSystem>();
+            //var shape = new ParticleSystem.ShapeModule();
+            //var emission = new ParticleSystem.EmissionModule();
+            //shape.radius = 0.5f;
+            //emission.rate = 0;
+            //emission.burstCount = 0;
+            exp.Stop();
+            var particle = exp.main;
+            particle.duration = 0.5f;
+            particle.loop = false;
+            //particle.startColor = UnityEngine.Color.red;
+            //particle.startColor = new ParticleSystem.MinMaxGradient(UnityEngine.Color.blue);
+            particle.startSpeed = new ParticleSystem.MinMaxCurve(100, 0);
+
+  
+            exp.Play();
+            
+            // Destroy(gameObject, exp.main.duration);
         }
 
         protected void Fight(Player player)
@@ -44,6 +71,7 @@ namespace DungeonCrawl.Actors.Characters
                 }
                 player.ApplyDamage(this.Strength);
             }
+            
         }
 
         protected virtual void OnDeath()

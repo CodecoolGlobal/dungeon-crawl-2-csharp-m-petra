@@ -19,6 +19,7 @@ namespace DungeonCrawl.Actors.Characters
         {
             if (!(anotherActor is Player player)) return false;
             Fight(player);
+
             return true;
         }
 
