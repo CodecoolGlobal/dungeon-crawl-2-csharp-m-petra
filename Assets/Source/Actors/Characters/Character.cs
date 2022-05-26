@@ -4,6 +4,7 @@ using System;
 using System.Drawing;
 using System.Threading.Tasks;
 using Assets.Source.Actors.Static;
+using DungeonCrawl.Actors.Static;
 using UnityEngine;
 
 namespace DungeonCrawl.Actors.Characters
