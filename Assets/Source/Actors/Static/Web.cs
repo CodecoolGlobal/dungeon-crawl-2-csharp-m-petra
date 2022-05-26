@@ -10,5 +10,9 @@ namespace Assets.Source.Actors.Static
             get => "Web";
             set { }
         }
+        protected override bool OnCollision(Actor anotherActor)
+        {
+            return false;
+        }
     }
 }

@@ -10,5 +10,6 @@ namespace Assets.Source.Actors.Static
             get => "Twig";
             set { }
         }
+
     }
 }
