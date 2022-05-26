@@ -139,6 +139,10 @@ namespace DungeonCrawl.Actors.Characters
                 Direction.Down => Vector3.forward * 225,
                 Direction.Left => Vector3.forward * 135,
                 Direction.Right => Vector3.forward * 315,
+                Direction.UpRight => Vector3.forward * 1,
+                Direction.UpLeft => Vector3.forward * 90,
+                Direction.DownLeft => Vector3.forward * 180,
+                Direction.DownRight => Vector3.forward * 260,
                 _ => swordStrike.transform.eulerAngles
             };
 
